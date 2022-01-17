@@ -2,6 +2,7 @@
 #include <string>
 #include <iostream>
 #include <vector>
+#include <exception>
 
 
 class point2d
@@ -89,24 +90,42 @@ class DataBase
 public:
 	DataBase(const std::string& path)
 	{
-		std::ifstream file;
-		file.open(path);
 
-		rdFile(file);
+		try
+		{
+			std::ifstream file;
+			file.open(path);
+			rdFile(file);
+		}
+		catch (const std::exception& ex)
+		{
+			ex.what();
+			for (int i = 0; i < figures.size(); i++)
+			{
+				delete figures[i];
+			}
+		}
+		
 	}
 
 	~DataBase()
 	{
-
+		for (int i = 0; i < figures.size(); i++)
+		{
+			delete figures[i];
+		}
 	}
 	
-	std::vector<Figure*> GetObject() const;
+	std::vector<Figure*> GetObject() const
+	{
+		return figures;
+	}
 
 private:
 
 	std::vector<Figure*> figures;
 
-	void rdFile(std::ifstream& file)
+	int rdFile(std::ifstream& file)
 	{
 		int objectCount = rdInt(file);
 
@@ -116,31 +135,32 @@ private:
 		{
 			int type = rdInt(file);
 
-			Figure* obj;
+			Figure* obj = 0;
 
-			switch (type) 
-			{
-			case 1:
-			{
-				obj = new Circle();
-				break; 
-			}
-			case 2:
-			{
-				obj = new Rectangle();
-				break;
-			}
-			default:
-				throw std::exception();
-			}
-
+				switch (type)
+				{
+				case 1:
+				{
+					obj = new Circle();
+					break;
+				}
+				case 2:
+				{
+					obj = new Rectangle();
+					break;
+				}
+				default:
+					throw std::exception("Wrong format");
+				}
+			
 			obj->read(file);
 			figures.push_back(obj);
-
+			
 		}
 
 
 	}
+	
 
 };
 	
