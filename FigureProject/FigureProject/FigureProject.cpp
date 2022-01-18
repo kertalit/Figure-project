@@ -11,11 +11,24 @@ public:
 	double x;
 	double y;
 	
-	point2d(double x, double y)
-		:x(0.0), y(0.0)
+	point2d()
 	{
+		x = 0.0;
+		y = 0.0;
 
 	}
+	point2d(double x, double y)
+		:x(x), y(y)
+	{
+	
+	}
+
+	void print()
+	{
+		std::cout << x << std::endl;
+		std::cout << y << std::endl;
+	}
+
 
 };
 
@@ -34,12 +47,11 @@ std::string rdString(std::ifstream& file)
 }
 point2d rdPoint2d(std::ifstream& file)
 {
-	double x;
-	double y;
-	point2d point(x, y);
-
+	double x = 0.0;
+	double y = 0.0;
 	file >> x;
 	file >> y;
+	point2d point(x, y);
 
 	return point;
 }
@@ -55,23 +67,41 @@ class Figure
 {
 public:
 	void virtual read(std::ifstream& file) = 0;
+	void virtual print() = 0;
 
 };
 
 class Circle : public Figure
 {
+	int idCirle = 0;
+	std::string	nCircle = "";
+	point2d p2dCircle;
+	double rCircle = 0.0;
+	
+public:
 
 	void read(std::ifstream& file) override
 	{
-		int idCirle = rdInt(file);
-		std::string	nCircle = rdString(file);
-		point2d p2dCircle = rdPoint2d(file);
-		double rCircle = rdDouble(file);
+		idCirle = rdInt(file);
+		nCircle = rdString(file);
+		p2dCircle = rdPoint2d(file);
+		rCircle = rdDouble(file);
+
+	}
+
+	void print() override
+	{
+		std::cout << idCirle << std::endl;
+		std::cout << nCircle << std::endl;
+		p2dCircle.print();
+		std::cout << rCircle << std::endl;
+
 	}
 };
 
 class Rectangle : public Figure
 {
+
 
 	void read(std::ifstream& file) override
 	{
@@ -80,6 +110,11 @@ class Rectangle : public Figure
 		point2d p2dRectangle = rdPoint2d(file);
 		double lRectangle = rdDouble(file);
 		double wRectangle = rdDouble(file);
+	}
+
+	void print() override
+	{
+
 	}
 };
 
@@ -95,8 +130,15 @@ public:
 		{
 			std::ifstream file;
 			file.open(path);
+
+			if (file.is_open())
+				std::cout << "File is open";
+			else
+				std::cout << "File is not open";
+
 			rdFile(file);
 		}
+
 		catch (const std::exception& ex)
 		{
 			ex.what();
@@ -120,6 +162,18 @@ public:
 	{
 		return figures;
 	}
+
+	void print(std::vector<Figure*> test)
+	{
+		for (int i = 0; i < test.size(); i++)
+		{
+			*test[i];
+
+			
+
+		}
+	}
+
 
 private:
 
@@ -163,4 +217,16 @@ private:
 	
 
 };
+
+
+int main()
+{
 	
+	std::ifstream file;
+	file.open("Figure1.txt");
+	Circle obj;
+	
+	obj.read(file);
+	obj.print();
+	
+}
