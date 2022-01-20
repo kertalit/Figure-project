@@ -29,6 +29,11 @@ public:
 		std::cout << y << std::endl;
 	}
 
+	void write(std::ofstream& oFile)
+	{
+		oFile << x << std::endl;
+		oFile << y << std::endl;
+	}
 
 };
 
@@ -38,6 +43,7 @@ int rdInt(std::ifstream& file)
 	file >> number;
 	return number;
 }
+
 std::string rdString(std::ifstream& file)
 {
 	std::string stringLine = "";
@@ -45,6 +51,7 @@ std::string rdString(std::ifstream& file)
 	return stringLine;
 
 }
+
 point2d rdPoint2d(std::ifstream& file)
 {
 	double x = 0.0;
@@ -55,6 +62,7 @@ point2d rdPoint2d(std::ifstream& file)
 
 	return point;
 }
+
 double rdDouble(std::ifstream& file)
 {
 	double point = 0.0;
@@ -62,12 +70,13 @@ double rdDouble(std::ifstream& file)
 	return point;
 }
 
-
 class Figure
 {
 public:
 	void virtual read(std::ifstream& file) = 0;
 	void virtual print() = 0;
+	void virtual write(std::ofstream& file) = 0;
+	int virtual getType() = 0;
 
 };
 
@@ -86,7 +95,6 @@ public:
 		nCircle = rdString(file);
 		p2dCircle = rdPoint2d(file);
 		rCircle = rdDouble(file);
-
 	}
 
 	void print() override
@@ -97,24 +105,63 @@ public:
 		std::cout << rCircle << std::endl;
 
 	}
+
+	void write(std::ofstream& file) override
+	{
+		file << Circle::getType() << std::endl;
+		file << idCirle << std::endl;
+		file << nCircle << std::endl;
+		p2dCircle.write(file);
+		file << rCircle << std::endl;
+	}
+
+	int getType() override
+	{
+		int type = 1;
+		return type;
+	}
 };
 
 class Rectangle : public Figure
 {
-
+	int idRectangle = 0;
+	std::string	nRectangle = "";
+	point2d p2dRectangle;
+	double lRectangle = 0.0;
+	double wRectangle = 0.0;
 
 	void read(std::ifstream& file) override
 	{
-		int idRectangle = rdInt(file);
-		std::string	nRectangle = rdString(file);
-		point2d p2dRectangle = rdPoint2d(file);
-		double lRectangle = rdDouble(file);
-		double wRectangle = rdDouble(file);
+		idRectangle = rdInt(file);
+		nRectangle = rdString(file);
+		p2dRectangle = rdPoint2d(file);
+		lRectangle = rdDouble(file);
+		wRectangle = rdDouble(file);
 	}
 
 	void print() override
 	{
+		std::cout << idRectangle << std::endl;
+		std::cout << nRectangle << std::endl;
+		p2dRectangle.print();
+		std::cout << lRectangle << std::endl;
+		std::cout << wRectangle << std::endl;
+	}
 
+	void write(std::ofstream& file) override
+	{
+		file << Rectangle::getType() << std::endl;
+		file << idRectangle << std::endl;
+		file << nRectangle << std::endl;
+		p2dRectangle.write(file);
+		file << lRectangle << std::endl;
+		file << wRectangle << std::endl;
+	}
+
+	int getType() override
+	{
+		int type = 2;
+		return type;
 	}
 };
 
@@ -132,16 +179,16 @@ public:
 			file.open(path);
 
 			if (file.is_open())
-				std::cout << "File is open";
+				std::cout << "File is open" << std::endl;
 			else
-				std::cout << "File is not open";
+				std::cout << "File is not open" << std::endl;
 
 			rdFile(file);
 		}
 
 		catch (const std::exception& ex)
 		{
-			ex.what();
+			std::cout << ex.what() << std::endl;
 			for (int i = 0; i < figures.size(); i++)
 			{
 				delete figures[i];
@@ -158,28 +205,30 @@ public:
 		}
 	}
 	
-	std::vector<Figure*> GetObject() const
+	std::vector<Figure*> GetObjects() const
 	{
 		return figures;
 	}
-
-	void print(std::vector<Figure*> test)
+	
+	void wFile(std::vector<Figure*> objects, const std::string& path)
 	{
-		for (int i = 0; i < test.size(); i++)
+		std::ofstream wFile(path);
+		wFile << objects.size() << std::endl;
+		
+		for (int i = 0; i < objects.size(); i++)
 		{
-			*test[i];
-
-			
-
+			objects[i]->write(wFile);
 		}
+
 	}
+
 
 
 private:
 
 	std::vector<Figure*> figures;
 
-	int rdFile(std::ifstream& file)
+	void rdFile(std::ifstream& file)
 	{
 		int objectCount = rdInt(file);
 
@@ -204,7 +253,7 @@ private:
 					break;
 				}
 				default:
-					throw std::exception("Wrong format");
+					throw std::exception ("Wrong format");
 				}
 			
 			obj->read(file);
@@ -214,19 +263,20 @@ private:
 
 
 	}
-	
 
 };
 
 
+
 int main()
 {
+	DataBase test("Figure1.txt");
+
+	for (int i = 0; i < test.GetObjects().size(); i++)
+	{
+		test.GetObjects()[i]->print();
+	}
 	
-	std::ifstream file;
-	file.open("Figure1.txt");
-	Circle obj;
-	
-	obj.read(file);
-	obj.print();
+	test.wFile(test.GetObjects(), "New Database.txt");
 	
 }
