@@ -145,6 +145,7 @@
     <ClCompile Include="Figure.cpp" />
     <ClCompile Include="FigureProject.cpp" />
     <ClCompile Include="Point2d.cpp" />
+    <ClCompile Include="Polilyne.cpp" />
     <ClCompile Include="Rectangle.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -153,6 +154,7 @@
     <ClInclude Include="DataProvider.h" />
     <ClInclude Include="Figure.h" />
     <ClInclude Include="Point2d.h" />
+    <ClInclude Include="Polilyne.h" />
     <ClInclude Include="Rectangle.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

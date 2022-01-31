@@ -11,24 +11,38 @@
 class DataProvider
 {
 	
+private:
+	std::ifstream inFile;
+	std::ofstream outFile;
+
 public:
-	int rdInt(std::ifstream& file);
 
-	std::string rdString(std::ifstream& file);
+	
 
-	Point2d rdPoint2d(std::ifstream& file);
+	DataProvider(std::ifstream& file, const std::string& path);
 
-	double rdDouble(std::ifstream& file);
+	DataProvider(std::ofstream& file, const std::string& path);
 
-	void writeInt(std::ofstream& file, int number);
+	~DataProvider();
+	
+	
+	int rdInt();
 
-	void writePoint2d(std::ofstream& oFile, Point2d& point);
+	std::string rdString();
 
-	void writeString(std::ofstream& file, std::string line);
+	Point2d rdPoint2d();
 
-	void writeDouble(std::ofstream& file, double number);
+	double rdDouble();
 
-	void printPoint2d(Point2d point);
+	void writeInt(const int number);
+
+	void writePoint2d(const Point2d& point);
+
+	void writeString(const std::string line);
+
+	void writeDouble(const double number);
+
+	void printPoint2d(const Point2d &point);
 	
 	
 

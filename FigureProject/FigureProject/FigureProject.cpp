@@ -3,18 +3,21 @@
 #include "Figure.h"
 #include "Point2d.h"
 #include "Database.h"
+#include "Polilyne.h"
 
 
 
 int main()
 {
-	Database test("Figure1.txt");
+	Database database("Figure1.txt");
 
-	for (int i = 0; i < test.GetObjects().size(); i++)
+	std::vector<Figure*> figures = database.GetObjects();
+
+	for (int i = 0; i < figures.size(); i++)
 	{
-		test.GetObjects()[i]->print();
+		figures[i]->print();
 	}
 	
-	test.wFile(test.GetObjects(), "New Database.txt");
-	
+	database.Write(database.GetObjects(), "New Database.txt");
+
 }

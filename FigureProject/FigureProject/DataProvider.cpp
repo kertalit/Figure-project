@@ -1,61 +1,86 @@
 #include "DataProvider.h"
 
+DataProvider::DataProvider(std::ifstream& file, const std::string& path)
+{
+	inFile.open(path);
 
-	int DataProvider::rdInt(std::ifstream & file)
+	if (inFile.is_open())
+		std::cout << "File is open" << std::endl;
+	else
+		std::cout << "File is not open" << std::endl;
+}
+
+DataProvider::DataProvider(std::ofstream& file, const std::string& path)
+{
+	outFile.open(path);
+
+	if (outFile.is_open())
+		std::cout << "File is open" << std::endl;
+	else
+		std::cout << "File is not open" << std::endl;
+}
+
+DataProvider::~DataProvider() //обсудить с Женей
+{
+	outFile.close();
+	std::cout << "File is closed" << std::endl;
+	inFile.close();
+	std::cout << "File is closed" << std::endl;
+}
+
+	int DataProvider::rdInt()
 	{
 		int number = 0;
-		file >> number;
+		inFile >> number;
 		return number;
 	}
 
-	std::string DataProvider::rdString(std::ifstream& file)
+	std::string DataProvider::rdString()  
 	{
 		std::string stringLine = "";
-		file >> stringLine;
+		inFile >> stringLine;
 		return stringLine;
 
 	}
 
-	Point2d DataProvider::rdPoint2d(std::ifstream& file)
+	Point2d DataProvider::rdPoint2d() 
 	{
 		double x = 0.0;
 		double y = 0.0;
-		file >> x;
-		file >> y;
+		inFile >> x;
+		inFile >> y;
 
 		return Point2d(x, y);
 	}
 
-	double DataProvider::rdDouble(std::ifstream& file)
+	double DataProvider::rdDouble() 
 	{
 		double point = 0.0;
-		file >> point;
+		inFile >> point;
 		return point;
 	}
 
-	void DataProvider::writeInt(std::ofstream& file, int number)
+	void DataProvider::writeInt(const int number)
 	{
-		file << number << std::endl;
+		outFile << number << std::endl;
 	}
 
-	void DataProvider::writePoint2d(std::ofstream& oFile, Point2d& point)
+	void DataProvider::writePoint2d(const Point2d& point) 
 	{
-		oFile << point.x << std::endl;
-		oFile << point.y << std::endl;
+		outFile << point << std::endl;
 	}
 
-	void DataProvider::writeString(std::ofstream& file, std::string line)
+	void DataProvider::writeString(const std::string line) 
 	{
-		file << line << std::endl;
+		outFile << line << std::endl;
 	}
 
-	void DataProvider::writeDouble(std::ofstream& file, double number)
+	void DataProvider::writeDouble(const double number) 
 	{
-		file << number << std::endl;
+		outFile << number << std::endl;
 	}
 
-	void DataProvider::printPoint2d(Point2d point)
+	void DataProvider::printPoint2d(const Point2d& point)
 	{
-		std::cout << point.x << std::endl;
-		std::cout << point.y << std::endl;
+		std::cout << point << std::endl;
 	}

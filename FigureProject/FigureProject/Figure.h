@@ -12,10 +12,13 @@
 class Figure
 {
 public:
-	void virtual read(std::ifstream& file) = 0;
+	void virtual read(DataProvider& file) = 0;
+
+	void virtual write(DataProvider& file) = 0;
+
 	void virtual print() = 0;
-	void virtual write(std::ofstream& file) = 0;
-	int virtual getType() = 0;
+
+	int  virtual getType() = 0;
 
 };
 

@@ -7,24 +7,27 @@
 
 class Rectangle : public Figure
 {
-	int id;
-	std::string	name;
-	Point2d point;
-	double length;
-	double width;
+private:
+	 int id;
+	 std::string	name;
+	 Point2d point;
+	 double length;
+	 double width;
+	 
 public:
-
-	Rectangle(int id, std::string name, Point2d point, double length, double width);
 	Rectangle();
+	Rectangle(int id, std::string name, Point2d point, double length, double width);
 
-	void read(std::ifstream& file) override;
+	static const int type = 2;
+	
 
-	void print() override;
+	void  read(DataProvider& file) override;
 
-	void write(std::ofstream& file) override;
+	void  write(DataProvider& file) override;
 
-	int getType() override;
+	void  print() override;
 
-	DataProvider dataprovider;
+	int   getType() override;
+
 };
 #endif // !_RECTANGLE_H

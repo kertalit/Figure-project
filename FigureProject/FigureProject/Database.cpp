@@ -5,35 +5,24 @@
 	{
 
 		try
-		{
+	  {
 			std::ifstream file;
-			file.open(path);
+			DataProvider dataprovider(file, path);
 
-			if (file.is_open())
-				std::cout << "File is open" << std::endl;
-			else
-				std::cout << "File is not open" << std::endl;
-
-			rdFile(file);
+			rdFile(dataprovider);
 		}
 
 		catch (const std::exception& ex)
 		{
 			std::cout << ex.what() << std::endl;
-			for (int i = 0; i < figures.size(); i++)
-			{
-				delete figures[i];
-			}
+			DeleteObject();
 		}
 
 	}
 
 	Database::~Database()
 	{
-		for (int i = 0; i < figures.size(); i++)
-		{
-			delete figures[i];
-		}
+		DeleteObject();
 	}
 
 	std::vector<Figure*> Database::GetObjects() const
@@ -41,41 +30,48 @@
 		return figures;
 	}
 
-	void Database::wFile(std::vector<Figure*> objects, const std::string& path)
+	void Database::Write(const std::vector<Figure*>& objects, const std::string& path)
 	{
-		std::ofstream wFile(path);
-		wFile << objects.size() << std::endl;
+		std::ofstream File;
+		DataProvider dataprovider(File, path);
+
+		dataprovider.writeInt(objects.size());
 
 		for (int i = 0; i < objects.size(); i++)
 		{
-			objects[i]->write(wFile);
+			objects[i]->write(dataprovider);
 		}
 
 	}
 
-
-	void Database::rdFile(std::ifstream& file)
+	
+	void Database::rdFile(DataProvider& file)
 	{
-		int objectCount = dataprovider.rdInt(file);
+		int objectCount = file.rdInt();
 
 		figures.reserve(objectCount);
 
 		for (int i = 0; i < objectCount; i++)
 		{
-			int type = dataprovider.rdInt(file);
+			int type = file.rdInt();
 
 			Figure* obj = 0;
 
 			switch (type)
 			{
-			case 1:
-			{
+			case Circle::type:
+			 {
 				obj = new Circle();
 				break;
-			}
-			case 2:
-			{
+			 }
+			case Rectangle::type:
+			 {
 				obj = new Rectangle();
+				break;
+			 }
+			case Polilyne::type:
+			{
+				obj = new Polilyne();
 				break;
 			}
 			default:
@@ -88,4 +84,12 @@
 		}
 
 
+	}
+
+	void Database::DeleteObject()
+	{
+		for (int i = 0; i < figures.size(); i++)
+		{
+			delete figures[i];
+		}
 	}

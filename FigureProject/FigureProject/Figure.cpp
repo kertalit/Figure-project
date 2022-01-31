@@ -1,15 +1,18 @@
 #include "Figure.h"
 
-void  Figure::read(std::ifstream& file)
+void  Figure::read(DataProvider& file)
 {
 }
-void  Figure::print()
+
+void  Figure::print() 
 {
 }
-void  Figure::write(std::ofstream& file)
+
+void  Figure::write(DataProvider& file)
 {
 }
-int   Figure::getType()
+
+int  Figure::getType() 
 {
 	return 0;
 }

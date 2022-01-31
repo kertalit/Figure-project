@@ -6,6 +6,7 @@
 #include "Figure.h"
 #include "Circle.h"
 #include "Rectangle.h"
+#include "Polilyne.h"
 #include <vector>
 
 class Database
@@ -18,13 +19,13 @@ public:
 
 	std::vector<Figure*> GetObjects() const;
 
-	void wFile(std::vector<Figure*> objects, const std::string& path);
+	void Write(const std::vector<Figure*>& objects, const std::string& path);
 
 
 private:
 	std::vector<Figure*> figures;
-	DataProvider dataprovider;
-	void rdFile(std::ifstream& file);
+	void rdFile(DataProvider& file);
+	void DeleteObject();
 
 };
 

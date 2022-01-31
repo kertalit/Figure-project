@@ -1,8 +1,9 @@
 #include "Circle.h"
 
 
+
 Circle::Circle()
-	:id(0),name(" "), point(0.0,0.0), radius(0.0)
+	:id(0), name(" "), point(0.0,0.0), radius(0.0)
 {
 
 }
@@ -12,34 +13,33 @@ Circle::Circle(int id, std::string	name, Point2d point, double radius)
 
 }
 
-void Circle::read(std::ifstream& file) 
+
+void Circle::read(DataProvider& file) 
 	{
-		id = dataprovider.rdInt(file);
-		name = dataprovider.rdString(file);
-		point = dataprovider.rdPoint2d(file);
-		radius = dataprovider.rdDouble(file);
+		id = file.rdInt();
+		name = file.rdString();
+		point = file.rdPoint2d();
+		radius = file.rdDouble();
 	}
 
-	void Circle::print()
+void Circle::write(DataProvider& file)
 	{
-		std::cout << id << std::endl;
-		std::cout << name << std::endl;
-		dataprovider.printPoint2d(point);
-		std::cout << radius << std::endl;
-
+		file.writeInt(getType());
+		file.writeInt (id);
+		file.writeString(name);
+		file.writePoint2d(point);
+		file.writeDouble(radius);
 	}
 
-	void Circle::write(std::ofstream& file)
-	{
-		file << getType() << std::endl;
-		dataprovider.writeInt (file, id);
-		dataprovider.writeString(file, name);
-		dataprovider.writePoint2d(file, point);
-		dataprovider.writeDouble(file, radius);
-	}
+void Circle::print()
+{
+	std::cout << id << std::endl;
+	std::cout << name << std::endl;
+	std::cout << point << std::endl;
+	std::cout << radius << std::endl;
+}
 
-	int Circle::getType()
+int  Circle::getType() 
 	{
-		int type = 1;
 		return type;
 	}
