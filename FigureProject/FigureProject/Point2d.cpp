@@ -13,8 +13,8 @@
 
 	}
 
-
-	std::ostream& operator<<(std::ostream& file, const Point2d point)
+	
+	std::ostream& operator<<(std::ostream& file, const Point2d& point)
 	{
 		file << point.x << std::endl;
 		file << point.y;
