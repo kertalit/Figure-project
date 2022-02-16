@@ -19,7 +19,7 @@ public:
 
 	std::vector<Figure*> GetObjects() const;
 
-	void Write(const std::vector<Figure*>& objects, const std::string& path);
+	void Write(const std::string& path);
 
 
 private:

@@ -16,7 +16,7 @@ private:
 	 
 public:
 	Rectangle();
-	Rectangle(int id, std::string name, Point2d point, double length, double width);
+	Rectangle(int id, std::string& name, Point2d& point, double length, double width);
 
 	static const int type = 2;
 	

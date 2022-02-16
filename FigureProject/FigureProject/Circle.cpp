@@ -7,7 +7,7 @@ Circle::Circle()
 {
 
 }
-Circle::Circle(int id, std::string	name, Point2d point, double radius)
+Circle::Circle(int id, const std::string& name, const Point2d& point, double radius)
 	:id(0), name(" "), point(0.0, 0.0), radius(0.0)
 {
 

@@ -5,10 +5,9 @@
 #include "Database.h"
 #include "Polilyne.h"
 
-
-
-int main()
+void testWriteDb()
 {
+
 	Database database("Figure1.txt");
 
 	std::vector<Figure*> figures = database.GetObjects();
@@ -17,7 +16,13 @@ int main()
 	{
 		figures[i]->print();
 	}
-	
-	database.Write(database.GetObjects(), "New Database.txt");
+
+	database.Write("New Database.txt");
+
+}
+
+int main()
+{
+	testWriteDb();
 
 }

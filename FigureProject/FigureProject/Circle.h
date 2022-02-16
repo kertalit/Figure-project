@@ -1,6 +1,6 @@
 #ifndef _CIRCLE_H
 #define _CIRCLE_H
-#endif // !_CIRCLE_H
+
 
 #pragma once
 #include "Figure.h"
@@ -17,7 +17,7 @@ private:
 
 public:
 	Circle();
-	Circle(int id, std::string	name, Point2d point, double radius);
+	Circle(int id, const std::string&	name, const Point2d& point, double radius);
 
 	static const int type = 1;
 
@@ -35,4 +35,4 @@ public:
 
 };
 
-
+#endif // !_CIRCLE_H

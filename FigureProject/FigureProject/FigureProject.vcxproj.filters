@@ -39,6 +39,9 @@
     <ClCompile Include="Polilyne.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Sample.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DataProvider.h">
@@ -60,6 +63,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Polilyne.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Sample.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

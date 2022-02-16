@@ -14,12 +14,11 @@ private:
 
 	int id;
 	std::string	name;
-	int countPoints;
 	std::vector<Point2d> points;
 
 public:
 	Polilyne();
-	Polilyne(int id, std::string	name, const std::vector<Point2d>& points);
+	Polilyne(int id, const std::string&	name, const std::vector<Point2d>& points);
 
 	static const int type = 3;
 

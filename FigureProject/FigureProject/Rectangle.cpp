@@ -7,13 +7,13 @@ Rectangle::Rectangle()
 
 }
 
-Rectangle::Rectangle(int id, std::string name, Point2d point, double length, double width)
+Rectangle::Rectangle(int id, std::string& name, Point2d& point, double length, double width)
 	:id(0), name(""), point(0.0, 0.0), length(0.0), width(0.0)
 {
 
 }
 
-void Rectangle::read(DataProvider& file)
+void Rectangle::read( DataProvider& file)
 	{
 		id = file.rdInt();
 		name = file.rdString();

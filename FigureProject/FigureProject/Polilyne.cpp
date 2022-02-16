@@ -6,11 +6,10 @@ Polilyne::Polilyne()
 {
 	id = 0;
 	name = " ";
-	countPoints = 0;
-	points.push_back(Point2d());
+	points;
 }
 
-Polilyne::Polilyne(int id, std::string	name, const std::vector<Point2d>& points)
+Polilyne::Polilyne(int id, const std::string&	name, const std::vector<Point2d>& points)
 {
 	this->id = id;
 	this->name = name;
@@ -51,9 +50,9 @@ void Polilyne::print()
 {
 	std::cout << id << std::endl;
 	std::cout << name << std::endl;
-	std::cout << countPoints << std::endl;
+	std::cout << points.size() << std::endl;
 	
-	for (int i = 0; i < countPoints; i++)
+	for (int i = 0; i < points.size(); i++)
 	{
 		std::cout << points[i] << std::endl;
 	}

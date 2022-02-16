@@ -147,12 +147,14 @@
     <ClCompile Include="Point2d.cpp" />
     <ClCompile Include="Polilyne.cpp" />
     <ClCompile Include="Rectangle.cpp" />
+    <ClCompile Include="Sample.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Circle.h" />
     <ClInclude Include="Database.h" />
     <ClInclude Include="DataProvider.h" />
     <ClInclude Include="Figure.h" />
+    <ClInclude Include="Sample.h" />
     <ClInclude Include="Point2d.h" />
     <ClInclude Include="Polilyne.h" />
     <ClInclude Include="Rectangle.h" />

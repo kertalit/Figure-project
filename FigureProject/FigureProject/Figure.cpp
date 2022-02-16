@@ -2,6 +2,7 @@
 
 void  Figure::read(DataProvider& file)
 {
+
 }
 
 void  Figure::print() 

@@ -1,4 +1,5 @@
 #include "Database.h"
+#include "Sample.h"
 
 
 	Database::Database(const std::string& path)
@@ -30,16 +31,16 @@
 		return figures;
 	}
 
-	void Database::Write(const std::vector<Figure*>& objects, const std::string& path)
+	void Database::Write(const std::string& path)
 	{
 		std::ofstream File;
 		DataProvider dataprovider(File, path);
+		
+		dataprovider.writeInt(figures.size());
 
-		dataprovider.writeInt(objects.size());
-
-		for (int i = 0; i < objects.size(); i++)
+		for (int i = 0; i < figures.size(); i++)
 		{
-			objects[i]->write(dataprovider);
+			figures[i]->write(dataprovider);
 		}
 
 	}
@@ -55,35 +56,13 @@
 		{
 			int type = file.rdInt();
 
-			Figure* obj = 0;
-
-			switch (type)
-			{
-			case Circle::type:
-			 {
-				obj = new Circle();
-				break;
-			 }
-			case Rectangle::type:
-			 {
-				obj = new Rectangle();
-				break;
-			 }
-			case Polilyne::type:
-			{
-				obj = new Polilyne();
-				break;
-			}
-			default:
-				throw std::exception("Wrong format");
-			}
+			Figure* obj = createObj(type);
 
 			obj->read(file);
+
 			figures.push_back(obj);
-
+		
 		}
-
-
 	}
 
 	void Database::DeleteObject()

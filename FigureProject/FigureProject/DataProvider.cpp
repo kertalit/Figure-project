@@ -20,7 +20,7 @@ DataProvider::DataProvider(std::ofstream& file, const std::string& path)
 		std::cout << "File is not open" << std::endl;
 }
 
-DataProvider::~DataProvider() //обсудить с Женей
+DataProvider::~DataProvider()
 {
 	outFile.close();
 	std::cout << "File is closed" << std::endl;
