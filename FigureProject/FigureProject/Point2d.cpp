@@ -21,3 +21,10 @@
 
 		return file;
 	}
+
+	std::istream& operator>> (std::istream& file, Point2d& point)
+	{
+		file >> point.x >> point.y;
+
+		return file;
+	}

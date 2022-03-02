@@ -140,21 +140,25 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Circle.cpp" />
+    <ClCompile Include="ConsoleDataProvider.cpp" />
     <ClCompile Include="Database.cpp" />
     <ClCompile Include="DataProvider.cpp" />
+    <ClCompile Include="FileDataProvider.cpp" />
     <ClCompile Include="Figure.cpp" />
     <ClCompile Include="FigureProject.cpp" />
     <ClCompile Include="Point2d.cpp" />
     <ClCompile Include="Polilyne.cpp" />
     <ClCompile Include="Rectangle.cpp" />
-    <ClCompile Include="Sample.cpp" />
+    <ClCompile Include="Commands.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Circle.h" />
     <ClInclude Include="Database.h" />
     <ClInclude Include="DataProvider.h" />
+    <ClInclude Include="FileDataProvider.h" />
     <ClInclude Include="Figure.h" />
-    <ClInclude Include="Sample.h" />
+    <ClInclude Include="ConsoleDataProvider.h" />
+    <ClInclude Include="Commands.h" />
     <ClInclude Include="Point2d.h" />
     <ClInclude Include="Polilyne.h" />
     <ClInclude Include="Rectangle.h" />

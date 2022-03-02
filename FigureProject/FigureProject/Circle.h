@@ -1,8 +1,6 @@
 #ifndef _CIRCLE_H
 #define _CIRCLE_H
 
-
-#pragma once
 #include "Figure.h"
 
 
@@ -21,15 +19,26 @@ public:
 
 	static const int type = 1;
 
-
+	void change() override;
 
 	void read(DataProvider& file) override;
+	
 
 	void write(DataProvider& file) override;
 
 	void print() override;
 
 	int getType() override;
+
+	int getId();
+	std::string getName();
+	Point2d getPoint();
+	double getRadius();
+
+	void setId(int id);
+	void setName(std::string name);
+	void setPoint(Point2d point);
+	void setRadius(double radius);
 
 	
 

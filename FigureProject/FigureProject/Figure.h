@@ -5,7 +5,8 @@
 #pragma once
 #include <fstream>
 #include "Point2d.h"
-#include "DataProvider.h"
+#include "FileDataProvider.h"
+#include "ConsoleDataProvider.h"
 
 
 
@@ -19,6 +20,9 @@ public:
 	void virtual print() = 0;
 
 	int  virtual getType() = 0;
+
+	void virtual change() = 0;
+
 
 };
 

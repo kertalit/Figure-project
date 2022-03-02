@@ -1,5 +1,5 @@
 #include "Database.h"
-#include "Sample.h"
+#include "Commands.h"
 
 
 	Database::Database(const std::string& path)
@@ -8,9 +8,9 @@
 		try
 	  {
 			std::ifstream file;
-			DataProvider dataprovider(file, path);
+			FileDataProvider fileDataProvider(file, path);
 
-			rdFile(dataprovider);
+			rdFile(fileDataProvider);
 		}
 
 		catch (const std::exception& ex)
@@ -18,6 +18,11 @@
 			std::cout << ex.what() << std::endl;
 			DeleteObject();
 		}
+
+	}
+
+	Database::Database()
+	{
 
 	}
 
@@ -30,23 +35,26 @@
 	{
 		return figures;
 	}
+	void Database::setObjects(const std::vector<Figure*>& figures)
+	{
+		this->figures = figures;
+	}
 
-	void Database::Write(const std::string& path)
+	void Database::save(const std::string& path)
 	{
 		std::ofstream File;
-		DataProvider dataprovider(File, path);
+		FileDataProvider fileDataProvider(File, path);
 		
-		dataprovider.writeInt(figures.size());
+		fileDataProvider.writeInt(figures.size());
 
 		for (int i = 0; i < figures.size(); i++)
 		{
-			figures[i]->write(dataprovider);
+			figures[i]->write(fileDataProvider);
 		}
 
 	}
 
-	
-	void Database::rdFile(DataProvider& file)
+	void Database::rdFile(FileDataProvider& file)
 	{
 		int objectCount = file.rdInt();
 
@@ -61,7 +69,14 @@
 			obj->read(file);
 
 			figures.push_back(obj);
-		
+		}
+	}
+
+	void Database::printDb()
+	{
+		for (int i = 0; i < figures.size(); ++i)
+		{
+			figures[i]->print();
 		}
 	}
 
@@ -71,4 +86,10 @@
 		{
 			delete figures[i];
 		}
+	}
+
+	void Database::addObj(std::vector<Figure*> obj)
+	{
+		for (int i = 0; i < obj.size(); i++)
+			figures.push_back(obj[i]);
 	}

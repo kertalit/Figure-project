@@ -14,17 +14,20 @@ class Database
 
 public:
 	Database(const std::string& path);
+	Database();
 	
 	~Database();
 
 	std::vector<Figure*> GetObjects() const;
+	void setObjects(const std::vector<Figure*>& figures);
 
-	void Write(const std::string& path);
-
+	void save(const std::string& path);
+	void addObj(std::vector<Figure*> obj);
+	void printDb();
 
 private:
 	std::vector<Figure*> figures;
-	void rdFile(DataProvider& file);
+	void rdFile(FileDataProvider& file);
 	void DeleteObject();
 
 };

@@ -18,7 +18,7 @@
     <ClCompile Include="FigureProject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DataProvider.cpp">
+    <ClCompile Include="FileDataProvider.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Point2d.cpp">
@@ -39,12 +39,18 @@
     <ClCompile Include="Polilyne.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Sample.cpp">
+    <ClCompile Include="Commands.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DataProvider.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ConsoleDataProvider.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="DataProvider.h">
+    <ClInclude Include="FileDataProvider.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Point2d.h">
@@ -65,7 +71,13 @@
     <ClInclude Include="Polilyne.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Sample.h">
+    <ClInclude Include="Commands.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DataProvider.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConsoleDataProvider.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

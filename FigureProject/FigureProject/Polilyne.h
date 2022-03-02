@@ -22,6 +22,8 @@ public:
 
 	static const int type = 3;
 
+	void change() override;
+
 	void read(DataProvider& file) override;
 
 	void write(DataProvider& file) override;
@@ -29,6 +31,14 @@ public:
 	void print() override;
 	
 	int  getType() override;
+
+	int getId();
+	std::string getName();
+	std::vector<Point2d> getPoints();
+
+	void setId(int id);
+	void setName(std::string name);
+	void setPoints(std::vector<Point2d> points);
 
 	
 

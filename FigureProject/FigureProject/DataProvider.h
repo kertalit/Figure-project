@@ -1,5 +1,5 @@
-#ifndef _DATAPROVIDER_H
-#define _DATAPROVIDER_H
+#ifndef _FILEDATAPROVIDER_H
+#define _FILEDATAPROVIDER_H
 
 
 #pragma once
@@ -8,44 +8,31 @@
 #include <string>
 #include <fstream>
 
+
 class DataProvider
 {
-	
-private:
-	std::ifstream inFile;
-	std::ofstream outFile;
-
 public:
 
-	
+	virtual int rdInt() = 0;
 
-	DataProvider(std::ifstream& file, const std::string& path);
+	virtual std::string rdString() = 0;
 
-	DataProvider(std::ofstream& file, const std::string& path);
+	virtual Point2d rdPoint2d() = 0;
 
-	~DataProvider();
-	
-	
-	int rdInt();
+	virtual double rdDouble() = 0;
 
-	std::string rdString();
+	virtual void writeInt(const int number) = 0;
 
-	Point2d rdPoint2d();
+	virtual void writePoint2d(const Point2d& point) = 0;
 
-	double rdDouble();
+	virtual void writeString(const std::string line) = 0;
 
-	void writeInt(const int number);
+	virtual void writeDouble(const double number) = 0;
 
-	void writePoint2d(const Point2d& point);
+	virtual void printPoint2d(const Point2d& point) = 0;
 
-	void writeString(const std::string line);
 
-	void writeDouble(const double number);
-
-	void printPoint2d(const Point2d &point);
-	
-	
 
 };
 
-#endif // !_DATAPROVIDER_H
+#endif // !_FILEDATAPROVIDER_H
