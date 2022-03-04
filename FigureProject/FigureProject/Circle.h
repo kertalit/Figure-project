@@ -8,14 +8,13 @@
 class Circle : public Figure
 {
 private:
-	int id;
-	std::string	name;
+
 	Point2d point;
 	double radius;
 
 public:
 	Circle();
-	Circle(int id, const std::string&	name, const Point2d& point, double radius);
+	Circle(const Point2d& point, double radius);
 
 	static const int type = 1;
 
@@ -30,13 +29,11 @@ public:
 
 	int getType() override;
 
-	int getId();
-	std::string getName();
+	
 	Point2d getPoint();
 	double getRadius();
 
-	void setId(int id);
-	void setName(std::string name);
+
 	void setPoint(Point2d point);
 	void setRadius(double radius);
 

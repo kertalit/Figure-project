@@ -2,13 +2,13 @@
 
 
 Rectangle::Rectangle()
-	: id(0), name(" "), point(0.0, 0.0), length(0.0), width(0.0)
+	: point(0.0, 0.0), length(0.0), width(0.0)
 {
 
 }
 
-Rectangle::Rectangle(int id, std::string& name, Point2d& point, double length, double width)
-	:id(0), name(""), point(0.0, 0.0), length(0.0), width(0.0)
+Rectangle::Rectangle(Point2d& point, double length, double width)
+	: point(0.0, 0.0), length(0.0), width(0.0)
 {
 
 }
@@ -73,8 +73,7 @@ void Rectangle::change()
 
 void Rectangle::read(DataProvider& file)
 	{
-		id = file.rdInt();
-		name = file.rdString();
+		Figure::read(file);
 		point = file.rdPoint2d();
 		length = file.rdDouble();
 		width = file.rdDouble();
@@ -84,8 +83,7 @@ void Rectangle::read(DataProvider& file)
 void Rectangle::write(DataProvider& file)
 	{
 		file.writeInt(getType());
-		file.writeInt(id);
-		file.writeString(name);
+		Figure::write(file);
 		file.writePoint2d(point);
 		file.writeDouble(length);
 		file.writeDouble(width);
@@ -93,8 +91,7 @@ void Rectangle::write(DataProvider& file)
 
 void Rectangle::print()
 {
-	std::cout << id << std::endl;
-	std::cout << name << std::endl;
+	Figure::print();
 	std::cout << point << std::endl;
 	std::cout << length << std::endl;
 	std::cout << width << std::endl;
@@ -105,15 +102,6 @@ int Rectangle::getType()
 		return type;
 	}
 
-int Rectangle::getId()
-{
-	return id;
-}
-
-std::string Rectangle::getName()
-{
-	return name;
-}
 
 Point2d Rectangle::getPoint()
 {
@@ -130,14 +118,6 @@ double Rectangle::getWidth()
 	return width;
 }
 
-void Rectangle::setId(int id)
-{
-	this->id = id;
-}
-void Rectangle::setName(std::string name)
-{
-	this->name = name;
-}
 void Rectangle::setPoint(Point2d& point)
 {
 	this->point = point;

@@ -1,8 +1,6 @@
 #ifndef _FILEDATAPROVIDER_H
 #define _FILEDATAPROVIDER_H
 
-
-#pragma once
 #include "Point2d.h"
 #include <ostream>
 #include <string>

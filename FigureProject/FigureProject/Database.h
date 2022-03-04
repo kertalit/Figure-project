@@ -19,11 +19,10 @@ public:
 	~Database();
 
 	std::vector<Figure*> GetObjects() const;
-	void setObjects(const std::vector<Figure*>& figures);
 
 	void save(const std::string& path);
-	void addObj(std::vector<Figure*> obj);
-	void printDb();
+	void print();
+	void addObj(Figure* obj);
 
 private:
 	std::vector<Figure*> figures;

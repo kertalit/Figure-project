@@ -1,7 +1,6 @@
 #ifndef _POINT2D_H
 #define _POINT2D_H
 
-#pragma once
 #include <iostream>
 #include <fstream>
 #include <ostream>

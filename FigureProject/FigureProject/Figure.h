@@ -1,8 +1,6 @@
 #ifndef _FIGURE_H
 #define _FIGURE_H
 
-
-#pragma once
 #include <fstream>
 #include "Point2d.h"
 #include "FileDataProvider.h"
@@ -12,7 +10,14 @@
 
 class Figure
 {
+	int id;
+	std::string name;
+
 public:
+
+	Figure();
+	Figure(int id, std::string& name);
+
 	void virtual read(DataProvider& file) = 0;
 
 	void virtual write(DataProvider& file) = 0;
@@ -21,8 +26,11 @@ public:
 
 	int  virtual getType() = 0;
 
-	void virtual change() = 0;
+	void setId(int id);
+	void setName(std::string name);
 
+	int getId();
+	std::string getName();
 
 };
 

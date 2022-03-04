@@ -3,12 +3,12 @@
 
 
 Circle::Circle()
-	:id(0), name(" "), point(0.0,0.0), radius(0.0)
+	: point(0.0,0.0), radius(0.0)
 {
 
 }
-Circle::Circle(int id, const std::string& name, const Point2d& point, double radius)
-	:id(0), name(" "), point(0.0, 0.0), radius(0.0)
+Circle::Circle(const Point2d& point, double radius)
+	: point(0.0, 0.0), radius(0.0)
 {
 
 }
@@ -63,8 +63,7 @@ void Circle::change()
 
 void Circle::read(DataProvider& file)
 	{
-		id = file.rdInt();
-		name = file.rdString();
+		Figure::read(file);
 		point = file.rdPoint2d();
 		radius = file.rdDouble();
 	}
@@ -72,16 +71,14 @@ void Circle::read(DataProvider& file)
 void Circle::write(DataProvider& file)
 	{
 		file.writeInt(getType());
-		file.writeInt (id);
-		file.writeString(name);
+		Figure::write(file);
 		file.writePoint2d(point);
 		file.writeDouble(radius);
 	}
 
 void Circle::print()
 {
-	std::cout << id << std::endl;
-	std::cout << name << std::endl;
+	Figure::print();
 	std::cout << point << std::endl;
 	std::cout << radius << std::endl;
 }
@@ -93,15 +90,6 @@ int  Circle::getType()
 		return type;
 	}
 
-int Circle::getId()
-{
-	return id;
-}
-
-std::string Circle::getName()
-{
-	return name;
-}
 
 Point2d Circle::getPoint()
 {
@@ -113,15 +101,7 @@ double Circle::getRadius()
 	return radius;
 }
 
-void Circle::setId(int id)
-{
-	this->id = id;
-}
 
-void Circle::setName(std::string name)
-{
-	this->name = name;
-}
 void Circle::setPoint(Point2d point)
 {
 	this->point = point;

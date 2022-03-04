@@ -4,15 +4,12 @@
 
 Polilyne::Polilyne()
 {
-	id = 0;
-	name = " ";
 	points;
 }
 
-Polilyne::Polilyne(int id, const std::string&	name, const std::vector<Point2d>& points)
+Polilyne::Polilyne(const std::vector<Point2d>& points)
 {
-	this->id = id;
-	this->name = name;
+	
 	this->points = points;
 
 }
@@ -61,8 +58,7 @@ void Polilyne::change()
 
 void Polilyne::read(DataProvider& file)
 {
-	id = file.rdInt();
-	name = file.rdString();
+	Figure::read(file);
 	int size = file.rdInt();
 
 	points.reserve(size);
@@ -78,7 +74,7 @@ void Polilyne::read(DataProvider& file)
 void Polilyne::write(DataProvider& file)
 {
 	file.writeInt(getType());
-	file.writeString(name);
+	Figure::write(file);
 	file.writeInt(points.size());
 
 	for (int i = 0; i < points.size(); i++)
@@ -90,8 +86,7 @@ void Polilyne::write(DataProvider& file)
 
 void Polilyne::print()
 {
-	std::cout << id << std::endl;
-	std::cout << name << std::endl;
+	Figure::print();
 	std::cout << points.size() << std::endl;
 	
 	for (int i = 0; i < points.size(); i++)
@@ -106,30 +101,14 @@ int  Polilyne::getType()
 	return type;
 }
 
-int Polilyne::getId()
-{
-	return id;
-}
-
-std::string Polilyne::getName()
-{
-	return name;
-}
 
 std::vector<Point2d> Polilyne::getPoints()
 {
 	return points;
 }
 
-void Polilyne::setId(int id)
+
+void Polilyne::setPoint(const Point2d& point, int number)
 {
-	this->id = id;
-}
-void Polilyne::setName(std::string name)
-{
-	this->name = name;
-}
-void Polilyne::setPoints(std::vector<Point2d> points)
-{
-	this->points = points;
+	this->points[number - 1] = point;
 }

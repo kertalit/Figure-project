@@ -45,13 +45,49 @@ void testCreateDb()
 	std::cout << base << std::endl;
 }
 
+void testListObj()
+{
+	Database database("Figure1.txt");
+	listObj(&database);
+}
+
+void testChoiceDb()
+{
+	Database base("Figure1.txt");
+	Database base1("New Database.txt");
+	std::vector<Database*> bases;
+	bases.push_back(&base);
+	bases.push_back(&base1);
+
+	Database* currentBase = 0;
+
+	int number;
+
+
+	for (int i = 0; i < bases.size(); i++)
+	{
+		std::cout << std::endl;
+		std::cout << "Base # " << i + 1 << std::endl << std::endl;
+		listObj(bases[i]);
+	}
+
+	std::cout << "Enter the number of the shape (1,2,3...) you want to change " << std::endl;
+	std::cin >> number;
+
+	currentBase = bases[number - 1];
+
+	currentBase->print();
+}
+
+
+
+
+
 
 void UI()
 {
-	std::vector<Figure*> figures;
-	Figure* obj;
-
-	Database* base = 0;
+	Database* currentBase = 0;
+	std::vector<Database*> bases;
 
 	std::string command = "";
 
@@ -62,9 +98,9 @@ void UI()
 	std::cout << "createRectangle" << std::endl;
 	std::cout << "createCircle" << std::endl;
 	std::cout << "createPolilyne" << std::endl;
-	std::cout << "saveObj" << std::endl;
 	std::cout << "printDb" << std::endl;
 	std::cout << "changeObj" << std::endl;
+	std::cout << "changeDb" << std::endl;
 	std::cout << "Exit" << std::endl;
 
 	while (true)
@@ -73,118 +109,143 @@ void UI()
 
 		if (command == "createDb")
 		{
-			base = createDb();
+			currentBase = createDb();
+			bases.push_back(currentBase);
 		}
 
 		else if (command == "saveDb")
 		{
-			if (base == 0)
+			if (currentBase == 0)
 			{
 				std::cout << "Database does not exist " << std::endl;
 			}
 			else
 			{
-				saveDb(base);
+				saveDb(currentBase);
 			}
 		}
 
 		else if (command == "loadDb")
 		{
-			base = loadDb();
+			currentBase = loadDb();
 
 			std::cout << "Database was loaded" << std::endl;
-			
+
 		}
 
 		else if (command == "createRectangle")
 		{
-			if (base == 0)
+			if (currentBase == 0)
 			{
 				std::cout << "Database does not exist " << std::endl;
 			}
 			else
 			{
-				obj = createObj(Rectangle::type);
-				figures.push_back(obj);
+				Figure* obj = createObj(Rectangle::type);
+				currentBase->addObj(obj);
 
 				std::cout << "Rectangle was created" << std::endl;
 			}
 		}
 		else if (command == "createCircle")
 		{
-			if (base == 0)
+			if (currentBase == 0)
 			{
 				std::cout << "Database does not exist " << std::endl;
 			}
 			else
 			{
-				obj = createObj(Circle::type);
-				figures.push_back(obj);
+				Figure* obj = createObj(Circle::type);
+				currentBase->addObj(obj);
 
 				std::cout << "Rectangle was created" << std::endl;
 			}
 		}
 		else if (command == "createPolilyne")
 		{
-			if (base == 0)
+			if (currentBase == 0)
 			{
 				std::cout << "Database does not exist " << std::endl;
 			}
 			else
 			{
-				obj = createObj(Polilyne::type);
-				figures.push_back(obj);
+				Figure* obj = createObj(Polilyne::type);
+				currentBase->addObj(obj);
 
 				std::cout << "Rectangle was created" << std::endl;
 			}
 		}
 
-
-		else if (command == "saveObj")
-		{
-			if (base == 0)
-			{
-				std::cout << "Database does not exist " << std::endl;
-			}
-			else
-			{
-				saveObj(*base, figures);
-			}
-		}
-
 		else if (command == "printDb")
 		{
-			if (base == 0)
+			if (currentBase == 0)
 			{
 				std::cout << "Database does not exist " << std::endl;
 			}
 			else
 			{
-				base->printDb();
+				currentBase->print();
 			}
 		}
 		else if (command == "changeObj")
 		{
-			if (base == 0)
+			if (currentBase == 0)
+			{
+				std::cout << "Database does not exist " << std::endl;
+			}
+			else
+			{
+				int number = 0;
+				int index = 0;
+
+				listDb(currentBase);
+				
+				std::cout << std::endl;
+
+				std::cout << "Enter the ID of the figure (1,2,3...) you want to change " << std::endl;
+				std::cin >> number;
+
+				std::vector<Figure*> listDb = currentBase->GetObjects();
+				
+				index = serchId(listDb, number);
+
+				if (index == -1)
+				{
+					std::cout << "Id does not found" << std::endl;
+				}
+				else
+				{
+					changeObj(listDb[index + 1]);
+				}
+			}
+		}
+
+		else if (command == "choiceDb")
+		{
+			if (currentBase == 0)
 			{
 				std::cout << "Database does not exist " << std::endl;
 			}
 			else
 			{
 				int number;
-				base->printDb();
-				std::cout << std::endl;
+
+
+				for (int i = 0; i < bases.size(); i++)
+				{
+					std::cout << std::endl;
+					std::cout << "Base # " << i + 1 << std::endl << std::endl;
+					listDb(bases[i]);
+				}
 
 				std::cout << "Enter the number of the shape (1,2,3...) you want to change " << std::endl;
 				std::cin >> number;
 
-				std::vector<Figure*> listObj = base->GetObjects();
+				currentBase = bases[number - 1];
 
-				listObj[number]->change();
-
-				base->setObjects(listObj);
 			}
 		}
+
 		else if (command == "Exit")
 		{
 			return;
@@ -192,68 +253,12 @@ void UI()
 	}
 }
 
-void change2(Figure* obj)
-{
-	switch (obj->getType())
-	{
-	case Circle::type:
-	{
-		Circle* pcircle = static_cast<Circle*> (obj);
-		std::string parametr = "";
-		std::cout << "Enter name parametr who you want to change: 'id' 'name' 'point' 'radius' " << std::endl;
-
-		std::cin >> parametr;
-
-		if (parametr == "id")
-		{
-			int newId;
-			std::cout << "Enter new id" << std::endl;
-			std::cin >> newId;
-			pcircle->setId(newId);
-
-			std::cout << "Id changed to " << newId << std::endl;
-		}
-
-		else if (parametr == "name")
-		{
-			std::string newName;
-			std::cout << "Enter new name" << std::endl;
-			std::cin >> newName;
-			obj->setName(newName);
-
-			std::cout << "Name changed to " << newName << std::endl;
-		}
-
-		else if (parametr == "point")
-		{
-			Point2d newPoint;
-			std::cout << "Enter new point" << std::endl;
-			std::cin >> newPoint;
-			obj->setPoint(newPoint);
-
-			std::cout << "Point changed to " << newPoint << std::endl;
-		}
-
-		else if (parametr == "radius")
-		{
-			double newRadius;
-			std::cout << "Enter new radius" << std::endl;
-			std::cin >> newRadius;
-			setRadius(newRadius);
-
-			std::cout << "Radius changed to " << newRadius << std::endl;
-		}
-		break;
-	}
-	default:
-		break;
-	}
-}
-
 
 int main()
 {
 	//testWriteDb();
-
-	UI();
+	//testListObj();
+	
+	//UI();
+	
 }

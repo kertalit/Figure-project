@@ -1,7 +1,6 @@
 #ifndef _POLILYNE_H
 #define _POLILYNE_H
 
-#pragma once
 #include "Figure.h"
 #include "Point2d.h"
 #include <vector>
@@ -12,13 +11,11 @@ class Polilyne : public Figure
 {
 private:
 
-	int id;
-	std::string	name;
 	std::vector<Point2d> points;
 
 public:
 	Polilyne();
-	Polilyne(int id, const std::string&	name, const std::vector<Point2d>& points);
+	Polilyne(const std::vector<Point2d>& points);
 
 	static const int type = 3;
 
@@ -32,14 +29,10 @@ public:
 	
 	int  getType() override;
 
-	int getId();
-	std::string getName();
+
 	std::vector<Point2d> getPoints();
 
-	void setId(int id);
-	void setName(std::string name);
-	void setPoints(std::vector<Point2d> points);
-
+	void setPoint(const Point2d& point, int number);
 	
 
 

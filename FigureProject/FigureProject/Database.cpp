@@ -20,7 +20,7 @@
 		}
 
 	}
-
+	
 	Database::Database()
 	{
 
@@ -34,10 +34,6 @@
 	std::vector<Figure*> Database::GetObjects() const
 	{
 		return figures;
-	}
-	void Database::setObjects(const std::vector<Figure*>& figures)
-	{
-		this->figures = figures;
 	}
 
 	void Database::save(const std::string& path)
@@ -72,7 +68,12 @@
 		}
 	}
 
-	void Database::printDb()
+	void Database::addObj(Figure* obj)
+	{
+		figures.push_back(obj);
+	}
+
+	void Database::print()
 	{
 		for (int i = 0; i < figures.size(); ++i)
 		{
@@ -88,8 +89,3 @@
 		}
 	}
 
-	void Database::addObj(std::vector<Figure*> obj)
-	{
-		for (int i = 0; i < obj.size(); i++)
-			figures.push_back(obj[i]);
-	}
