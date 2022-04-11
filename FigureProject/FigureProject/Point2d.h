@@ -18,7 +18,7 @@ public:
 };
 
 
-std::ostream& operator<<(std::ostream& file, const Point2d& point);
+std::ostream& operator<< (std::ostream& file, const Point2d& point);
 std::istream& operator>> (std::istream& file, Point2d& point);
 
 #endif // !_POINT2D_H

@@ -16,7 +16,7 @@ class Figure
 public:
 
 	Figure();
-	Figure(int id, std::string& name);
+	Figure(int id, const std::string& name);
 
 	void virtual read(DataProvider& file) = 0;
 
@@ -27,7 +27,7 @@ public:
 	int  virtual getType() = 0;
 
 	void setId(int id);
-	void setName(std::string name);
+	void setName(const std::string& name);
 
 	int getId();
 	std::string getName();

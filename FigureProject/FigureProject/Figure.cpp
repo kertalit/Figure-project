@@ -6,7 +6,7 @@ Figure::Figure()
 {
 
 }
-Figure::Figure(int id, std::string& name)
+Figure::Figure(int id, const std::string& name)
 	:id(id), name(name)
 {
 
@@ -19,7 +19,7 @@ void  Figure::read(DataProvider& file)
 }
 void  Figure::print() 
 {
-	std::cout << id << " ";
+	std::cout << id << std::endl;
 	std::cout << name << std::endl;
 }
 
@@ -39,7 +39,7 @@ void Figure::setId(int id)
 	this->id = id;
 }
 
-void Figure::setName(std::string name)
+void Figure::setName(const std::string& name)
 {
 	this->name = name;
 }

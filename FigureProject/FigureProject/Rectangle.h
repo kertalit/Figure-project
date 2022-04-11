@@ -14,12 +14,9 @@ private:
 	 
 public:
 	Rectangle();
-	Rectangle(Point2d& point, double length, double width);
+	Rectangle(const Point2d& point, double length, double width);
 
 	static const int type = 2;
-
-	void change() override;
-	
 
 	void read(DataProvider& file) override;
 
@@ -33,7 +30,7 @@ public:
 	double getLength();
 	double getWidth();
 	
-	void setPoint(Point2d& point);
+	void setPoint(const Point2d& point);
 	void setLength(double lenght);
 	void setWidth(double width);
 	

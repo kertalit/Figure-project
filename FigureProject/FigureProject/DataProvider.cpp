@@ -37,7 +37,7 @@
 
  }
 
- void  DataProvider::writeString(const std::string line)
+ void  DataProvider::writeString(const std::string& line)
  {
 
  }

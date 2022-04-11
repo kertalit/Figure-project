@@ -19,8 +19,6 @@ public:
 
 	static const int type = 3;
 
-	void change() override;
-
 	void read(DataProvider& file) override;
 
 	void write(DataProvider& file) override;

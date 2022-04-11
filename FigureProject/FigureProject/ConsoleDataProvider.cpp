@@ -54,7 +54,7 @@ void ConsoleDataProvider::writePoint2d(const Point2d& point)
 	std::cout << point << std::endl;
 }
 
-void ConsoleDataProvider::writeString(const std::string line)
+void ConsoleDataProvider::writeString(const std::string& line)
 {
 	std::cout << line << std::endl;
 }

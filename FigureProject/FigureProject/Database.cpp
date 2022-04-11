@@ -16,7 +16,6 @@
 		catch (const std::exception& ex)
 		{
 			std::cout << ex.what() << std::endl;
-			DeleteObject();
 		}
 
 	}
@@ -28,10 +27,10 @@
 
 	Database::~Database()
 	{
-		DeleteObject();
+
 	}
 
-	std::vector<Figure*> Database::GetObjects() const
+	std::vector<std::shared_ptr<Figure>> Database::GetObjects() const
 	{
 		return figures;
 	}
@@ -47,7 +46,6 @@
 		{
 			figures[i]->write(fileDataProvider);
 		}
-
 	}
 
 	void Database::rdFile(FileDataProvider& file)
@@ -60,7 +58,7 @@
 		{
 			int type = file.rdInt();
 
-			Figure* obj = createObj(type);
+			std::shared_ptr<Figure> obj = createObj(type);
 
 			obj->read(file);
 
@@ -68,7 +66,7 @@
 		}
 	}
 
-	void Database::addObj(Figure* obj)
+	void Database::addObj(std::shared_ptr<Figure> obj)
 	{
 		figures.push_back(obj);
 	}
@@ -78,14 +76,6 @@
 		for (int i = 0; i < figures.size(); ++i)
 		{
 			figures[i]->print();
-		}
-	}
-
-	void Database::DeleteObject()
-	{
-		for (int i = 0; i < figures.size(); i++)
-		{
-			delete figures[i];
 		}
 	}
 

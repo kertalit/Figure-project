@@ -3,25 +3,26 @@
 
 #include "Database.h"
 #include "FileDataProvider.h"
-
-
 #include "DataProvider.h"
+#include <memory>
 
 
-Figure* createObj(int type);
+std::shared_ptr<Figure> createObj(int type);
 
 
-void saveDb(Database* base);
+void saveDb(std::shared_ptr<Database> base);
 
-Database* loadDb();
+std::shared_ptr<Database> loadDb();
 
-Database* createDb();
+std::shared_ptr<Database> createDb();
 
-void changeObj(Figure* obj);
+void changeObj(std::shared_ptr<Figure> obj);
 
-void listDb(Database* base);
+void listDb(std::shared_ptr<Database> base);
 
-int serchId(std::vector<Figure*> obj, int key);
+int searchId(std::vector<std::shared_ptr<Figure> > obj, int key);
+
+void deleteFigure(std::vector < std::shared_ptr<Figure> > &obj, int pos);
 
 
 #endif // !_COMMANDS_H

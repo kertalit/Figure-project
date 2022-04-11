@@ -70,7 +70,7 @@ FileDataProvider::~FileDataProvider()
 		outFile << point << std::endl;
 	}
 
-	void FileDataProvider::writeString(const std::string line)
+	void FileDataProvider::writeString(const std::string& line)
 	{
 		outFile << line << std::endl;
 	}

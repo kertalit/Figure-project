@@ -14,48 +14,6 @@ Polilyne::Polilyne(const std::vector<Point2d>& points)
 
 }
 
-void Polilyne::change()
-{
-	std::string parametr = "";
-	std::cout << "Enter name parametr who you want to change: 'id' 'name' 'points' " << std::endl;
-
-	std::cin >> parametr;
-
-	if (parametr == "id")
-	{
-		int newId;
-		std::cout << "Enter new id" << std::endl;
-		std::cin >> newId;
-		setId(newId);
-
-		std::cout << "Id changed to " << newId << std::endl;
-	}
-
-	else if (parametr == "name")
-	{
-		std::string newName;
-		std::cout << "Enter new name" << std::endl;
-		std::cin >> newName;
-		setName(newName);
-
-		std::cout << "Name changed to " << newName << std::endl;
-	}
-
-	else if (parametr == "points")
-	{
-		std::cout << "Which pair of point do you want to change? (1,2,3...)" << std::endl;
-		int number;
-
-		std::cin>>number;
-
-		std::cout << "Enter new point" << std::endl;
-		std::cin >> points[number-1];
-
-		std::cout << "Point changed to " << points[number - 1] << std::endl;
-	}
-
-}
-
 void Polilyne::read(DataProvider& file)
 {
 	Figure::read(file);

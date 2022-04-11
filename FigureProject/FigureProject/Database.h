@@ -18,16 +18,15 @@ public:
 	
 	~Database();
 
-	std::vector<Figure*> GetObjects() const;
+	std::vector<std::shared_ptr<Figure>> GetObjects() const;
 
 	void save(const std::string& path);
 	void print();
-	void addObj(Figure* obj);
+	void addObj(std::shared_ptr<Figure> obj);
 
 private:
-	std::vector<Figure*> figures;
+	std::vector<std::shared_ptr<Figure>> figures;
 	void rdFile(FileDataProvider& file);
-	void DeleteObject();
 
 };
 

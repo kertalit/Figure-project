@@ -1,25 +1,25 @@
 
 #include "Commands.h"
 
-		Figure* createObj(int type)
+		std::shared_ptr<Figure> createObj(int type)
 		{
-			Figure* obj = 0;
+			std::shared_ptr<Figure> obj = 0;
 
 			switch (type)
 			{
 			case Circle::type:
 			{
-				obj = new Circle();
+				obj = std::make_shared<Circle>();
 				break;
 			}
 			case Rectangle::type:
 			{
-				obj = new Rectangle();
+				obj = std::make_shared<Rectangle>();
 				break;
 			}
 			case Polilyne::type:
 			{
-				obj = new Polilyne();
+				obj = std::make_shared<Polilyne>();
 				break;
 			}
 			default:
@@ -29,15 +29,15 @@
 			return obj;
 		}
 
-		Database* createDb()
+		std::shared_ptr<Database> createDb()
 		{
-			Database* base = new Database();
+			
 			std::cout << "Database was created" << std::endl;
 
-			return base;
+			return std::make_shared<Database>();
 		}
 
-		void saveDb(Database* base)
+		void saveDb(std::shared_ptr<Database> base)
 		{
 			std::string path = " ";
 
@@ -50,26 +50,24 @@
 			std::cout << "The database is saved and available on the path: " << path << std::endl;
 		}
 
-		Database* loadDb()
+		std::shared_ptr<Database> loadDb()
 		{
 			std::string path = " ";
 
 			std::cout << "Enter path to Database" << std::endl;
 
 			std::cin >> path;
-			
-			Database* base = new Database(path);
 
-			return base;
+			return std::make_shared<Database>(path);
 		}
 
-		void changeObj(Figure* obj)
+		void changeObj(std::shared_ptr<Figure> obj)
 		{
 			switch (obj->getType())
 			{
 			case Circle::type:
 			{
-				Circle* pCircle = static_cast<Circle*> (obj);
+				std::shared_ptr<Circle> pCircle = std::static_pointer_cast<Circle>(obj);
 				std::string parametr = "";
 				std::cout << "Enter name parametr who you want to change: 'id' 'name' 'point' 'radius' " << std::endl;
 
@@ -119,7 +117,7 @@
 
 			case Rectangle::type:
 			{
-				Rectangle* pRectangle = static_cast<Rectangle*> (obj);
+				std::shared_ptr<Rectangle> pRectangle = std::static_pointer_cast<Rectangle>(obj);
 				std::string parametr = "";
 				std::cout << "Enter name parametr who you want to change: 'id' 'name' 'point' 'length' 'width' " << std::endl;
 
@@ -178,7 +176,7 @@
 
 			case Polilyne::type:
 			{
-				Polilyne* pPolilyne = static_cast<Polilyne*> (obj);
+				std::shared_ptr<Polilyne> pPolilyne = std::static_pointer_cast<Polilyne>(obj);
 				std::string parametr = "";
 				std::cout << "Enter name parametr who you want to change: 'id' 'name' 'points' " << std::endl;
 
@@ -226,9 +224,9 @@
 			}
 		}
 
-		void listDb(Database* base)
+		void listDb(std::shared_ptr<Database> base)
 		{
-			std::vector<Figure*> obj = base->GetObjects();
+			std::vector<std::shared_ptr<Figure>> obj = base->GetObjects();
 
 			for (int i = 0; i < obj.size(); i++)
 			{
@@ -259,7 +257,7 @@
 			}
 		}
 
-		int serchId(std::vector<Figure*> obj, int key)
+		int searchId(std::vector<std::shared_ptr<Figure> > obj, int key)
 		{
 			for (int i = 0; i < obj.size(); ++i)
 			{
@@ -268,8 +266,19 @@
 					return i;
 					break;
 				}
-				return -1;
 			}
+			return 0;
+		}
+
+		void deleteFigure(std::vector < std::shared_ptr<Figure> > &obj, int pos)
+		{
+			auto itFigure = obj.begin();
+			
+			std::advance(itFigure, pos);
+			obj.erase(itFigure);
+
+			std::cout << "Objects number " << pos << " was deleted" <<	std::endl;
+
 		}
 
 

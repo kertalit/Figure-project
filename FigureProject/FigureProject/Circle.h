@@ -18,7 +18,6 @@ public:
 
 	static const int type = 1;
 
-	void change() override;
 
 	void read(DataProvider& file) override;
 	
@@ -34,7 +33,7 @@ public:
 	double getRadius();
 
 
-	void setPoint(Point2d point);
+	void setPoint(const Point2d& point);
 	void setRadius(double radius);
 
 	
