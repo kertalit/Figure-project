@@ -11,37 +11,37 @@
 
 class FIGURE_API FileDataProvider : public DataProvider
 {
-
+	
 private:
-  std::ifstream inFile;
-  std::ofstream outFile;
+	std::ifstream inFile;
+	std::ofstream outFile;
 
 public:
 
-  FileDataProvider(std::ifstream& file, const std::string& path);
+	FileDataProvider(std::ifstream& file, const std::string& path);
 
-  FileDataProvider(std::ofstream& file, const std::string& path);
+	FileDataProvider(std::ofstream& file, const std::string& path);
 
-  ~FileDataProvider();
+	~FileDataProvider();
+	
+	
+	int rdInt() override;
 
+	std::string rdString() override;
 
-  int rdInt() override;
+	Point2d rdPoint2d() override;
 
-  std::string rdString() override;
+	double rdDouble() override;
 
-  Point2d rdPoint2d() override;
+	void writeInt(const int number) override;
 
-  double rdDouble() override;
+	void writePoint2d(const Point2d& point) override;
 
-  void writeInt(const int number) override;
+	void writeString(const std::string& line) override;
 
-  void writePoint2d(const Point2d& point) override;
+	void writeDouble(const double number) override;
 
-  void writeString(const std::string& line) override;
-
-  void writeDouble(const double number) override;
-
-  void printPoint2d(const Point2d& point) override;
+	void printPoint2d(const Point2d& point) override;
 
 };
 

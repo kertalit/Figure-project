@@ -14,11 +14,11 @@ Circle::Circle(const Point2d& point, double radius)
 }
 
 void Circle::read(DataProvider& provider)
-{
- Figure::read(provider);
- point = provider.rdPoint2d();
- radius = provider.rdDouble();
-}
+	{
+		Figure::read(provider);
+		point = provider.rdPoint2d();
+		radius = provider.rdDouble();
+	}
 
 void Circle::write(DataProvider& provider)
 	{
