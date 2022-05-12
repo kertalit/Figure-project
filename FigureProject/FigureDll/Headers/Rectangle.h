@@ -26,7 +26,6 @@ public:
 
   int getType() const override;
   Point2d getPoint() const;
-  Point2d getPoint() const;
   double getLength() const;
   double getWidth() const;
 

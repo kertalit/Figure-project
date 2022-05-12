@@ -45,7 +45,7 @@
     <ClInclude Include="Headers\Rectangle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Platform.h">
+    <ClInclude Include="Headers\Platform.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -13,26 +13,26 @@ class FIGURE_API Polilyne : public Figure
 {
 private:
 
-	std::vector<Point2d> points;
+std::vector<Point2d> points;
 
 public:
-	Polilyne();
-	Polilyne(const std::vector<Point2d>& points);
+ Polilyne();
+ Polilyne(const std::vector<Point2d>& points);
 
-	static const int type = 3;
+ static const int type = 3;
 
-	void read(DataProvider& provider) override;
+ void read(DataProvider& provider) override;
 
-	void write(DataProvider& provider) override;
+ void write(DataProvider& provider) override;
 
-	void print() override;
+ void print() override;
 
-	
-	int  getType() const override;
-	std::vector<Point2d> getPoints() const;
+ 
+ int  getType() const override;
+ std::vector<Point2d> getPoints() const;
 
-	void setPoint(const Point2d& point, size_t number);
-	
+ void setPoint(const Point2d& point, size_t number);
+ 
 
 
 };

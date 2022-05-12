@@ -10,34 +10,34 @@
 class FIGURE_API Circle : public Figure
 {
 
-	Point2d point;
-	double radius;
+ Point2d point;
+ double radius;
 
 public:
-	Circle();
-	Circle(const Point2d& point, double radius);
+ Circle();
+ Circle(const Point2d& point, double radius);
 
-	static const int type = 1;
-
-
-	void read(DataProvider& provider) override;
-	
-
-	void write(DataProvider& provider) override;
-
-	void print() override;
-
-	int getType() const override;
-
-	
-	Point2d getPoint() const;
-	double getRadius() const;
+ static const int type = 1;
 
 
-	void setPoint(const Point2d& point);
-	void setRadius(double radius);
+ void read(DataProvider& provider) override;
+ 
 
-	
+ void write(DataProvider& provider) override;
+
+ void print() override;
+
+ int getType() const override;
+
+ 
+ Point2d getPoint() const;
+ double getRadius() const;
+
+
+ void setPoint(const Point2d& point);
+ void setRadius(double radius);
+
+ 
 
 };
 

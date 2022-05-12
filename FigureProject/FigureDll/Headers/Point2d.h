@@ -10,12 +10,12 @@
 class FIGURE_API Point2d
 {
 public:
-	double x;
-	double y;
+ double x;
+ double y;
 
-	Point2d();
+ Point2d();
 
-	Point2d(double x, double y);
+ Point2d(double x, double y);
 
 };
 

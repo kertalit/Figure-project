@@ -148,10 +148,10 @@
     <ClInclude Include="Headers\DataProvider.h" />
     <ClInclude Include="Headers\Figure.h" />
     <ClInclude Include="Headers\FileDataProvider.h" />
+    <ClInclude Include="Headers\Platform.h" />
     <ClInclude Include="Headers\Point2d.h" />
     <ClInclude Include="Headers\Polilyne.h" />
     <ClInclude Include="Headers\Rectangle.h" />
-    <ClInclude Include="Platform.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Circle.cpp" />
