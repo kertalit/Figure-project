@@ -18,6 +18,9 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\FigureProject.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -88,10 +91,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Programming\Figure-project\FigureProject\FigureDll\Headers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Programming\Figure-project\FigureProject\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>FigureDll.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -138,31 +144,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="Circle.cpp" />
-    <ClCompile Include="ConsoleDataProvider.cpp" />
-    <ClCompile Include="Database.cpp" />
-    <ClCompile Include="DataProvider.cpp" />
-    <ClCompile Include="FileDataProvider.cpp" />
-    <ClCompile Include="Figure.cpp" />
-    <ClCompile Include="FigureProject.cpp" />
-    <ClCompile Include="Point2d.cpp" />
-    <ClCompile Include="Polilyne.cpp" />
-    <ClCompile Include="Rectangle.cpp" />
-    <ClCompile Include="Commands.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Circle.h" />
-    <ClInclude Include="Database.h" />
-    <ClInclude Include="DataProvider.h" />
-    <ClInclude Include="FileDataProvider.h" />
-    <ClInclude Include="Figure.h" />
-    <ClInclude Include="ConsoleDataProvider.h" />
-    <ClInclude Include="Commands.h" />
-    <ClInclude Include="Point2d.h" />
-    <ClInclude Include="Polilyne.h" />
-    <ClInclude Include="Rectangle.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
