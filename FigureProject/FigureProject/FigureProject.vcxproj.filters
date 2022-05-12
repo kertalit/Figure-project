@@ -15,70 +15,8 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="FigureProject.cpp">
+    <ClCompile Include="Source\FigureProject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FileDataProvider.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Point2d.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Figure.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Circle.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Rectangle.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Database.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Polilyne.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Commands.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="DataProvider.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ConsoleDataProvider.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="FileDataProvider.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Point2d.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Figure.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Circle.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Rectangle.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Database.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Polilyne.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Commands.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="DataProvider.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ConsoleDataProvider.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>
