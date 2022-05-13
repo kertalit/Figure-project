@@ -17,21 +17,21 @@ class FIGURE_API Database
 {
 
 public:
-	Database(const std::string& path);
-	Database();
-	
-	~Database();
+ Database(const std::string& path);
+ Database();
+ 
+ ~Database();
 
-	std::vector<FigurePtr> GetObjects() const;
+ std::vector<FigurePtr> GetObjects() const;
 
-	void save(const std::string& path);
-	void print();
-	void addObj(FigurePtr obj);
-	void deleteFigure(size_t pos);
+ void save(const std::string& path);
+ void print();
+ void addObj(FigurePtr obj);
+ void deleteFigure(size_t pos);
 
 private:
-	std::vector<FigurePtr> figures;
-	void rdFile(DataProvider& file);
+ std::vector<FigurePtr> figures;
+ void rdFile(DataProvider& file);
 
 };
 
