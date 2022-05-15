@@ -5,9 +5,9 @@ FileDataProvider::FileDataProvider(std::ifstream& stream, const std::string& pat
  inFile.open(path);
 
  if (inFile.is_open())
-   std::cout << "File is open" << std::endl;
+  std::cout << "File is open" << std::endl;
  else
-	 std::cout << "File is not open" << std::endl;
+  std::cout << "File is not open" << std::endl;
 }
 
 FileDataProvider::FileDataProvider(std::ofstream& stream, const std::string& path)

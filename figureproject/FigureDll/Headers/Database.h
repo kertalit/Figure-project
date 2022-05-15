@@ -1,9 +1,6 @@
 #ifndef _DATABASE_H
 #define _DATABASE_H
 
-
-#pragma once
-
 #include "Platform.h"
 #include "Figure.h"
 #include "Circle.h"
