@@ -1,7 +1,6 @@
 #ifndef _FILEDATAPROVIDER_H
 #define _FILEDATAPROVIDER_H
 
-
 #include "Platform.h"
 #include "Point2d.h"
 #include <ostream>

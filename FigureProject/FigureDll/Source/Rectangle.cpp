@@ -2,13 +2,13 @@
 
 
 Rectangle::Rectangle()
-	:point(0.0, 0.0), length(0.0), width(0.0)
+  :point(0.0, 0.0), length(0.0), width(0.0)
 {
 
 }
 
 Rectangle::Rectangle(const Point2d& point, double length, double width)
-	:point(point.x, point.y), length(length), width(width)
+  :point(point.x, point.y), length(length), width(width)
 {
 
 }

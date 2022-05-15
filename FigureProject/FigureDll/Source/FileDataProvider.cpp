@@ -6,7 +6,7 @@ FileDataProvider::FileDataProvider(std::ifstream& stream, const std::string& pat
 
  if (inFile.is_open())
    std::cout << "File is open" << std::endl;
-	else
+ else
 	 std::cout << "File is not open" << std::endl;
 }
 
@@ -14,10 +14,10 @@ FileDataProvider::FileDataProvider(std::ofstream& stream, const std::string& pat
 {
   outFile.open(path);
 
-	if (outFile.is_open())
-   std::cout << "File is open" << std::endl;
-	else
-   std::cout << "File is not open" << std::endl;
+ if (outFile.is_open())
+  std::cout << "File is open" << std::endl;
+ else
+  std::cout << "File is not open" << std::endl;
 }
 
 FileDataProvider::~FileDataProvider()
@@ -36,9 +36,9 @@ int FileDataProvider::rdInt()
 
 std::string FileDataProvider::rdString()
 {
-  std::string line = "";
-  inFile >> line;
-  return line;
+ std::string line = "";
+ inFile >> line;
+ return line;
 }
 
 Point2d FileDataProvider::rdPoint2d()
