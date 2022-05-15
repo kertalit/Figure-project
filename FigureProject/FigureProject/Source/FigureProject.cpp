@@ -1,11 +1,4 @@
-
-#include "DataProvider.h"
-#include "Figure.h"
-#include "Point2d.h"
-#include "Database.h"
-#include "Polilyne.h"
-#include "Commands.h"
-#include "ConsoleDataProvider.h"
+#include "InterfaceProject.h"
 
 
 bool validDb(DatabasePtr base)
@@ -20,26 +13,20 @@ bool validDb(DatabasePtr base)
 
 void testSaveDb()
 {
-
  Database database("Figure1.txt");
-
  std::vector<FigurePtr> figures = database.GetObjects();
 
  for (size_t i = 0; i < figures.size(); i++)
  {
   figures[i]->print();
  }
-
  database.save("New Database.txt");
-
 }
 
 void testCreateDb()
 {
  DatabasePtr base = 0;
-
  base = createDb();
-
  std::cout << base << std::endl;
 }
 
@@ -55,9 +42,7 @@ void testChoiceDb()
  bases.push_back(std::make_shared<Database>("New Database.txt"));
 
  DatabasePtr currentBase = 0;
-
  int number;
-
 
  for (size_t i = 0; i < bases.size(); i++)
  {
@@ -65,14 +50,11 @@ void testChoiceDb()
   std::cout << "Base # " << i + 1 << std::endl << std::endl;
   listDb(bases[i]);
  }
-
  std::cout << "Enter the number of the base (1,2,3...) you want to change " << std::endl;
  std::cin >> number;
-
  currentBase = bases[number - 1];
 
  std::cout << "Current base:" << std::endl;
-
  currentBase->print();
 }
 
@@ -84,7 +66,7 @@ void testCreateObj()
  std::cout << "Rectangle: " << std::endl;
  createObj(2)->print();
 
- std::cout << "Polilyne: " << std::endl;
+ std::cout << "Polyline: " << std::endl;
  createObj(3)->print();
 }
 
@@ -92,7 +74,6 @@ void testLoadDb()
 {
  DatabasePtr base;
  base = loadDb();
-
  std::cout << "Database was loaded" << std::endl << std::endl;
 
  listDb(base);
@@ -101,36 +82,48 @@ void testLoadDb()
 void testChangeObj()
 {
  Database base("Figure1.txt");
-
- std::vector<FigurePtr> obj = base.GetObjects();
-
- obj[1]->print();
-
- changeObj(obj[1]);
-
  base.print();
- 
+
+ std::cout << std::endl << "Enter id of figure" << std::endl;
+
+ size_t id = 0;
+ std::cin >> id;
+
+ try
+ {
+   auto figure = base.searchId(id);
+   changeObj(*figure);
+   base.print();
+ }
+ catch (const std::exception& ex)
+ {
+   std::cout << ex.what() << std::endl;
+ }
 }
 
 void testSearchId()
 {
- std::vector<FigurePtr> obj = std::make_shared<Database>("Figure1.txt")->GetObjects();
+ Database base("Figure1.txt");
  int number = 102;
  int bad_number = 10;
- int result = searchId(obj, number);
- 
- std::cout << "Number found obj: " << result << std::endl;
 
- int result2 = searchId(obj, bad_number);
+ try
+ {
+   auto result2 = base.searchId(bad_number);
+   std::cout << "Id found" << std::endl;
 
- std::cout << "Number found obj: " << result2 << std::endl;
-
+   auto result = base.searchId(number);
+   std::cout << "Exception didn't work " << std::endl;
+ }
+ catch (const std::exception& ex)
+ {
+   std::cout << ex.what() << std::endl;
+ }
 }
 
 void testPrintDb()
 {
  Database base("Figure1.txt");
-
  base.print();
 }
 
@@ -140,13 +133,13 @@ void testCreateFigure()
 
  auto pBase = std::make_shared<Database>();
 
-   FigurePtr obj = createObj(Rectangle::type);
-   obj->read(console);
-   pBase->addObj(obj);
+ FigurePtr obj = createObj(Rectangle::type);
+ obj->read(console);
+ pBase->addObj(obj);
 
-   std::cout << "Rectangle was created" << std::endl;
+ std::cout << "Rectangle was created" << std::endl;
 
-   pBase->print();
+ pBase->print();
 }
 
 void testDeleteFigure()
@@ -156,22 +149,15 @@ void testDeleteFigure()
  one.print();
 
  std::cout << std::endl;
-
  std::cout << "deleteFigure" << std::endl << std::endl;
-
  one.deleteFigure(101);
 
  one.print();
-
  std::cout << std::endl;
 
  std::cout << "deleteFigure" << std::endl << std::endl;
-
  one.deleteFigure(50);
-
-
  std::cout << std::endl;
-
  }
 
 
@@ -206,7 +192,6 @@ void UI()
    currentBase = createDb();
    bases.push_back(currentBase);
   }
-
   else if (command == "saveDb")
   {
    if (!validDb(currentBase))
@@ -214,7 +199,6 @@ void UI()
    
     saveDb(currentBase);
   }
-
   else if (command == "loadDb")
   {
    currentBase = loadDb();
@@ -223,7 +207,6 @@ void UI()
    std::cout << "Database was loaded" << std::endl;
 
   }
-
   else if (command == "createFigure")
   {
    if (!validDb(currentBase))
@@ -232,7 +215,7 @@ void UI()
    std::cout << "What figure to create?" << std::endl;
    std::cout << "Enter '1' for Circle" << std::endl;
    std::cout << "Enter '2' for Rectangle" << std::endl;
-   std::cout << "Enter '3' for Polilyne" << std::endl;
+   std::cout << "Enter '3' for Polyline" << std::endl;
 
    size_t type;
    std::cin >> type;
@@ -243,7 +226,6 @@ void UI()
 
     std::cout << "Figure was created" << std::endl;
   }
-
   else if (command == "printDb")
   {
    if (!validDb(currentBase))
@@ -257,7 +239,6 @@ void UI()
     continue;
 
     int number = 0;
-    int index = 0;
 
     listDb(currentBase);
     
@@ -265,21 +246,17 @@ void UI()
 
     std::cout << "Enter the ID of the figure (1,2,3...) you want to change " << std::endl;
     std::cin >> number;
-
-    std::vector<FigurePtr> listDb = currentBase->GetObjects();
-    
-    index = searchId(listDb, number);
-
-    if (index == false)
+    try
     {
-     std::cout << "ID does not found" << std::endl;
+      auto index = currentBase->searchId(number);
+      auto figure = currentBase->GetObjects();
+      changeObj(*index);
     }
-    else
+    catch (const std::exception& ex)
     {
-     changeObj(listDb[index + 1]);
+      std::cout << ex.what();
     }
   }
-
   else if (command == "choiceDb")
   {
    if (currentBase == 0)
@@ -296,13 +273,12 @@ void UI()
      std::cout << "Base # " << i + 1 << std::endl << std::endl;
      listDb(bases[i]);
     }
-
+    
     std::cout << "Enter the number of the shape (1,2,3...) you want to change " << std::endl;
     std::cin >> number;
 
     currentBase = bases[number - 1];
     std::cout << "Current base was changed" << std::endl;
-
    }
   }
   else if (command == "deleteFigure")
@@ -315,11 +291,10 @@ void UI()
    std::cin >> number;
 
    currentBase->deleteFigure(number);
-
   }
-
   else if (command == "Exit")
   {
+
   if (validDb(currentBase))
   {
    std::string choice = "";
@@ -356,6 +331,6 @@ int main()
  //testPrintDb();
  //testCreateFigure();
  //testDeleteFigure();
- UI();
+ //UI();
 
 }

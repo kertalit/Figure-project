@@ -12,29 +12,25 @@
 
 class FIGURE_API Figure
 {
- size_t id;
- std::string name;
- static size_t count;
-
 public:
-
  Figure();
  Figure(size_t id, const std::string& name);
 
  void virtual read(DataProvider& provider) = 0;
-
- void virtual write(DataProvider& provider) = 0;
-
- void virtual print() = 0;
-
- int  virtual getType() const = 0;
+ void virtual write(DataProvider& provider) const = 0;
+ void virtual print() const = 0;
 
  void setId(size_t id);
  void setName(const std::string& name);
 
+ int  virtual getType() const = 0;
  int getId() const;
  std::string getName() const;
- 
+
+private:
+ size_t id;
+ std::string name;
+ static size_t count;
 };
 
 

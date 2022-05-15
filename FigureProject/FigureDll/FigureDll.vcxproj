@@ -150,7 +150,7 @@
     <ClInclude Include="Headers\FileDataProvider.h" />
     <ClInclude Include="Headers\Platform.h" />
     <ClInclude Include="Headers\Point2d.h" />
-    <ClInclude Include="Headers\Polilyne.h" />
+    <ClInclude Include="Headers\Polyline.h" />
     <ClInclude Include="Headers\Rectangle.h" />
   </ItemGroup>
   <ItemGroup>
@@ -162,7 +162,7 @@
     <ClCompile Include="Source\Figure.cpp" />
     <ClCompile Include="Source\FileDataProvider.cpp" />
     <ClCompile Include="Source\Point2d.cpp" />
-    <ClCompile Include="Source\Polilyne.cpp" />
+    <ClCompile Include="Source\Polyline.cpp" />
     <ClCompile Include="Source\Rectangle.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

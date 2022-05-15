@@ -6,7 +6,6 @@ ConsoleDataProvider::ConsoleDataProvider()
 	
 }
 
-
 ConsoleDataProvider::~ConsoleDataProvider()
 {
 
@@ -21,27 +20,24 @@ int ConsoleDataProvider::rdInt()
 
 std::string ConsoleDataProvider::rdString()
 {
-	std::string stringLine = "";
-	std::cin >> stringLine;
-	return stringLine;
-
+	std::string line = "";
+	std::cin >> line;
+	return line;
 }
 
 Point2d ConsoleDataProvider::rdPoint2d()
 {
-	double x = 0.0;
-	double y = 0.0;
-	std::cin >> x;
-	std::cin >> y;
+	Point2d point;
+	std::cin >> point.x >> point.y;
 
-	return Point2d(x, y);
+	return point;
 }
 
 double ConsoleDataProvider::rdDouble()
 {
-	double point = 0.0;
-	std::cin >> point;
-	return point;
+	double number = 0.0;
+	std::cin >> number;
+	return number;
 }
 
 void ConsoleDataProvider::writeInt(const int number)

@@ -39,7 +39,7 @@
     <ClInclude Include="Headers\Point2d.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Headers\Polilyne.h">
+    <ClInclude Include="Headers\Polyline.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Headers\Rectangle.h">
@@ -74,7 +74,7 @@
     <ClCompile Include="Source\Point2d.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Polilyne.cpp">
+    <ClCompile Include="Source\Polyline.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\Rectangle.cpp">

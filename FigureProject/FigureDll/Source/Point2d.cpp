@@ -14,17 +14,17 @@
 	}
 
 	
-	std::ostream& operator<<(std::ostream& file, const Point2d& point)
+	std::ostream& operator<<(std::ostream& stream, const Point2d& point)
 	{
-		file << point.x << std::endl;
-		file << point.y;
+		stream << point.x << std::endl;
+		stream << point.y;
 
-		return file;
+		return stream;
 	}
 
-	std::istream& operator>> (std::istream& file, Point2d& point)
+	std::istream& operator>> (std::istream& stream, Point2d& point)
 	{
-		file >> point.x >> point.y;
+		stream >> point.x >> point.y;
 
-		return file;
+		return stream;
 	}

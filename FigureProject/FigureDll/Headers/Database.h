@@ -8,31 +8,29 @@
 #include "Figure.h"
 #include "Circle.h"
 #include "Rectangle.h"
-#include "Polilyne.h"
+#include "Polyline.h"
 #include <vector>
 
 using DatabasePtr = std::shared_ptr<class Database> FIGURE_API;
 
 class FIGURE_API Database
 {
-
 public:
- Database(const std::string& path);
- Database();
- 
- ~Database();
+  Database(const std::string& path);
+  Database();
+  ~Database();
 
- std::vector<FigurePtr> GetObjects() const;
+  void save(const std::string& path);
+  void print() const;
+  void addObj(FigurePtr obj);
+  std::vector<FigurePtr>::iterator searchId(size_t key);
+  void deleteFigure(size_t pos);
 
- void save(const std::string& path);
- void print();
- void addObj(FigurePtr obj);
- void deleteFigure(size_t pos);
+  std::vector<FigurePtr> GetObjects() const;
 
 private:
- std::vector<FigurePtr> figures;
- void rdFile(DataProvider& file);
-
+  std::vector<FigurePtr> figures;
+  void rdFile(DataProvider& stream);
 };
 
 #endif // !_DATABASE_H

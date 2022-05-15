@@ -1,7 +1,6 @@
 #ifndef _POINT2D_H
 #define _POINT2D_H
 
-
 #include "Platform.h"
 #include <iostream>
 #include <fstream>
@@ -10,17 +9,14 @@
 class FIGURE_API Point2d
 {
 public:
- double x;
- double y;
-
  Point2d();
-
  Point2d(double x, double y);
 
+ double x;
+ double y;
 };
 
-
-std::ostream& operator<< (std::ostream& file, const Point2d& point);
-std::istream& operator>> (std::istream& file, Point2d& point);
+FIGURE_API std::ostream& operator<< (std::ostream& stream, const Point2d& point);
+FIGURE_API std::istream& operator>> (std::istream& stream, Point2d& point);
 
 #endif // !_POINT2D_H

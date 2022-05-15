@@ -5,7 +5,6 @@
 Database::Database(const std::string& path)
 {
  std::ifstream file;
-
  try
  {
   FileDataProvider fileDataProvider(file, path);
@@ -46,20 +45,18 @@ Database::Database(const std::string& path)
   }
  }
 
- void Database::rdFile(DataProvider& file)
+ void Database::rdFile(DataProvider& stream)
  {
-  int objectCount = file.rdInt();
+  int objectCount = stream.rdInt();
 
   figures.reserve(objectCount);
 
   for (size_t i = 0; i < objectCount; i++)
   {
-   size_t type = file.rdInt();
-
+   size_t type = stream.rdInt();
    FigurePtr obj = createObj(type);
 
-   obj->read(file);
-
+   obj->read(stream);
    figures.push_back(obj);
   }
  }
@@ -69,7 +66,17 @@ Database::Database(const std::string& path)
   figures.push_back(obj);
  }
 
- void Database::print()
+ std::vector<FigurePtr>::iterator Database::searchId(size_t key)
+ {
+  auto res = std::find_if(figures.begin(), figures.end(), [key](const FigurePtr& obj)->bool {return key == obj->getId();});
+
+  if (res == figures.end())
+    throw std::exception ("Id not found");
+
+    return res;
+ }
+
+ void Database::print() const
  {
   for (size_t i = 0; i < figures.size(); ++i)
   {
@@ -79,15 +86,12 @@ Database::Database(const std::string& path)
 
  void Database::deleteFigure(size_t id)
  {
-  
-  int position = searchId(figures, id);
+  auto position = std::find_if(figures.begin(), figures.end(), [id](const FigurePtr& obj)->bool {return id == obj->getId();});
 
-  if (position < 0)
+  if (position == figures.end())
   {
    std::cout << "Id not found" << std::endl;
    return;
   }
-   figures.erase(figures.begin() + position);
-
+  figures.erase(position);
  }
-

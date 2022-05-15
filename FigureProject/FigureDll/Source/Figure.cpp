@@ -6,32 +6,28 @@ Figure::Figure()
 {
 
 }
+
 Figure::Figure(size_t id, const std::string& name)
  :id(id), name(name)
 {
 
 }
 
-void  Figure::read(DataProvider& provider)
+void Figure::read(DataProvider& provider)
 {
  id = provider.rdInt();
  name = provider.rdString();
 }
-void  Figure::print() 
+void Figure::print() const
 {
  std::cout << id << std::endl;
  std::cout << name << std::endl;
 }
 
-void  Figure::write(DataProvider& provider)
+void Figure::write(DataProvider& provider) const
 {
  provider.writeInt(id);
  provider.writeString(name);
-}
-
-int  Figure::getType() const
-{
- return 0;
 }
 
 void Figure::setId(size_t id)
@@ -42,6 +38,11 @@ void Figure::setId(size_t id)
 void Figure::setName(const std::string& name)
 {
  this->name = name;
+}
+
+int Figure::getType() const
+{
+  return 0;
 }
 
 int Figure::getId() const
