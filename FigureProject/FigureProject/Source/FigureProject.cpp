@@ -3,7 +3,7 @@
 
 bool validDb(DatabasePtr base)
 {
- if (base == 0)
+ if (base == nullptr)
  {
   std::cout << "Database does not exist " << std::endl;
   return false;
@@ -13,20 +13,20 @@ bool validDb(DatabasePtr base)
 
 void testSaveDb()
 {
- Database database("Figure1.txt");
- std::vector<FigurePtr> figures = database.GetObjects();
+ auto base = std::make_shared<Database>("Figure1.txt");
+ auto figures = base->GetObjects();
 
- for (size_t i = 0; i < figures.size(); i++)
+ for (auto obj : figures)
  {
-  figures[i]->print();
+   obj->print();
  }
- database.save("New Database.txt");
+ base->save("New Database.txt");
 }
 
 void testCreateDb()
 {
- DatabasePtr base = 0;
- base = createDb();
+ DatabasePtr base = createDb();
+
  std::cout << base << std::endl;
 }
 
@@ -41,18 +41,16 @@ void testChoiceDb()
  bases.push_back(std::make_shared<Database>("Figure1.txt"));
  bases.push_back(std::make_shared<Database>("New Database.txt"));
 
- DatabasePtr currentBase = 0;
- int number;
+ DatabasePtr currentBase = nullptr;
 
- for (size_t i = 0; i < bases.size(); i++)
+ for (auto i = 0; i < bases.size(); ++i)
  {
   std::cout << std::endl;
   std::cout << "Base # " << i + 1 << std::endl << std::endl;
   listDb(bases[i]);
  }
- std::cout << "Enter the number of the base (1,2,3...) you want to change " << std::endl;
- std::cin >> number;
- currentBase = bases[number - 1];
+
+ currentBase = bases[1];
 
  std::cout << "Current base:" << std::endl;
  currentBase->print();
@@ -61,19 +59,19 @@ void testChoiceDb()
 void testCreateObj()
 {
  std::cout << "Circle: " << std::endl;
- createObj(1)->print();
+ createObj(Circle::type)->print();
 
  std::cout << "Rectangle: " << std::endl;
- createObj(2)->print();
+ createObj(Rectangle::type)->print();
 
  std::cout << "Polyline: " << std::endl;
- createObj(3)->print();
+ createObj(Polyline::type)->print();
 }
 
 void testLoadDb()
 {
- DatabasePtr base;
- base = loadDb();
+ DatabasePtr base = loadDb();
+
  std::cout << "Database was loaded" << std::endl << std::endl;
 
  listDb(base);
@@ -84,15 +82,10 @@ void testChangeObj()
  Database base("Figure1.txt");
  base.print();
 
- std::cout << std::endl << "Enter id of figure" << std::endl;
-
- size_t id = 0;
- std::cin >> id;
-
  try
  {
-   auto figure = base.searchId(id);
-   changeObj(*figure);
+   auto figure = base.searchId(102);
+   changeObj(figure);
    base.print();
  }
  catch (const std::exception& ex)
@@ -109,10 +102,10 @@ void testSearchId()
 
  try
  {
-   auto result2 = base.searchId(bad_number);
+   auto result = base.searchId(bad_number);
    std::cout << "Id found" << std::endl;
 
-   auto result = base.searchId(number);
+   auto result2 = base.searchId(number);
    std::cout << "Exception didn't work " << std::endl;
  }
  catch (const std::exception& ex)
@@ -144,28 +137,28 @@ void testCreateFigure()
 
 void testDeleteFigure()
 {
- Database one("Figure1.txt");
+ Database base("Figure1.txt");
 
- one.print();
+ base.print();
 
  std::cout << std::endl;
  std::cout << "deleteFigure" << std::endl << std::endl;
- one.deleteFigure(101);
+ base.deleteFigure(101);
 
- one.print();
+ base.print();
  std::cout << std::endl;
 
  std::cout << "deleteFigure" << std::endl << std::endl;
- one.deleteFigure(50);
+ base.deleteFigure(50);
  std::cout << std::endl;
- }
+}
 
 
 
 
 void UI()
 {
- std::shared_ptr<Database> currentBase = 0;
+ DatabasePtr currentBase = nullptr;
  std::vector<DatabasePtr> bases;
  ConsoleDataProvider console;
 
@@ -231,27 +224,27 @@ void UI()
    if (!validDb(currentBase))
     continue;
 
-    currentBase->print();
+   currentBase->print();
   }
   else if (command == "changeObj")
   {
    if (!validDb(currentBase))
     continue;
 
-    int number = 0;
+   listDb(currentBase);
+   
+   std::cout << std::endl;
 
-    listDb(currentBase);
-    
-    std::cout << std::endl;
+   int number = 0;
+   std::cout << "Enter figure ID (1,2,3...)" << std::endl;
+   std::cin >> number;
 
-    std::cout << "Enter the ID of the figure (1,2,3...) you want to change " << std::endl;
-    std::cin >> number;
-    try
-    {
-      auto index = currentBase->searchId(number);
-      auto figure = currentBase->GetObjects();
-      changeObj(*index);
-    }
+   try
+   {
+     auto index = currentBase->searchId(number);
+     auto figure = currentBase->GetObjects();
+     changeObj(index);
+   }
     catch (const std::exception& ex)
     {
       std::cout << ex.what();
@@ -259,46 +252,47 @@ void UI()
   }
   else if (command == "choiceDb")
   {
-   if (currentBase == 0)
-   {
-    std::cout << "Database does not exist " << std::endl;
-   }
-   else
-   {
-    int number;
+   if (!validDb(currentBase))
+    continue;
 
-    for (size_t i = 0; i < bases.size(); i++)
-    {
+   for (size_t i = 0; i < bases.size(); i++)
+   {
      std::cout << std::endl;
      std::cout << "Base # " << i + 1 << std::endl << std::endl;
      listDb(bases[i]);
-    }
-    
-    std::cout << "Enter the number of the shape (1,2,3...) you want to change " << std::endl;
-    std::cin >> number;
+   }
 
-    currentBase = bases[number - 1];
-    std::cout << "Current base was changed" << std::endl;
+   size_t index;
+   std::cout << "Enter base index (1,2,3...)" << std::endl;
+   std::cin >> index;
+
+   if (index > bases.size())
+   {
+     std::cout << "No such base" << std::endl;
+   }
+   else
+   {
+     currentBase = bases[index];
+     std::cout << "Current base was changed" << std::endl;
    }
   }
   else if (command == "deleteFigure")
   {
-   if (!validDb(currentBase))
-   continue;
+    if (!validDb(currentBase))
+     continue;
    
-   std::cout << "Enter id figure" << std::endl;
-   size_t number;
-   std::cin >> number;
+    std::cout << "Enter id figure" << std::endl;
+    size_t id;
+    std::cin >> id;
 
-   currentBase->deleteFigure(number);
+    currentBase->deleteFigure(id);
   }
   else if (command == "Exit")
   {
-
   if (validDb(currentBase))
   {
    std::string choice = "";
-   std::cout << "Do you want to keep your current base? yes / no" << std::endl;
+   std::cout << "Do you want to keep current base? yes / no" << std::endl;
    std::cin >> choice;
 
    if (choice == "yes")

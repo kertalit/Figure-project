@@ -8,46 +8,50 @@ Circle::Circle()
 
 }
 Circle::Circle(const Point2d& point, double radius)
- :point(point.x, point.y), radius(radius)
+ :point(point), radius(radius)
+{
+
+}
+
+Circle::~Circle()
 {
 
 }
 
 void Circle::read(DataProvider& provider)
 {
- Figure::read(provider);
- point = provider.rdPoint2d();
- radius = provider.rdDouble();
+  Figure::read(provider);
+  point = provider.rdPoint2d();
+  radius = provider.rdDouble();
 }
 
 void Circle::write(DataProvider& provider) const
 {
- provider.writeInt(getType());
- Figure::write(provider);
- provider.writePoint2d(point);
- provider.writeDouble(radius);
+  Figure::write(provider);
+  provider.writePoint2d(point);
+  provider.writeDouble(radius);
 }
 
 void Circle::print() const
 {
- Figure::print();
- std::cout << point << std::endl;
- std::cout << radius << std::endl;
+  Figure::print();
+  std::cout << point << std::endl;
+  std::cout << radius << std::endl;
 }
 
 int Circle::getType() const
 {
- return type;
+  return type;
 }
 
 Point2d Circle::getPoint() const
 {
- return point;
+  return point;
 }
 
 double Circle::getRadius() const
 {
- return radius;
+  return radius;
 }
 
 void Circle::setPoint(const Point2d& point)

@@ -22,16 +22,14 @@ FileDataProvider::FileDataProvider(std::ofstream& stream, const std::string& pat
 
 FileDataProvider::~FileDataProvider()
 {
- outFile.close();
- inFile.close();
- std::cout << "File is closed" << std::endl;
+
 }
 
 int FileDataProvider::rdInt()
 {
- int number = 0;
- inFile >> number;
- return number;
+ int val = 0;
+ inFile >> val;
+ return val;
 }
 
 std::string FileDataProvider::rdString()
@@ -44,16 +42,16 @@ std::string FileDataProvider::rdString()
 Point2d FileDataProvider::rdPoint2d()
 {
  Point2d point;
- inFile >> point.x >> point.y;
+ inFile >> point;
 
  return point;
 }
 
 double FileDataProvider::rdDouble()
 {
- double number = 0.0;
- inFile >> number;
- return number;
+ double val = 0.0;
+ inFile >> val;
+ return val;
 }
 
 void FileDataProvider::writeInt(const int number)
@@ -80,3 +78,4 @@ void FileDataProvider::printPoint2d(const Point2d& point)
 {
  std::cout << point << std::endl;
 }
+  

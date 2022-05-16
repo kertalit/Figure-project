@@ -62,9 +62,6 @@
     <ClCompile Include="Source\Database.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\DataProvider.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Figure.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

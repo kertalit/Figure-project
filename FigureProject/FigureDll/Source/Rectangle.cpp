@@ -8,7 +8,12 @@ Rectangle::Rectangle()
 }
 
 Rectangle::Rectangle(const Point2d& point, double length, double width)
-  :point(point.x, point.y), length(length), width(width)
+  :point(point), length(length), width(width)
+{
+
+}
+
+Rectangle::~Rectangle()
 {
 
 }
@@ -24,7 +29,6 @@ void Rectangle::read(DataProvider& provider)
 
 void Rectangle::write(DataProvider& provider) const
 {
- provider.writeInt(getType());
  Figure::write(provider);
  provider.writePoint2d(point);
  provider.writeDouble(length);

@@ -4,14 +4,15 @@
 #include "Platform.h"
 #include "Figure.h"
 
-
-
+using  CirclePtr = std::shared_ptr<class Circle> FIGURE_API;
 
 class FIGURE_API Circle : public Figure
 {
  public:
   Circle();
   Circle(const Point2d& point, double radius);
+
+  ~Circle() override;
 
   static const int type = 1;
 

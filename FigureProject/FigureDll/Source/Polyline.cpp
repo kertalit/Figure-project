@@ -4,11 +4,16 @@
 
 Polyline::Polyline()
 {
- points.push_back(Point2d (0.0, 0.0));
+ 
 }
 
 Polyline::Polyline(const std::vector<Point2d>& points)
   :points(points)
+{
+
+}
+
+Polyline::~Polyline()
 {
 
 }
@@ -22,7 +27,7 @@ void Polyline::read(DataProvider& provider)
 
  for (int i = 0; i < size; i++)
  {
-  Point2d obj = provider.rdPoint2d();
+  auto obj = provider.rdPoint2d();
   points.push_back(obj);
  }
 }
@@ -30,13 +35,12 @@ void Polyline::read(DataProvider& provider)
 
 void Polyline::write(DataProvider& provider) const
 {
- provider.writeInt(getType());
  Figure::write(provider);
  provider.writeInt(points.size());
 
- for (size_t i = 0; i < points.size(); i++)
+ for (auto point : points)
  {
-  provider.writePoint2d(points[i]);
+  provider.writePoint2d(point);
  }
 }
 
@@ -45,9 +49,9 @@ void Polyline::print() const
  Figure::print();
  std::cout << points.size() << std::endl;
  
- for (size_t i = 0; i < points.size(); i++)
+ for (auto point : points)
  {
-  std::cout << points[i] << std::endl;
+  std::cout << point << std::endl;
  }
 }
 
@@ -65,12 +69,10 @@ std::vector<Point2d> Polyline::getPoints() const
 
 void Polyline::setPoint(const Point2d& point, size_t number)
 {
-  if (number <= 0)
-  {
-    std::cout << "Okay, let's not change anything";
-  }
-  else if (number > points.size())
+  
+  if (number >= points.size())
     throw std::exception("Value greater than the number of points");
 
-  else this->points[number - 1] = point;
+  else 
+    points[number] = point;
 }

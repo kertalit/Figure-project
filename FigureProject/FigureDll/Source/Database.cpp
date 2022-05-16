@@ -39,9 +39,9 @@ void Database::save(const std::string& path)
   
   fileDataProvider.writeInt(figures.size());
 
-  for (size_t i = 0; i < figures.size(); i++)
+  for (auto obj : figures)
   {
-   figures[i]->write(fileDataProvider);
+   obj->write(fileDataProvider);
   }
 }
 
@@ -51,10 +51,10 @@ void Database::rdFile(DataProvider& stream)
 
   figures.reserve(objectCount);
 
-  for (size_t i = 0; i < objectCount; i++)
+  for (auto i = 0; i < objectCount; ++i)
   {
-   size_t type = stream.rdInt();
-   FigurePtr obj = createObj(type);
+   auto type = stream.rdInt();
+   auto obj = createObj(type);
 
    obj->read(stream);
    figures.push_back(obj);
@@ -66,32 +66,31 @@ void Database::addObj(FigurePtr obj)
   figures.push_back(obj);
 }
 
-std::vector<FigurePtr>::iterator Database::searchId(size_t key)
+std::vector<FigurePtr>::iterator Database::subSearchId(size_t id)
 {
-  auto res = std::find_if(figures.begin(), figures.end(), [key](const FigurePtr& obj)->bool {return key == obj->getId();});
+  auto res = std::find_if(figures.begin(), figures.end(), [id](const FigurePtr& obj)->bool {return id == obj->getId(); });
 
   if (res == figures.end())
-    throw std::exception ("Id not found");
+    throw std::exception("Id not found");
 
   return res;
 }
 
+FigurePtr Database::searchId(size_t id)
+{
+  return *(subSearchId(id));
+}
+
+
 void Database::print() const
 {
-  for (size_t i = 0; i < figures.size(); ++i)
+  for (auto obj : figures)
   {
-    figures[i]->print();
+    obj->print();
   }
 }
 
 void Database::deleteFigure(size_t id)
 {
-  auto position = std::find_if(figures.begin(), figures.end(), [id](const FigurePtr& obj)->bool {return id == obj->getId();});
-
-  if (position == figures.end())
-  {
-    std::cout << "Id not found" << std::endl;
-    return;
-  }
-  figures.erase(position);
+  figures.erase(subSearchId(id));
 }

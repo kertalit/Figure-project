@@ -7,11 +7,15 @@
 #include <vector>
 #include <iostream>
 
+using  PolylinePtr = std::shared_ptr<class Polyline> FIGURE_API;
+
 class FIGURE_API Polyline : public Figure
 {
 public:
  Polyline();
  Polyline(const std::vector<Point2d>& points);
+
+ ~Polyline() override;
 
  static const int type = 3;
 

@@ -158,7 +158,6 @@
     <ClCompile Include="Source\Commands.cpp" />
     <ClCompile Include="Source\ConsoleDataProvider.cpp" />
     <ClCompile Include="Source\Database.cpp" />
-    <ClCompile Include="Source\DataProvider.cpp" />
     <ClCompile Include="Source\Figure.cpp" />
     <ClCompile Include="Source\FileDataProvider.cpp" />
     <ClCompile Include="Source\Point2d.cpp" />

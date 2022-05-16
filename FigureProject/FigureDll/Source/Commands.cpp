@@ -16,7 +16,7 @@ FigurePtr createObj(size_t type)
 
   default:
    throw std::exception("Wrong format");
- }
+  }
  }
 
   

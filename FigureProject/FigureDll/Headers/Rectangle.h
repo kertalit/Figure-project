@@ -4,11 +4,15 @@
 #include "Platform.h"
 #include "Figure.h"
 
+using  RectanglePtr = std::shared_ptr<class Rectangle> FIGURE_API;
+
 class FIGURE_API Rectangle : public Figure
 {
 public:
  Rectangle();
  Rectangle(const Point2d& point, double length, double width);
+
+ ~Rectangle() override;
 
  static const int type = 2;
 

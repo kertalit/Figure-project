@@ -28,16 +28,16 @@ std::string ConsoleDataProvider::rdString()
 Point2d ConsoleDataProvider::rdPoint2d()
 {
   Point2d point;
-  std::cin >> point.x >> point.y;
+  std::cin >> point;
 
   return point;
 }
 
 double ConsoleDataProvider::rdDouble()
 {
-  double number = 0.0;
-  std::cin >> number;
-  return number;
+  double val = 0.0;
+  std::cin >> val;
+  return val;
 }
 
 void ConsoleDataProvider::writeInt(const int number)

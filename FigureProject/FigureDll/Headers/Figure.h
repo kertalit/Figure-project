@@ -16,6 +16,8 @@ public:
  Figure();
  Figure(size_t id, const std::string& name);
 
+ virtual ~Figure();
+
  void virtual read(DataProvider& provider) = 0;
  void virtual write(DataProvider& provider) const = 0;
  void virtual print() const = 0;
@@ -30,7 +32,6 @@ public:
 private:
  size_t id;
  std::string name;
- static size_t count;
 };
 
 
