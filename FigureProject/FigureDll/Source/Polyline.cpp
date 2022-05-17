@@ -27,8 +27,7 @@ void Polyline::read(DataProvider& provider)
 
  for (int i = 0; i < size; i++)
  {
-  auto obj = provider.rdPoint2d();
-  points.push_back(obj);
+  points.push_back(provider.rdPoint2d());
  }
 }
 
@@ -38,7 +37,7 @@ void Polyline::write(DataProvider& provider) const
  Figure::write(provider);
  provider.writeInt(points.size());
 
- for (auto point : points)
+ for (const auto& point : points)
  {
   provider.writePoint2d(point);
  }
@@ -49,7 +48,7 @@ void Polyline::print() const
  Figure::print();
  std::cout << points.size() << std::endl;
  
- for (auto point : points)
+ for (const auto& point : points)
  {
   std::cout << point << std::endl;
  }

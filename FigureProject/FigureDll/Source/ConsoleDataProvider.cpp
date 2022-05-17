@@ -8,9 +8,9 @@ ConsoleDataProvider::~ConsoleDataProvider()
 
 int ConsoleDataProvider::rdInt()
 {
-  int number = 0;
-  std::cin >> number;
-  return number;
+  int val = 0;
+  std::cin >> val;
+  return val;
 }
 
 std::string ConsoleDataProvider::rdString()
