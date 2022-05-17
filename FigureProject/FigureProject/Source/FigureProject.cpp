@@ -83,23 +83,6 @@ void testLoadDb()
   listDb(base);
 }
 
-void testChangeObj()
-{
-  auto base = std::make_shared<Database>("Figure1.txt");
-  base->print();
-
- try
- {
-   auto figure = base->searchId(102);
-   changeObj(figure);
-   base->print();
- }
- catch (const std::exception& ex)
- {
-   std::cout << ex.what() << std::endl;
- }
-}
-
 void testSearchId()
 {
   auto base = std::make_shared<Database>("Figure1.txt");
