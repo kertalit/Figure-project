@@ -264,12 +264,10 @@ void UI()
    if (index > bases.size())
    {
      std::cout << "No such base" << std::endl;
+     continue;
    }
-   else
-   {
-     currentBase = bases[index];
-     std::cout << "Current base was changed" << std::endl;
-   }
+   currentBase = bases[index];
+   std::cout << "Current base was changed" << std::endl;
   }
   else if (command == "deleteFigure")
   {

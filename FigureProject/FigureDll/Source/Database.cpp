@@ -78,7 +78,7 @@ std::vector<FigurePtr>::iterator Database::subSearchId(size_t id)
 
 FigurePtr Database::searchId(size_t id)
 {
-  return *(subSearchId(id));
+  return *subSearchId(id);
 }
 
 
