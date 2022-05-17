@@ -334,7 +334,6 @@ int main()
  //testChoiceDb();
  //testCreateObj();
  //testLoadDb();
- //testChangeObj();
  //testSearchId();
  //testPrintDb();
  //testDeleteFigure();
