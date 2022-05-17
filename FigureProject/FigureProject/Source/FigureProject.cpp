@@ -20,7 +20,7 @@ void testSaveDb()
  {
    obj->print();
  }
- base->save("New Database.txt");
+ base->save("NewDatabase.txt");
 }
 
 void testCreateDb()
@@ -39,14 +39,14 @@ void testChoiceDb()
 {
  std::vector<DatabasePtr> bases;
  bases.push_back(std::make_shared<Database>("Figure1.txt"));
- bases.push_back(std::make_shared<Database>("New Database.txt"));
+ bases.push_back(std::make_shared<Database>("NewDatabase.txt"));
 
  DatabasePtr currentBase = nullptr;
 
  for (auto i = 0; i < bases.size(); ++i)
  {
   std::cout << std::endl;
-  std::cout << "Base # " << i + 1 << std::endl << std::endl;
+  std::cout << "Base # " << i << std::endl << std::endl;
   listDb(bases[i]);
  }
 
@@ -66,27 +66,33 @@ void testCreateObj()
 
  std::cout << "Polyline: " << std::endl;
  createObj(Polyline::type)->print();
+
+ try
+ {
+   createObj(4);
+ }
+ catch (const std::exception& ex)
+ {
+   std::cout << ex.what() << std::endl;
+ }
 }
 
 void testLoadDb()
 {
- DatabasePtr base = loadDb();
-
- std::cout << "Database was loaded" << std::endl << std::endl;
-
- listDb(base);
+  DatabasePtr base = std::make_shared<Database>("Figure1.txt");
+  listDb(base);
 }
 
 void testChangeObj()
 {
- Database base("Figure1.txt");
- base.print();
+  auto base = std::make_shared<Database>("Figure1.txt");
+  base->print();
 
  try
  {
-   auto figure = base.searchId(102);
+   auto figure = base->searchId(102);
    changeObj(figure);
-   base.print();
+   base->print();
  }
  catch (const std::exception& ex)
  {
@@ -96,17 +102,17 @@ void testChangeObj()
 
 void testSearchId()
 {
- Database base("Figure1.txt");
- int number = 102;
- int bad_number = 10;
+  auto base = std::make_shared<Database>("Figure1.txt");
+  int id = 102;
+  int bad_id= 10;
 
  try
  {
-   auto result = base.searchId(bad_number);
+   auto result = base->searchId(id);
    std::cout << "Id found" << std::endl;
 
-   auto result2 = base.searchId(number);
-   std::cout << "Exception didn't work " << std::endl;
+   auto result2 = base->searchId(bad_id);
+   std::cout << "Exception did`not work" << std::endl;
  }
  catch (const std::exception& ex)
  {
@@ -116,41 +122,48 @@ void testSearchId()
 
 void testPrintDb()
 {
- Database base("Figure1.txt");
- base.print();
+  auto base = std::make_shared<Database>("Figure1.txt");
+  base->print();
 }
 
 void testCreateFigure()
 {
- ConsoleDataProvider console;
+  ConsoleDataProvider console;
 
- auto pBase = std::make_shared<Database>();
+  auto pBase = std::make_shared<Database>();
 
- FigurePtr obj = createObj(Rectangle::type);
- obj->read(console);
- pBase->addObj(obj);
+  FigurePtr obj = createObj(Rectangle::type);
+  obj->read(console);
+  pBase->addObj(obj);
 
- std::cout << "Rectangle was created" << std::endl;
+  std::cout << "Rectangle was created and added to base" << std::endl;
 
- pBase->print();
+  pBase->print();
 }
 
 void testDeleteFigure()
 {
- Database base("Figure1.txt");
+  auto base = std::make_shared<Database>("Figure1.txt");
 
- base.print();
+  base->print();
+  try
+  {
+    std::cout << std::endl;
+    std::cout << "deleteFigure" << std::endl << std::endl;
+    base->deleteFigure(101);
 
- std::cout << std::endl;
- std::cout << "deleteFigure" << std::endl << std::endl;
- base.deleteFigure(101);
+    base->print();
+    std::cout << std::endl;
 
- base.print();
- std::cout << std::endl;
-
- std::cout << "deleteFigure" << std::endl << std::endl;
- base.deleteFigure(50);
- std::cout << std::endl;
+    std::cout << "deleteFigure" << std::endl << std::endl;
+    base->deleteFigure(50);
+    std::cout << std::endl;
+  }
+  catch (const std::exception& ex)
+  {
+    std::cout << ex.what() << std::endl;
+  }
+  
 }
 
 
@@ -217,7 +230,7 @@ void UI()
     obj->read(console);
     currentBase->addObj(obj);
 
-    std::cout << "Figure was created" << std::endl;
+    std::cout << "Figure was created and added to base" << std::endl;
   }
   else if (command == "printDb")
   {
@@ -236,13 +249,12 @@ void UI()
    std::cout << std::endl;
 
    int number = 0;
-   std::cout << "Enter figure ID (1,2,3...)" << std::endl;
+   std::cout << "Enter figure Id" << std::endl;
    std::cin >> number;
 
    try
    {
      auto index = currentBase->searchId(number);
-     auto figure = currentBase->GetObjects();
      changeObj(index);
    }
     catch (const std::exception& ex)
@@ -302,6 +314,8 @@ void UI()
     std::cin >> path;
 
     currentBase->save(path);
+
+    return;
    }
    else return;
   }
@@ -314,7 +328,7 @@ void UI()
 
 int main()
 {
- //testWriteDb();
+ //testSaveDb();
  //testListDb();
  //testCreateDb();
  //testChoiceDb();
@@ -323,11 +337,7 @@ int main()
  //testChangeObj();
  //testSearchId();
  //testPrintDb();
- //testCreateFigure();
  //testDeleteFigure();
- //UI();
-
-  ConsoleDataProvider a;
-  ConsoleDataProvider b(a);
+ UI();
 
 }

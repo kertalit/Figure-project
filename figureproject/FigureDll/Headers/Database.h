@@ -29,6 +29,9 @@ private:
   std::vector<FigurePtr> figures;
   void rdFile(DataProvider& stream);
   std::vector<FigurePtr>::iterator subSearchId(size_t id);
+
+  Database(const Database& base);
+  Database operator = (const Database& base);
 };
 
 #endif // !_DATABASE_H

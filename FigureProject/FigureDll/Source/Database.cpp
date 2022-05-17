@@ -34,14 +34,14 @@ std::vector<FigurePtr> Database::GetObjects() const
 
 void Database::save(const std::string& path)
 {
-  std::ofstream File;
-  FileDataProvider fileDataProvider(File, path);
+  std::ofstream file;
+  FileDataProvider filer(file, path);
   
-  fileDataProvider.writeInt(figures.size());
+  filer.writeInt(figures.size());
 
   for (auto obj : figures)
   {
-   obj->write(fileDataProvider);
+   obj->write(filer);
   }
 }
 

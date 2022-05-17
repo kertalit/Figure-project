@@ -18,7 +18,7 @@ void saveDb(DatabasePtr base)
 
 DatabasePtr loadDb()
 {
-  std::string path = " ";
+  std::string path = "";
   std::cout << "Enter path to Database" << std::endl;
   std::cin >> path;
 
@@ -27,7 +27,7 @@ DatabasePtr loadDb()
 
 void changeObj(FigurePtr obj)
 {
-  std::cout << "Enter name parameter who you want to change \n 1. name \n 2. others" << std::endl;
+  std::cout << "Enter parameter to change \n name \n others" << std::endl;
   std::string param = "";
   std::cin >> param;
 
@@ -48,7 +48,7 @@ void changeObj(FigurePtr obj)
     case Circle::type:
     {
       CirclePtr pCircle = std::static_pointer_cast<Circle>(obj);
-      std::cout << "Enter name parameter to change: 'point' 'radius' " << std::endl;
+      std::cout << "Enter parameter to change: 'point' 'radius' " << std::endl;
 
       std::cin >> param;
 
@@ -78,15 +78,16 @@ void changeObj(FigurePtr obj)
     case Rectangle::type:
     {
       RectanglePtr pRectangle = std::static_pointer_cast<Rectangle>(obj);
-      std::cout << "Enter name parameter to change: 'point' 'length' 'width' " << std::endl;
+      std::cout << "Enter parameter to change: 'point' 'length' 'width' " << std::endl;
 
       std::cin >> param;
 
      if (param == "point")
       {
-        Point2d newPoint;
         std::cout << "Enter new point" << std::endl;
+        Point2d newPoint;
         std::cin >> newPoint;
+
         pRectangle->setPoint(newPoint);
 
         std::cout << "Point changed to " << newPoint << std::endl;
@@ -118,13 +119,13 @@ void changeObj(FigurePtr obj)
     case Polyline::type:
     {
       PolylinePtr pPolilyne = std::static_pointer_cast<Polyline>(obj);
-      std::cout << "Enter name parameter to change: 'points' " << std::endl;
+      std::cout << "Enter parameter to change: 'points' " << std::endl;
 
       std::cin >> param;
 
      if (param == "points")
       {
-        std::cout << "Which point do you want to change? (1,2,3...)" << std::endl;
+        std::cout << "Which point to change? (1,2,3...)" << std::endl;
         int number;
         std::cin >> number;
 
