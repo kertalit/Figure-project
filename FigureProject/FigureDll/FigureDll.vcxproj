@@ -154,6 +154,7 @@
     <ClInclude Include="Headers\Rectangle.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="DataProvider.cpp" />
     <ClCompile Include="Source\Circle.cpp" />
     <ClCompile Include="Source\Commands.cpp" />
     <ClCompile Include="Source\ConsoleDataProvider.cpp" />

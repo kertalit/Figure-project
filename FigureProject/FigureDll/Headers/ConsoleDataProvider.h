@@ -11,8 +11,7 @@
 class FIGURE_API ConsoleDataProvider : public DataProvider
 {
 public:
-  ConsoleDataProvider();
-  ~ConsoleDataProvider();
+  ~ConsoleDataProvider() override;
 
   int rdInt() override;
   std::string rdString() override;

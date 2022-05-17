@@ -20,14 +20,15 @@ public:
   void save(const std::string& path);
   void print() const;
   void addObj(FigurePtr obj);
-  std::vector<FigurePtr>::iterator searchId(size_t key);
-  void deleteFigure(size_t pos);
+  FigurePtr searchId(size_t id);
+  void deleteFigure(size_t id);
 
   std::vector<FigurePtr> GetObjects() const;
 
 private:
   std::vector<FigurePtr> figures;
   void rdFile(DataProvider& stream);
+  std::vector<FigurePtr>::iterator subSearchId(size_t id);
 };
 
 #endif // !_DATABASE_H

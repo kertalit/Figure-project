@@ -1,15 +1,10 @@
 #include "ConsoleDataProvider.h"
 
-
-ConsoleDataProvider::ConsoleDataProvider()
-{
-	
-}
-
 ConsoleDataProvider::~ConsoleDataProvider()
 {
 
 }
+
 
 int ConsoleDataProvider::rdInt()
 {

@@ -72,7 +72,6 @@ void Polyline::setPoint(const Point2d& point, size_t number)
   
   if (number >= points.size())
     throw std::exception("Value greater than the number of points");
-
   else 
     points[number] = point;
 }

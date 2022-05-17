@@ -14,7 +14,8 @@ class FIGURE_API FileDataProvider : public DataProvider
 public:
   FileDataProvider(std::ifstream& stream, const std::string& path);
   FileDataProvider(std::ofstream& stream, const std::string& path);
-  ~FileDataProvider();
+
+  ~FileDataProvider() override;
 
   int rdInt() override;
   std::string rdString() override;
