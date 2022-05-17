@@ -327,4 +327,7 @@ int main()
  //testDeleteFigure();
  //UI();
 
+  ConsoleDataProvider a;
+  ConsoleDataProvider b(a);
+
 }
