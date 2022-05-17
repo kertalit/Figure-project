@@ -338,6 +338,6 @@ int main()
  //testSearchId();
  //testPrintDb();
  //testDeleteFigure();
- UI();
+ //UI();
 
 }

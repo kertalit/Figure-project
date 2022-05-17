@@ -2,7 +2,7 @@
 
 
 Figure::Figure()
- :id(0), name("name Figure")
+ :id(0), name("")
 {
 
 }
