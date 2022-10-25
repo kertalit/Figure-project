@@ -1,4 +1,3 @@
-
 #include "Commands.h"
 
 FigurePtr createObj(size_t type)

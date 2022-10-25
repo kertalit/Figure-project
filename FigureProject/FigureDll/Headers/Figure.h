@@ -14,7 +14,7 @@ class FIGURE_API Figure
 {
 public:
  Figure();
- Figure(size_t id, const std::string& name);
+ Figure(const std::string& name);
 
  virtual ~Figure();
 
@@ -32,6 +32,8 @@ public:
 private:
  size_t id;
  std::string name;
+
+ size_t generateId() const;
 };
 
 
