@@ -2,15 +2,15 @@
 
 
 Figure::Figure()
- :id(0), name("")
+ :name("")
 {
-
+  id = generateId();
 }
 
-Figure::Figure(size_t id, const std::string& name)
- :id(id), name(name)
+Figure::Figure(const std::string& name)
+ :name(name)
 {
-
+  id = generateId();
 }
 
 Figure::~Figure()
@@ -55,4 +55,10 @@ int Figure::getId() const
 std::string Figure::getName() const
 {
   return name;
+}
+
+size_t Figure::generateId() const
+{
+  static size_t id = 0;
+  return ++id;
 }

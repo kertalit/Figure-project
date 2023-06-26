@@ -5,7 +5,6 @@ ConsoleDataProvider::~ConsoleDataProvider()
 
 }
 
-
 int ConsoleDataProvider::rdInt()
 {
   int val = 0;
