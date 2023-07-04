@@ -1,13 +1,9 @@
 #ifndef __INTERFACE_PROJECT
 #define __INTERFACE_PROJECT
 
-#include "Commands.h"
 #include "Database.h"
-#include "FileDataProvider.h"
-#include "DataProvider.h"
-#include <memory>
-#include "Point2d.h"
 
+#include <memory>
 
 
 void saveDb(DatabasePtr base);

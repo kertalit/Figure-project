@@ -1,4 +1,6 @@
 #include "InterfaceProject.h"
+#include "Commands.h"
+
 
 
 bool validDb(DatabasePtr base)

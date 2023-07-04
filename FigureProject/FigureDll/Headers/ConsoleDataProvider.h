@@ -1,12 +1,11 @@
 #ifndef _C_DATAPROVIDER_H
 #define _C_DATAPROVIDER_H
 
-#include "Platform.h"
-#include "Point2d.h"
+#include "DataProvider.h"
+
 #include <ostream>
 #include <string>
 #include <fstream>
-#include "DataProvider.h"
 
 class FIGURE_API ConsoleDataProvider : public DataProvider
 {

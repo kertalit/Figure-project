@@ -1,10 +1,8 @@
 #ifndef _COMMANDS_H
 #define _COMMANDS_H
 
-#include "Platform.h"
 #include "Database.h"
-#include "FileDataProvider.h"
-#include "DataProvider.h"
+
 #include <memory>
 
 

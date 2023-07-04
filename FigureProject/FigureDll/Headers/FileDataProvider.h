@@ -4,10 +4,11 @@
 
 #include "Platform.h"
 #include "Point2d.h"
+#include "DataProvider.h"
+
 #include <ostream>
 #include <string>
 #include <fstream>
-#include "DataProvider.h"
 
 class FIGURE_API FileDataProvider : public DataProvider
 {
