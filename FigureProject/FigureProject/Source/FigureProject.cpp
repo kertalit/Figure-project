@@ -311,7 +311,7 @@ void UI()
 
 int main()
 {
-  //testSaveDb();
+  testSaveDb();
   //testListDb();
   //testCreateDb();
   //testChoiceDb();

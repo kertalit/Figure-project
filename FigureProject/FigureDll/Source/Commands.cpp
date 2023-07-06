@@ -1,4 +1,4 @@
-#include "../Headers/Commands.h"
+#include "Commands.h"
 
 FigurePtr createObj(size_t type)
 {
