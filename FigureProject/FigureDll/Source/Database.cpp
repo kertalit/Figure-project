@@ -7,8 +7,8 @@ Database::Database(const std::string& path)
  std::ifstream file;
  try
  {
-  FileDataProvider fileDataProvider(file, path);
-  rdFile(fileDataProvider);
+  FileBinaryDataProvider fileBinaryDataProvider(file, path);
+  rdFile(fileBinaryDataProvider);
  }
 
  catch (const std::exception& ex)
@@ -35,7 +35,7 @@ std::vector<FigurePtr> Database::GetObjects() const
 void Database::save(const std::string& path)
 {
   std::ofstream file;
-  FileDataProvider filer(file, path);
+  FileBinaryDataProvider filer(file, path);
   
   filer.writeInt(figures.size());
 

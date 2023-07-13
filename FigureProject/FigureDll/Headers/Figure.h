@@ -5,7 +5,7 @@
 #include "Platform.h"
 #include <fstream>
 #include "Point2d.h"
-#include "FileDataProvider.h"
+#include "FileBinaryDataProvider.h"
 #include "ConsoleDataProvider.h"
 
  using  FigurePtr = std::shared_ptr<class Figure> FIGURE_API;
@@ -22,18 +22,18 @@ public:
  void virtual write(DataProvider& provider) const = 0;
  void virtual print() const = 0;
 
- void setId(size_t id);
  void setName(const std::string& name);
 
- int  virtual getType() const = 0;
+ int virtual getType() const = 0;
  int getId() const;
  std::string getName() const;
 
-private:
- size_t id;
- std::string name;
 
- size_t generateId() const;
+private:
+ std::string name;
+ size_t id;
+ static size_t count;
+
 };
 
 

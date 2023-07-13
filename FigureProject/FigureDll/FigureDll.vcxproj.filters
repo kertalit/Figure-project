@@ -30,7 +30,7 @@
     <ClInclude Include="Headers\Figure.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Headers\FileDataProvider.h">
+    <ClInclude Include="Headers\FileBinaryDataProvider.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Headers\Point2d.h">
@@ -43,6 +43,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Headers\Platform.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FileDataProvider.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -62,7 +65,7 @@
     <ClCompile Include="Source\Figure.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\FileDataProvider.cpp">
+    <ClCompile Include="Source\FileBinaryDataProvider.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\Point2d.cpp">
@@ -75,6 +78,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\DataProvider.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FileDataProvider.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

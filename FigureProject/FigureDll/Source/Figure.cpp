@@ -1,16 +1,17 @@
 #include "Figure.h"
 
+size_t Figure::count = 0;
 
 Figure::Figure()
- :name("")
+ :name(""), id(++count)
 {
-  id = generateId();
+  
 }
 
 Figure::Figure(const std::string& name)
- :name(name)
+ :name(name), id(++count)
 {
-  id = generateId();
+  
 }
 
 Figure::~Figure()
@@ -36,10 +37,6 @@ void Figure::write(DataProvider& provider) const
   provider.writeString(name);
 }
 
-void Figure::setId(size_t id)
-{
-  this->id = id;
-}
 
 void Figure::setName(const std::string& name)
 {
@@ -55,10 +52,4 @@ int Figure::getId() const
 std::string Figure::getName() const
 {
   return name;
-}
-
-size_t Figure::generateId() const
-{
-  static size_t id = 0;
-  return ++id;
 }

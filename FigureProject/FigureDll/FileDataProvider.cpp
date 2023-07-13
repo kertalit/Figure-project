@@ -1,13 +1,13 @@
-#include "../Headers/FileDataProvider.h"
+#include "FileDataProvider.h"
 
 FileDataProvider::FileDataProvider(std::ifstream& stream, const std::string& path)
 {
   inFile.open(path);
 
   if (inFile.is_open())
-   std::cout << "File is open" << std::endl;
+    std::cout << "File is open" << std::endl;
   else
-   std::cout << "File is not open" << std::endl;
+    std::cout << "File is not open" << std::endl;
 }
 
 FileDataProvider::FileDataProvider(std::ofstream& stream, const std::string& path)
@@ -15,9 +15,9 @@ FileDataProvider::FileDataProvider(std::ofstream& stream, const std::string& pat
   outFile.open(path);
 
   if (outFile.is_open())
-   std::cout << "File is open" << std::endl;
+    std::cout << "File is open" << std::endl;
   else
-   std::cout << "File is not open" << std::endl;
+    std::cout << "File is not open" << std::endl;
 }
 
 FileDataProvider::~FileDataProvider()
@@ -28,21 +28,21 @@ FileDataProvider::~FileDataProvider()
 int FileDataProvider::rdInt()
 {
   int val = 0;
-  inFile >> val;
+  inFile.read((char*)&val, sizeof(val));
   return val;
 }
 
 std::string FileDataProvider::rdString()
 {
   std::string line = "";
-  inFile >> line;
+  inFile.read((char*)&line, sizeof(line));
   return line;
 }
 
 Point2d FileDataProvider::rdPoint2d()
 {
   Point2d point;
-  inFile >> point;
+  inFile.read((char*)&point, sizeof(point));
 
   return point;
 }
@@ -69,7 +69,7 @@ void FileDataProvider::writeString(const std::string& line)
   outFile << line << std::endl;
 }
 
- void FileDataProvider::writeDouble(const double number)
+void FileDataProvider::writeDouble(const double number)
 {
   outFile << number << std::endl;
 }
@@ -78,4 +78,3 @@ void FileDataProvider::printPoint2d(const Point2d& point)
 {
   std::cout << point << std::endl;
 }
-  

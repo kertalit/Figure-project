@@ -81,7 +81,7 @@ void testCreateObj()
 
 void testLoadDb()
 {
-  DatabasePtr base = std::make_shared<Database>("Figure1.txt");
+  DatabasePtr base = std::make_shared<Database>("NewDatabase.txt");
   listDb(base);
 }
 
@@ -311,13 +311,13 @@ void UI()
 
 int main()
 {
-  testSaveDb();
+  //testSaveDb();
   //testListDb();
   //testCreateDb();
   //testChoiceDb();
   //testCreateObj();
   //testLoadDb();
-  //testSearchId();
+  //testSearchId();g
   //testPrintDb();
   //testDeleteFigure();
   //UI();
