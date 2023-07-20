@@ -33,7 +33,6 @@ private:
  std::string name;
  size_t id;
  static size_t count;
-
 };
 
 

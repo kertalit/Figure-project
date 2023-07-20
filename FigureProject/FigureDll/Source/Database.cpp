@@ -1,14 +1,14 @@
 #include "Database.h"
 #include "Commands.h"
+#include "FileDataProvider.h"
 
 
 Database::Database(const std::string& path)
 {
- std::ifstream file;
  try
  {
-  FileBinaryDataProvider fileBinaryDataProvider(file, path);
-  rdFile(fileBinaryDataProvider);
+  FileDataProvider fileDataProvider(path);
+  rdFile(fileDataProvider);
  }
 
  catch (const std::exception& ex)
@@ -34,8 +34,7 @@ std::vector<FigurePtr> Database::GetObjects() const
 
 void Database::save(const std::string& path)
 {
-  std::ofstream file;
-  FileBinaryDataProvider filer(file, path);
+  FileDataProvider filer(path);
   
   filer.writeInt(figures.size());
 

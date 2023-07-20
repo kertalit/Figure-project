@@ -6,15 +6,13 @@
 #include "Point2d.h"
 #include "DataProvider.h"
 
-#include <ostream>
 #include <string>
 #include <fstream>
 
 class FIGURE_API FileDataProvider : public DataProvider
 {
 public:
-  FileDataProvider(std::ifstream& stream, const std::string& path);
-  FileDataProvider(std::ofstream& stream, const std::string& path);
+  FileDataProvider(const std::string& path);
 
   ~FileDataProvider() override;
 
@@ -31,8 +29,7 @@ public:
   void printPoint2d(const Point2d& point) override;
 
 private:
-  std::ifstream inFile;
-  std::ofstream outFile;
+  std::fstream file;
 };
 
 #endif // !_F_DATAPROVIDER_H

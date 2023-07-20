@@ -45,7 +45,7 @@
     <ClInclude Include="Headers\Platform.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FileDataProvider.h">
+    <ClInclude Include="Headers\FileDataProvider.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -80,7 +80,7 @@
     <ClCompile Include="Source\DataProvider.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FileDataProvider.cpp">
+    <ClCompile Include="Source\FileDataProvider.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -2,6 +2,7 @@
 #define __INTERFACE_PROJECT
 
 #include "Database.h"
+#include "FileDataProvider.h"
 
 #include <memory>
 

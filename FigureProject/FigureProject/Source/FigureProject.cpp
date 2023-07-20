@@ -22,6 +22,7 @@ void testSaveDb()
   {
     obj->print();
   }
+
   base->save("NewDatabase.txt");
 }
 
@@ -311,7 +312,7 @@ void UI()
 
 int main()
 {
-  //testSaveDb();
+  testSaveDb();
   //testListDb();
   //testCreateDb();
   //testChoiceDb();

@@ -143,20 +143,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="FileDataProvider.h" />
     <ClInclude Include="Headers\Circle.h" />
     <ClInclude Include="Headers\Commands.h" />
     <ClInclude Include="Headers\ConsoleDataProvider.h" />
     <ClInclude Include="Headers\Database.h" />
     <ClInclude Include="Headers\Figure.h" />
     <ClInclude Include="Headers\FileBinaryDataProvider.h" />
+    <ClInclude Include="Headers\FileDataProvider.h" />
     <ClInclude Include="Headers\Platform.h" />
     <ClInclude Include="Headers\Point2d.h" />
     <ClInclude Include="Headers\Polyline.h" />
     <ClInclude Include="Headers\Rectangle.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="FileDataProvider.cpp" />
     <ClCompile Include="Source\Circle.cpp" />
     <ClCompile Include="Source\Commands.cpp" />
     <ClCompile Include="Source\ConsoleDataProvider.cpp" />
@@ -164,6 +163,7 @@
     <ClCompile Include="Source\DataProvider.cpp" />
     <ClCompile Include="Source\Figure.cpp" />
     <ClCompile Include="Source\FileBinaryDataProvider.cpp" />
+    <ClCompile Include="Source\FileDataProvider.cpp" />
     <ClCompile Include="Source\Point2d.cpp" />
     <ClCompile Include="Source\Polyline.cpp" />
     <ClCompile Include="Source\Rectangle.cpp" />
