@@ -18,12 +18,12 @@ void testSaveDb()
   auto base = std::make_shared<Database>("Figure1.txt");
   auto figures = base->GetObjects();
 
-  for (auto obj : figures)
+  for (auto& obj : figures)
   {
     obj->print();
   }
 
-  base->save("NewDatabase.txt");
+  base->save("1234.txt");
 }
 
 void testCreateDb()
@@ -197,7 +197,6 @@ void UI()
       bases.push_back(currentBase);
 
       std::cout << "Database was loaded" << std::endl;
-
     }
     else if (command == "createFigure")
     {
@@ -313,6 +312,7 @@ void UI()
 int main()
 {
   testSaveDb();
+
   //testListDb();
   //testCreateDb();
   //testChoiceDb();

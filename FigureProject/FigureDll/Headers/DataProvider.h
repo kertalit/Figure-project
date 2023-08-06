@@ -28,8 +28,8 @@ public:
  virtual void printPoint2d(const Point2d& point) = 0;
 
 private:
-  DataProvider(const DataProvider& provider);
-  DataProvider operator= (const DataProvider& base);
+  //DataProvider(const DataProvider& provider);
+  //DataProvider operator= (const DataProvider& base);
 };
 
 #endif // !_FILEDATAPROVIDER_H

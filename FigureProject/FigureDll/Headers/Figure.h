@@ -24,10 +24,9 @@ public:
 
  void setName(const std::string& name);
 
- int virtual getType() const = 0;
+ virtual int getType() const = 0;
  int getId() const;
  std::string getName() const;
-
 
 private:
  std::string name;

@@ -34,11 +34,11 @@ std::vector<FigurePtr> Database::GetObjects() const
 
 void Database::save(const std::string& path)
 {
-  FileDataProvider filer(path);
+  FileBinaryDataProvider filer(path, FileBinaryDataProvider::OpenMode::Out);
   
   filer.writeInt(figures.size());
 
-  for (auto obj : figures)
+  for (auto& obj : figures)
   {
    obj->write(filer);
   }
@@ -83,7 +83,7 @@ FigurePtr Database::searchId(size_t id)
 
 void Database::print() const
 {
-  for (auto obj : figures)
+  for (auto& obj : figures)
   {
     obj->print();
   }

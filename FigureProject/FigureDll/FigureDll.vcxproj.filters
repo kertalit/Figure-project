@@ -48,6 +48,9 @@
     <ClInclude Include="Headers\FileDataProvider.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Headers\DataProvider.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Circle.cpp">

@@ -1,20 +1,12 @@
 #include "FileBinaryDataProvider.h"
 
-FileBinaryDataProvider::FileBinaryDataProvider(std::ifstream& stream, const std::string& path)
+FileBinaryDataProvider::FileBinaryDataProvider(const std::string& path, OpenMode openmode)
 {
-  inFile.open(path, std::ios::binary);
+  auto mode = openmode == OpenMode::In ? std::ios::in : std::ios::out;
 
-  if (inFile.is_open())
-   std::cout << "File is open" << std::endl;
-  else
-   std::cout << "File is not open" << std::endl;
-}
+  file.open(path, mode | std::ios::binary);
 
-FileBinaryDataProvider::FileBinaryDataProvider(std::ofstream& stream, const std::string& path)
-{
-  outFile.open(path, std::ios::binary);
-
-  if (outFile.is_open())
+  if (file.is_open())
    std::cout << "File is open" << std::endl;
   else
    std::cout << "File is not open" << std::endl;
@@ -22,27 +14,27 @@ FileBinaryDataProvider::FileBinaryDataProvider(std::ofstream& stream, const std:
 
 FileBinaryDataProvider::~FileBinaryDataProvider()
 {
-
+  file.close();
 }
 
 int FileBinaryDataProvider::rdInt()
 {
   int val = 0;
-  inFile.read((char*) &val, sizeof(val));
+  file.read(reinterpret_cast<char*>(&val), sizeof(val));
   return val;
 }
 
 std::string FileBinaryDataProvider::rdString()
 {
   std::string line = "";
-  inFile.read((char*) &line, sizeof(line));
+  file.read(reinterpret_cast<char*>(&line), sizeof(line));
   return line;
 }
 
 Point2d FileBinaryDataProvider::rdPoint2d()
 {
   Point2d point;
-  inFile.read((char*) &point, sizeof(point));
+  file.read(reinterpret_cast<char*>(&point), sizeof(point));
 
   return point;
 }
@@ -50,28 +42,28 @@ Point2d FileBinaryDataProvider::rdPoint2d()
 double FileBinaryDataProvider::rdDouble()
 {
   double val = 0.0;
-  inFile.read((char*) &val, sizeof(val));
+  file.read(reinterpret_cast<char*>(&val), sizeof(val));
   return val;
 }
 
 void FileBinaryDataProvider::writeInt(const int number)
 {
-  outFile.write((char*) &number, sizeof(number));
+  file.write(reinterpret_cast<const char*>(&number), sizeof(number));
 }
 
 void FileBinaryDataProvider::writePoint2d(const Point2d& point)
 {
-  outFile.write((char*) &point, sizeof(point));
+  file.write(reinterpret_cast<const char*>(&point), sizeof(point));
 }
 
 void FileBinaryDataProvider::writeString(const std::string& line)
 {
-  outFile.write((char*) &line, sizeof(line));
+  file.write(reinterpret_cast<const char*>(&line), sizeof(line));
 }
 
  void FileBinaryDataProvider::writeDouble(const double number)
 {
-  outFile.write((char*) &number, sizeof(number));
+  file.write(reinterpret_cast<const char*>(&number), sizeof(number));
 }
 
 void FileBinaryDataProvider::printPoint2d(const Point2d& point)

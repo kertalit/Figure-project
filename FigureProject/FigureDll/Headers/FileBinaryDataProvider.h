@@ -13,9 +13,14 @@
 class FIGURE_API FileBinaryDataProvider : public DataProvider
 {
 public:
-  FileBinaryDataProvider(std::ifstream& stream, const std::string& path);
-  FileBinaryDataProvider(std::ofstream& stream, const std::string& path);
 
+  enum class OpenMode : bool
+  {
+    In,
+    Out
+  };
+
+  FileBinaryDataProvider(const std::string& path, OpenMode openmode);
   ~FileBinaryDataProvider() override;
 
   int rdInt() override;
@@ -31,8 +36,7 @@ public:
   void printPoint2d(const Point2d& point) override;
 
 private:
-  std::ifstream inFile;
-  std::ofstream outFile;
+  std::fstream file;
 };
 
 #endif // !_F_BINARY_DATAPROVIDER_H

@@ -24,6 +24,7 @@ public:
  void print() const override;
 
  int getType() const override;
+
  std::vector<Point2d> getPoints() const;
 
  void setPoint(const Point2d& point, size_t number);

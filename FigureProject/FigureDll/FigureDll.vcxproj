@@ -120,6 +120,7 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>C:\Programming\Figure-project\FigureProject\FigureDll\Headers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalOptions>/c %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -147,6 +148,7 @@
     <ClInclude Include="Headers\Commands.h" />
     <ClInclude Include="Headers\ConsoleDataProvider.h" />
     <ClInclude Include="Headers\Database.h" />
+    <ClInclude Include="Headers\DataProvider.h" />
     <ClInclude Include="Headers\Figure.h" />
     <ClInclude Include="Headers\FileBinaryDataProvider.h" />
     <ClInclude Include="Headers\FileDataProvider.h" />

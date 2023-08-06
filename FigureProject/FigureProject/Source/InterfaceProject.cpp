@@ -150,7 +150,7 @@ void listDb(DatabasePtr base)
 {
   std::vector<FigurePtr> figures = base->GetObjects();
 
-  for (auto obj : figures)
+  for (auto& obj : figures)
   {
     switch (obj->getType())
     {

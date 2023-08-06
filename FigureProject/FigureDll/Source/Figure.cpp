@@ -53,3 +53,4 @@ std::string Figure::getName() const
 {
   return name;
 }
+

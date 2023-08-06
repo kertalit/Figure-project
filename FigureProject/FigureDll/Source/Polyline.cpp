@@ -59,7 +59,6 @@ int  Polyline::getType() const
  return type;
 }
 
-
 std::vector<Point2d> Polyline::getPoints() const
 {
  return points;

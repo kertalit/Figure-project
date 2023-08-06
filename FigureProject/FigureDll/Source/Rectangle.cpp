@@ -26,7 +26,6 @@ void Rectangle::read(DataProvider& provider)
  width = provider.rdDouble();
 }
 
-
 void Rectangle::write(DataProvider& provider) const
 {
  Figure::write(provider);

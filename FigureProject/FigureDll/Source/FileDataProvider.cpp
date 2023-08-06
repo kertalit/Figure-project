@@ -12,7 +12,7 @@ FileDataProvider::FileDataProvider(const std::string& path)
 
 FileDataProvider::~FileDataProvider()
 {
-
+  file.close();
 }
 
 int FileDataProvider::rdInt()
