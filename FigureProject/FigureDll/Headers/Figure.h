@@ -8,30 +8,30 @@
 #include "FileBinaryDataProvider.h"
 #include "ConsoleDataProvider.h"
 
- using  FigurePtr = std::shared_ptr<class Figure> FIGURE_API;
+using  FigurePtr = std::shared_ptr<class Figure> FIGURE_API;
 
 class FIGURE_API Figure
 {
 public:
- Figure();
- Figure(const std::string& name);
+    Figure();
+    Figure(const std::string& name);
 
- virtual ~Figure();
+    virtual ~Figure();
 
- void virtual read(DataProvider& provider) = 0;
- void virtual write(DataProvider& provider) const = 0;
- void virtual print() const = 0;
+    void virtual read(DataProvider& provider) = 0;
+    void virtual write(DataProvider& provider) const = 0;
+    void virtual print() const = 0;
 
- void setName(const std::string& name);
+    void setName(const std::string& name);
 
- virtual int getType() const = 0;
- int getId() const;
- std::string getName() const;
+    virtual int getType() const = 0;
+    int getId() const;
+    std::string getName() const;
 
 private:
- std::string name;
- size_t id;
- static size_t count;
+    std::string name;
+    size_t id;
+    static size_t count;
 };
 
 

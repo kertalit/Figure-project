@@ -9,11 +9,11 @@
 class FIGURE_API Point2d
 {
 public:
- Point2d();
- Point2d(double x, double y);
+    Point2d();
+    Point2d(double x, double y);
 
- double x;
- double y;
+    double x;
+    double y;
 };
 
 FIGURE_API std::ostream& operator<< (std::ostream& stream, const Point2d& point);

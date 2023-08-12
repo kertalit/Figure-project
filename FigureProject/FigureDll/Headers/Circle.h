@@ -8,28 +8,28 @@ using  CirclePtr = std::shared_ptr<class Circle> FIGURE_API;
 
 class FIGURE_API Circle : public Figure
 {
- public:
-  Circle();
-  Circle(const Point2d& point, double radius);
+public:
+    Circle();
+    Circle(const Point2d& point, double radius);
 
-  ~Circle() override;
+    ~Circle() override;
 
-  static const int type = 1;
+    static const int type = 1;
 
-  void read(DataProvider& provider) override;
-  void write(DataProvider& provider) const override;
-  void print() const override;
+    void read(DataProvider& provider) override;
+    void write(DataProvider& provider) const override;
+    void print() const override;
 
-  int getType() const override;
-  Point2d getPoint() const;
-  double getRadius() const;
+    int getType() const override;
+    Point2d getPoint() const;
+    double getRadius() const;
 
-  void setPoint(const Point2d& point);
-  void setRadius(double radius);
+    void setPoint(const Point2d& point);
+    void setRadius(double radius);
 
- private:
-  Point2d point;
-  double radius;
+private:
+    Point2d point;
+    double radius;
 };
 
 #endif // !_CIRCLE_H
