@@ -20,23 +20,27 @@ Circle::~Circle()
 
 void Circle::read(DataProvider& provider)
 {
-    Figure::read(provider);
+    Entity::read(provider);
     point = provider.rdPoint2d();
     radius = provider.rdDouble();
 }
 
 void Circle::write(DataProvider& provider) const
 {
-    Figure::write(provider);
+    Entity::write(provider);
     provider.writePoint2d(point);
     provider.writeDouble(radius);
 }
 
 void Circle::print() const
 {
-    Figure::print();
+    Entity::print();
     std::cout << point << std::endl;
     std::cout << radius << std::endl;
+}
+
+void Circle::ToPlan(Plan& plan) const
+{
 }
 
 int Circle::getType() const

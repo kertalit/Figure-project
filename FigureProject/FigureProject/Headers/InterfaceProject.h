@@ -13,7 +13,7 @@ DatabasePtr loadDb();
 
 DatabasePtr createDb();
 
-void changeObj(FigurePtr obj);
+void changeObj(EntityPtr obj);
 
 void listDb(DatabasePtr base);
 

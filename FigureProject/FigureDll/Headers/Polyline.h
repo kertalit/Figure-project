@@ -9,7 +9,7 @@
 
 using  PolylinePtr = std::shared_ptr<class Polyline> FIGURE_API;
 
-class FIGURE_API Polyline : public Figure
+class FIGURE_API Polyline : public Entity
 {
 public:
     Polyline();
@@ -22,6 +22,7 @@ public:
     void read(DataProvider& provider) override;
     void write(DataProvider& provider) const override;
     void print() const override;
+    void ToPlan(Plan& plan) const override;
 
     int getType() const override;
 

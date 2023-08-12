@@ -25,7 +25,7 @@ DatabasePtr loadDb()
     return std::make_shared<Database>(path);
 }
 
-void changeObj(FigurePtr obj)
+void changeObj(EntityPtr obj)
 {
     std::cout << "Enter parameter to change \n name \n others" << std::endl;
     std::string param = "";
@@ -148,7 +148,7 @@ void changeObj(FigurePtr obj)
 
 void listDb(DatabasePtr base)
 {
-    std::vector<FigurePtr> figures = base->GetObjects();
+    std::vector<EntityPtr> figures = base->GetObjects();
 
     for (auto& obj : figures)
     {
@@ -173,7 +173,7 @@ void listDb(DatabasePtr base)
             break;
         }
 
-        obj->Figure::print();
+        obj->Entity::print();
         std::cout << std::endl;
     }
 }

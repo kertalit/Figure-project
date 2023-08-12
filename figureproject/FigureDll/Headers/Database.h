@@ -19,16 +19,16 @@ public:
 
   void save(const std::string& path);
   void print() const;
-  void addObj(FigurePtr obj);
-  FigurePtr searchId(size_t id);
+  void addObj(EntityPtr obj);
+  EntityPtr searchId(size_t id);
   void deleteFigure(size_t id);
 
-  std::vector<FigurePtr> GetObjects() const;
+  std::vector<EntityPtr> GetObjects() const;
 
 private:
-  std::vector<FigurePtr> figures;
+  std::vector<EntityPtr> figures;
   void rdFile(DataProvider& stream);
-  std::vector<FigurePtr>::iterator subSearchId(size_t id);
+  std::vector<EntityPtr>::iterator subSearchId(size_t id);
 
   //Database(const Database& base);
   //Database operator = (const Database& base);

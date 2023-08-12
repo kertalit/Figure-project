@@ -20,7 +20,7 @@ Rectangle::~Rectangle()
 
 void Rectangle::read(DataProvider& provider)
 {
-    Figure::read(provider);
+    Entity::read(provider);
     point = provider.rdPoint2d();
     length = provider.rdDouble();
     width = provider.rdDouble();
@@ -28,7 +28,7 @@ void Rectangle::read(DataProvider& provider)
 
 void Rectangle::write(DataProvider& provider) const
 {
-    Figure::write(provider);
+    Entity::write(provider);
     provider.writePoint2d(point);
     provider.writeDouble(length);
     provider.writeDouble(width);
@@ -36,10 +36,14 @@ void Rectangle::write(DataProvider& provider) const
 
 void Rectangle::print() const
 {
-    Figure::print();
+    Entity::print();
     std::cout << point << std::endl;
     std::cout << length << std::endl;
     std::cout << width << std::endl;
+}
+
+void Rectangle::ToPlan(Plan& plan) const
+{
 }
 
 int Rectangle::getType() const

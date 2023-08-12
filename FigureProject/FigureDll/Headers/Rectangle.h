@@ -6,7 +6,7 @@
 
 using  RectanglePtr = std::shared_ptr<class Rectangle> FIGURE_API;
 
-class FIGURE_API Rectangle : public Figure
+class FIGURE_API Rectangle : public Entity
 {
 public:
     Rectangle();
@@ -19,6 +19,7 @@ public:
     void read(DataProvider& stream) override;
     void write(DataProvider& stream) const override;
     void print() const override;
+    void ToPlan(Plan& plan) const override;
 
     int getType() const override;
     Point2d getPoint() const;

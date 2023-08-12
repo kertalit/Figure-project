@@ -1,6 +1,6 @@
 #include "Commands.h"
 
-FigurePtr createObj(size_t type)
+EntityPtr createObj(size_t type)
 {
     switch (type)
     {

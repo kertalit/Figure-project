@@ -1,36 +1,36 @@
 #include "Figure.h"
 
-size_t Figure::count = 0;
+size_t Entity::count = 0;
 
-Figure::Figure()
+Entity::Entity()
     :name(""), id(++count)
 {
 
 }
 
-Figure::Figure(const std::string& name)
+Entity::Entity(const std::string& name)
     :name(name), id(++count)
 {
 
 }
 
-Figure::~Figure()
+Entity::~Entity()
 {
 
 }
 
-void Figure::read(DataProvider& provider)
+void Entity::read(DataProvider& provider)
 {
     id = provider.rdInt();
     name = provider.rdString();
 }
-void Figure::print() const
+void Entity::print() const
 {
     std::cout << id << std::endl;
     std::cout << name << std::endl;
 }
 
-void Figure::write(DataProvider& provider) const
+void Entity::write(DataProvider& provider) const
 {
     provider.writeInt(getType());
     provider.writeInt(id);
@@ -38,18 +38,18 @@ void Figure::write(DataProvider& provider) const
 }
 
 
-void Figure::setName(const std::string& name)
+void Entity::setName(const std::string& name)
 {
     this->name = name;
 }
 
 
-int Figure::getId() const
+int Entity::getId() const
 {
     return id;
 }
 
-std::string Figure::getName() const
+std::string Entity::getName() const
 {
     return name;
 }

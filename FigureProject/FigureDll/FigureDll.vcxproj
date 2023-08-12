@@ -152,10 +152,13 @@
     <ClInclude Include="Headers\Figure.h" />
     <ClInclude Include="Headers\FileBinaryDataProvider.h" />
     <ClInclude Include="Headers\FileDataProvider.h" />
+    <ClInclude Include="Headers\Pipe.h" />
+    <ClInclude Include="Headers\Plan.h" />
     <ClInclude Include="Headers\Platform.h" />
     <ClInclude Include="Headers\Point2d.h" />
     <ClInclude Include="Headers\Polyline.h" />
     <ClInclude Include="Headers\Rectangle.h" />
+    <ClInclude Include="Headers\Vectorizer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Circle.cpp" />
@@ -166,6 +169,8 @@
     <ClCompile Include="Source\Figure.cpp" />
     <ClCompile Include="Source\FileBinaryDataProvider.cpp" />
     <ClCompile Include="Source\FileDataProvider.cpp" />
+    <ClCompile Include="Source\Pipe.cpp" />
+    <ClCompile Include="Source\Plan.cpp" />
     <ClCompile Include="Source\Point2d.cpp" />
     <ClCompile Include="Source\Polyline.cpp" />
     <ClCompile Include="Source\Rectangle.cpp" />

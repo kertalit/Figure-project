@@ -118,7 +118,7 @@ void testCreateFigure()
 
     auto pBase = std::make_shared<Database>();
 
-    FigurePtr obj = createObj(Rectangle::type);
+    EntityPtr obj = createObj(Rectangle::type);
     obj->read(console);
     pBase->addObj(obj);
 
@@ -211,7 +211,7 @@ void UI()
             size_t type;
             std::cin >> type;
 
-            FigurePtr obj = createObj(type);
+            EntityPtr obj = createObj(type);
             obj->read(console);
             currentBase->addObj(obj);
 

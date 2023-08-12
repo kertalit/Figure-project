@@ -6,7 +6,7 @@
 
 using  CirclePtr = std::shared_ptr<class Circle> FIGURE_API;
 
-class FIGURE_API Circle : public Figure
+class FIGURE_API Circle : public Entity
 {
 public:
     Circle();
@@ -19,6 +19,7 @@ public:
     void read(DataProvider& provider) override;
     void write(DataProvider& provider) const override;
     void print() const override;
+    void ToPlan(Plan& plan) const override;
 
     int getType() const override;
     Point2d getPoint() const;
