@@ -2,7 +2,7 @@
 #define _DATABASE_H
 
 #include "Platform.h"
-#include "Figure.h"
+#include "Entity.h"
 #include "Circle.h"
 #include "Rectangle.h"
 #include "Polyline.h"

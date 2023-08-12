@@ -2,7 +2,7 @@
 #define _RECTANGLE_H
 
 #include "Platform.h"
-#include "Figure.h"
+#include "Entity.h"
 
 using  RectanglePtr = std::shared_ptr<class Rectangle> FIGURE_API;
 

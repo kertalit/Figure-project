@@ -2,7 +2,7 @@
 #define _POLILYNE_H
 
 #include "Platform.h"
-#include "Figure.h"
+#include "Entity.h"
 #include "Point2d.h"
 #include <vector>
 #include <iostream>

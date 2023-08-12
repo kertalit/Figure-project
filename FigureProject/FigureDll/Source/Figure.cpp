@@ -1,4 +1,4 @@
-#include "Figure.h"
+#include "Entity.h"
 
 size_t Entity::count = 0;
 

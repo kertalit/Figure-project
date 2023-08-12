@@ -27,7 +27,7 @@
     <ClInclude Include="Headers\Database.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Headers\Figure.h">
+    <ClInclude Include="Headers\Entity.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Headers\FileBinaryDataProvider.h">

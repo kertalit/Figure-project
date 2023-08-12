@@ -149,7 +149,7 @@
     <ClInclude Include="Headers\ConsoleDataProvider.h" />
     <ClInclude Include="Headers\Database.h" />
     <ClInclude Include="Headers\DataProvider.h" />
-    <ClInclude Include="Headers\Figure.h" />
+    <ClInclude Include="Headers\Entity.h" />
     <ClInclude Include="Headers\FileBinaryDataProvider.h" />
     <ClInclude Include="Headers\FileDataProvider.h" />
     <ClInclude Include="Headers\Pipe.h" />

@@ -4,3 +4,24 @@ Pipe::Pipe(double radius, double wallThickness, Point2d startTube, Point2d endTu
     :radius(radius), wallThickness(wallThickness), startTube(startTube), endTube(endTube), bounds(bounds)
 {
 }
+
+void Pipe::read(DataProvider& provider)
+{
+}
+
+void Pipe::write(DataProvider& provider) const
+{
+}
+
+void Pipe::print() const
+{
+}
+
+void Pipe::ToPlan(Plan& plan) const
+{
+}
+
+int Pipe::getType() const
+{
+    return type;
+}

@@ -2,6 +2,7 @@
 #define _POINT2D_H
 
 #include "Platform.h"
+
 #include <iostream>
 #include <fstream>
 #include <ostream>

@@ -23,12 +23,13 @@ public:
     void virtual read(DataProvider& provider) = 0;
     void virtual write(DataProvider& provider) const = 0;
     void virtual print() const = 0;
-    virtual void ToPlan(Plan& plan) const = 0;
+    void virtual ToPlan(Plan& plan) const = 0;
 
 
     void setName(const std::string& name);
 
-    virtual int getType() const = 0;
+    int virtual getType() const = 0;
+
     int getId() const;
     std::string getName() const;
 
