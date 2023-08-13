@@ -36,17 +36,6 @@ void Polyline::writeInternal(DataProvider& provider) const
     }
 }
 
-void Polyline::print() const
-{
-    Entity::print();
-    std::cout << points.size() << std::endl;
-
-    for (const auto& point : points)
-    {
-        std::cout << point << std::endl;
-    }
-}
-
 void Polyline::ToPlan(Plan& plan) const
 {
 }

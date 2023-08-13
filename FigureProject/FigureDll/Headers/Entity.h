@@ -22,7 +22,6 @@ public:
 
     void readFrom(DataProvider& provider);
     void writeTo(DataProvider& provider) const;
-    void virtual print() const = 0;
     void virtual ToPlan(Plan& plan) const = 0;
 
     void setName(const std::string& name);

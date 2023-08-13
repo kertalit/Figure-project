@@ -27,14 +27,6 @@ void Rectangle::writeInternal(DataProvider& provider) const
     provider.writeDouble(width);
 }
 
-void Rectangle::print() const
-{
-    Entity::print();
-    std::cout << point << std::endl;
-    std::cout << length << std::endl;
-    std::cout << width << std::endl;
-}
-
 void Rectangle::ToPlan(Plan& plan) const
 {
 }

@@ -25,13 +25,6 @@ void Circle::writeInternal(DataProvider& provider) const
     provider.writeDouble(radius);
 }
 
-void Circle::print() const
-{
-    Entity::print();
-    std::cout << point << std::endl;
-    std::cout << radius << std::endl;
-}
-
 void Circle::ToPlan(Plan& plan) const
 {
 }

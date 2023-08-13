@@ -15,7 +15,6 @@ public:
 
     void readInternal(DataProvider& provider) override;
     void writeInternal(DataProvider& provider) const override;
-    void print() const override;
     void ToPlan(Plan& plan) const override;
 
     int getType() const override;

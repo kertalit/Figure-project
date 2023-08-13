@@ -14,10 +14,6 @@ void Pipe::writeInternal(DataProvider& provider) const
     
 }
 
-void Pipe::print() const
-{
-}
-
 void Pipe::ToPlan(Plan& plan) const
 {
 }

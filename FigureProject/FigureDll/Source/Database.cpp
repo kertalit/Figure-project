@@ -32,15 +32,20 @@ std::vector<EntityPtr> Database::GetObjects() const
     return figures;
 }
 
-void Database::save(const std::string& path)
+void Database::save(const std::string& path) const
 {
     FileBinaryDataProvider filer(path, FileBinaryDataProvider::OpenMode::Out);
 
-    filer.writeInt(figures.size());
+    writeTo(filer);
+}
 
-    for (auto& obj : figures)
+void Database::writeTo(DataProvider& provider) const
+{
+    provider.writeInt(figures.size());
+
+    for (const auto& obj : figures)
     {
-        obj->writeTo(filer);
+        obj->writeTo(provider);
     }
 }
 
@@ -83,10 +88,9 @@ EntityPtr Database::searchId(size_t id)
 
 void Database::print() const
 {
-    for (auto& obj : figures)
-    {
-        obj->print();
-    }
+    ConsoleDataProvider provider;
+
+    writeTo(provider);
 }
 
 void Database::deleteFigure(size_t id)

@@ -14,7 +14,6 @@ public:
 
     static const int type = 1;
 
-    void print() const override;
     void ToPlan(Plan& plan) const override;
 
     int getType() const override;

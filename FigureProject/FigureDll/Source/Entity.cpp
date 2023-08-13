@@ -26,11 +26,6 @@ void Entity::readFrom(DataProvider& provider)
 
     readInternal(provider);
 }
-void Entity::print() const
-{
-    std::cout << id << std::endl;
-    std::cout << name << std::endl;
-}
 
 void Entity::writeTo(DataProvider& provider) const
 {
