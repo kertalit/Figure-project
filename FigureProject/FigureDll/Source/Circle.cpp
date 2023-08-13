@@ -13,11 +13,6 @@ Circle::Circle(const Point2d& point, double radius)
 
 }
 
-Circle::~Circle()
-{
-
-}
-
 void Circle::read(DataProvider& provider)
 {
     Entity::read(provider);
@@ -46,16 +41,6 @@ void Circle::ToPlan(Plan& plan) const
 int Circle::getType() const
 {
     return type;
-}
-
-Point2d Circle::getPoint() const
-{
-    return point;
-}
-
-double Circle::getRadius() const
-{
-    return radius;
 }
 
 void Circle::setPoint(const Point2d& point)

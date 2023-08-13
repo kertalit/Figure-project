@@ -13,11 +13,6 @@ Rectangle::Rectangle(const Point2d& point, double length, double width)
 
 }
 
-Rectangle::~Rectangle()
-{
-
-}
-
 void Rectangle::read(DataProvider& provider)
 {
     Entity::read(provider);
@@ -49,21 +44,6 @@ void Rectangle::ToPlan(Plan& plan) const
 int Rectangle::getType() const
 {
     return type;
-}
-
-Point2d Rectangle::getPoint() const
-{
-    return point;
-}
-
-double Rectangle::getLength() const
-{
-    return length;
-}
-
-double Rectangle::getWidth() const
-{
-    return width;
 }
 
 void Rectangle::setPoint(const Point2d& point)

@@ -12,8 +12,6 @@ public:
     Rectangle();
     Rectangle(const Point2d& point, double length, double width);
 
-    ~Rectangle() override;
-
     static const int type = 2;
 
     void read(DataProvider& stream) override;
@@ -22,9 +20,6 @@ public:
     void ToPlan(Plan& plan) const override;
 
     int getType() const override;
-    Point2d getPoint() const;
-    double getLength() const;
-    double getWidth() const;
 
     void setPoint(const Point2d& point);
     void setLength(double lenght);

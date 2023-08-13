@@ -166,7 +166,7 @@
     <ClCompile Include="Source\ConsoleDataProvider.cpp" />
     <ClCompile Include="Source\Database.cpp" />
     <ClCompile Include="Source\DataProvider.cpp" />
-    <ClCompile Include="Source\Figure.cpp" />
+    <ClCompile Include="Source\Entity.cpp" />
     <ClCompile Include="Source\FileBinaryDataProvider.cpp" />
     <ClCompile Include="Source\FileDataProvider.cpp" />
     <ClCompile Include="Source\Pipe.cpp" />

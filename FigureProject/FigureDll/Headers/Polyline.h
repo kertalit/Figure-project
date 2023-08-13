@@ -15,8 +15,6 @@ public:
     Polyline();
     Polyline(const std::vector<Point2d>& points);
 
-    ~Polyline() override;
-
     static const int type = 3;
 
     void read(DataProvider& provider) override;
@@ -25,8 +23,6 @@ public:
     void ToPlan(Plan& plan) const override;
 
     int getType() const override;
-
-    std::vector<Point2d> getPoints() const;
 
     void setPoint(const Point2d& point, size_t number);
 

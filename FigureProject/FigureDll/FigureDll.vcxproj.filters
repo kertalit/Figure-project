@@ -74,7 +74,7 @@
     <ClCompile Include="Source\Database.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Figure.cpp">
+    <ClCompile Include="Source\Entity.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\FileBinaryDataProvider.cpp">

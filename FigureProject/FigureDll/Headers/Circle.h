@@ -12,8 +12,6 @@ public:
     Circle();
     Circle(const Point2d& point, double radius);
 
-    ~Circle() override;
-
     static const int type = 1;
 
     void read(DataProvider& provider) override;
@@ -22,8 +20,6 @@ public:
     void ToPlan(Plan& plan) const override;
 
     int getType() const override;
-    Point2d getPoint() const;
-    double getRadius() const;
 
     void setPoint(const Point2d& point);
     void setRadius(double radius);

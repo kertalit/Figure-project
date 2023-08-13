@@ -13,11 +13,6 @@ Polyline::Polyline(const std::vector<Point2d>& points)
 
 }
 
-Polyline::~Polyline()
-{
-
-}
-
 void Polyline::read(DataProvider& provider)
 {
     Entity::read(provider);
@@ -62,12 +57,6 @@ int  Polyline::getType() const
 {
     return type;
 }
-
-std::vector<Point2d> Polyline::getPoints() const
-{
-    return points;
-}
-
 
 void Polyline::setPoint(const Point2d& point, size_t number)
 {

@@ -49,8 +49,3 @@ int Entity::getId() const
     return id;
 }
 
-std::string Entity::getName() const
-{
-    return name;
-}
-

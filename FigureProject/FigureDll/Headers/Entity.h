@@ -31,7 +31,6 @@ public:
     int virtual getType() const = 0;
 
     int getId() const;
-    std::string getName() const;
 
 private:
     std::string name;

@@ -13,8 +13,6 @@ class Pipe : public Entity
 public:
     Pipe(double radius, double wallThickness, Point2d startTube, Point2d endTube, std::vector<double> bounds);
 
-    ~Pipe() override;
-
     void read(DataProvider& provider) override;
     void write(DataProvider& provider) const override;
     void print() const override;
