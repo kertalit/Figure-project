@@ -13,16 +13,14 @@ Circle::Circle(const Point2d& point, double radius)
 
 }
 
-void Circle::read(DataProvider& provider)
+void Circle::readInternal(DataProvider& provider)
 {
-    Entity::read(provider);
     point = provider.rdPoint2d();
     radius = provider.rdDouble();
 }
 
-void Circle::write(DataProvider& provider) const
+void Circle::writeInternal(DataProvider& provider) const
 {
-    Entity::write(provider);
     provider.writePoint2d(point);
     provider.writeDouble(radius);
 }

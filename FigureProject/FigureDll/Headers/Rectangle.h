@@ -14,8 +14,6 @@ public:
 
     static const int type = 2;
 
-    void read(DataProvider& stream) override;
-    void write(DataProvider& stream) const override;
     void print() const override;
     void ToPlan(Plan& plan) const override;
 
@@ -24,6 +22,10 @@ public:
     void setPoint(const Point2d& point);
     void setLength(double lenght);
     void setWidth(double width);
+
+protected:
+    void writeInternal(DataProvider& stream) const override;
+    void readInternal(DataProvider& stream) override;
 
 private:
     Point2d point;

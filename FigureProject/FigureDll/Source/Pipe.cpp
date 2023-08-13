@@ -5,12 +5,13 @@ Pipe::Pipe(double radius, double wallThickness, Point2d startTube, Point2d endTu
 {
 }
 
-void Pipe::read(DataProvider& provider)
+void Pipe::readInternal(DataProvider& provider)
 {
 }
 
-void Pipe::write(DataProvider& provider) const
+void Pipe::writeInternal(DataProvider& provider) const
 {
+    
 }
 
 void Pipe::print() const

@@ -40,7 +40,7 @@ void Database::save(const std::string& path)
 
     for (auto& obj : figures)
     {
-        obj->write(filer);
+        obj->writeTo(filer);
     }
 }
 
@@ -55,7 +55,7 @@ void Database::rdFile(DataProvider& stream)
         auto type = stream.rdInt();
         auto obj = createObj(type);
 
-        obj->read(stream);
+        obj->readFrom(stream);
         figures.push_back(obj);
     }
 }

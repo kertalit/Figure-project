@@ -17,14 +17,16 @@ public:
 
     static const int type = 3;
 
-    void read(DataProvider& provider) override;
-    void write(DataProvider& provider) const override;
     void print() const override;
     void ToPlan(Plan& plan) const override;
 
     int getType() const override;
 
     void setPoint(const Point2d& point, size_t number);
+
+protected:
+    void writeInternal(DataProvider& provider) const override;
+    void readInternal(DataProvider& provider) override;
 
 private:
     std::vector<Point2d> points;

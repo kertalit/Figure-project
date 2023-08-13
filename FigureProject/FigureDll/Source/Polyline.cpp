@@ -13,9 +13,8 @@ Polyline::Polyline(const std::vector<Point2d>& points)
 
 }
 
-void Polyline::read(DataProvider& provider)
+void Polyline::readInternal(DataProvider& provider)
 {
-    Entity::read(provider);
     int size = provider.rdInt();
 
     points.reserve(size);
@@ -27,9 +26,8 @@ void Polyline::read(DataProvider& provider)
 }
 
 
-void Polyline::write(DataProvider& provider) const
+void Polyline::writeInternal(DataProvider& provider) const
 {
-    Entity::write(provider);
     provider.writeInt(points.size());
 
     for (const auto& point : points)

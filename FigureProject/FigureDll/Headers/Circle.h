@@ -14,8 +14,6 @@ public:
 
     static const int type = 1;
 
-    void read(DataProvider& provider) override;
-    void write(DataProvider& provider) const override;
     void print() const override;
     void ToPlan(Plan& plan) const override;
 
@@ -23,6 +21,10 @@ public:
 
     void setPoint(const Point2d& point);
     void setRadius(double radius);
+
+protected:
+    void writeInternal(DataProvider& provider) const override;
+    void readInternal(DataProvider& provider) override;
 
 private:
     Point2d point;
