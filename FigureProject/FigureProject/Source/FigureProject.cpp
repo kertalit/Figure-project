@@ -17,10 +17,12 @@ void testSaveDb()
 {
     auto base = std::make_shared<Database>("Figure1.txt");
     auto figures = base->GetObjects();
+    
+    ConsoleDataProvider console;
 
     for (auto& obj : figures)
     {
-        obj->print();
+        obj->writeTo(console);
     }
 
     base->save("1234.txt");
@@ -61,14 +63,16 @@ void testChoiceDb()
 
 void testCreateObj()
 {
+    ConsoleDataProvider console;
+
     std::cout << "Circle: " << std::endl;
-    createObj(Circle::type)->print();
+    createObj(Circle::type)->writeTo(console);
 
     std::cout << "Rectangle: " << std::endl;
-    createObj(Rectangle::type)->print();
+    createObj(Rectangle::type)->writeTo(console);
 
     std::cout << "Polyline: " << std::endl;
-    createObj(Polyline::type)->print();
+    createObj(Polyline::type)->writeTo(console);
 
     try
     {
@@ -119,7 +123,7 @@ void testCreateFigure()
     auto pBase = std::make_shared<Database>();
 
     EntityPtr obj = createObj(Rectangle::type);
-    obj->read(console);
+    obj->readFrom(console);
     pBase->addObj(obj);
 
     std::cout << "Rectangle was created and added to base" << std::endl;
@@ -212,7 +216,7 @@ void UI()
             std::cin >> type;
 
             EntityPtr obj = createObj(type);
-            obj->read(console);
+            obj->readFrom(console);
             currentBase->addObj(obj);
 
             std::cout << "Figure was created and added to base" << std::endl;

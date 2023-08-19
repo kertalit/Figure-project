@@ -12,18 +12,17 @@ public:
     Circle();
     Circle(const Point2d& point, double radius);
 
-    static const int type = 1;
+    virtual void readFrom(DataProvider& provider) override;
+    virtual void writeTo(DataProvider& provider) const override;
 
-    void ToPlan(Plan& plan) const override;
+    void toPlan(Plan& plan) const override;
 
     int getType() const override;
 
     void setPoint(const Point2d& point);
     void setRadius(double radius);
 
-protected:
-    void writeInternal(DataProvider& provider) const override;
-    void readInternal(DataProvider& provider) override;
+    static const int type = 1;
 
 private:
     Point2d point;

@@ -27,7 +27,7 @@ public:
 
 private:
     void writeTo(DataProvider& provider) const;
-    void rdFile(DataProvider& stream);
+    void rdFile(DataProvider& provider);
     std::vector<EntityPtr>::iterator subSearchId(size_t id);
 
     std::vector<EntityPtr> figures;

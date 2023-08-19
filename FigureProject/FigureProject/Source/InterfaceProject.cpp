@@ -173,7 +173,8 @@ void listDb(DatabasePtr base)
             break;
         }
 
-        obj->Entity::print();
+        ConsoleDataProvider console;
+        obj->Entity::writeTo(console);
         std::cout << std::endl;
     }
 }

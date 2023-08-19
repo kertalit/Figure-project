@@ -20,19 +20,14 @@ public:
 
     virtual ~Entity();
 
-    void readFrom(DataProvider& provider);
-    void writeTo(DataProvider& provider) const;
-    void virtual ToPlan(Plan& plan) const = 0;
+    virtual void readFrom(DataProvider& provider) = 0;
+    virtual void writeTo(DataProvider& provider) const = 0;
+    virtual void toPlan(Plan& plan) const = 0;
 
     void setName(const std::string& name);
 
-    int virtual getType() const = 0;
-
+    virtual int getType() const = 0;
     int getId() const;
-
-protected:
-    virtual void writeInternal(DataProvider& provider) const = 0;
-    virtual void readInternal(DataProvider& provider) = 0;
 
 private:
     std::string name;

@@ -15,17 +15,16 @@ public:
     Polyline();
     Polyline(const std::vector<Point2d>& points);
 
-    static const int type = 3;
 
-    void ToPlan(Plan& plan) const override;
+    void readFrom(DataProvider& provider) override;
+    void writeTo(DataProvider& provider) const override;
+    void toPlan(Plan& plan) const override;
 
     int getType() const override;
 
     void setPoint(const Point2d& point, size_t number);
 
-protected:
-    void writeInternal(DataProvider& provider) const override;
-    void readInternal(DataProvider& provider) override;
+    static const int type = 3;
 
 private:
     std::vector<Point2d> points;

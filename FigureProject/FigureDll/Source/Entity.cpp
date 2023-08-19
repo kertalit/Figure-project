@@ -24,7 +24,6 @@ void Entity::readFrom(DataProvider& provider)
     id = provider.rdInt();
     name = provider.rdString();
 
-    readInternal(provider);
 }
 
 void Entity::writeTo(DataProvider& provider) const
@@ -32,8 +31,6 @@ void Entity::writeTo(DataProvider& provider) const
     provider.writeInt(getType());
     provider.writeInt(id);
     provider.writeString(name);
-
-    writeInternal(provider);
 }
 
 void Entity::setName(const std::string& name)

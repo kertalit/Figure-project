@@ -13,21 +13,23 @@ Rectangle::Rectangle(const Point2d& point, double length, double width)
 
 }
 
-void Rectangle::readInternal(DataProvider& provider)
+void Rectangle::readFrom(DataProvider& provider)
 {
+    Entity::readFrom(provider);
     point = provider.rdPoint2d();
     length = provider.rdDouble();
     width = provider.rdDouble();
 }
 
-void Rectangle::writeInternal(DataProvider& provider) const
+void Rectangle::writeTo(DataProvider& provider) const
 {
+    Entity::writeTo(provider);
     provider.writePoint2d(point);
     provider.writeDouble(length);
     provider.writeDouble(width);
 }
 
-void Rectangle::ToPlan(Plan& plan) const
+void Rectangle::toPlan(Plan& plan) const
 {
 }
 

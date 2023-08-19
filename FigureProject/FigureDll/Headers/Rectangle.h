@@ -12,9 +12,10 @@ public:
     Rectangle();
     Rectangle(const Point2d& point, double length, double width);
 
-    static const int type = 2;
 
-    void ToPlan(Plan& plan) const override;
+    void readFrom(DataProvider& provider) override;
+    void writeTo(DataProvider& provider) const override;
+    void toPlan(Plan& plan) const override;
 
     int getType() const override;
 
@@ -22,9 +23,7 @@ public:
     void setLength(double lenght);
     void setWidth(double width);
 
-protected:
-    void writeInternal(DataProvider& stream) const override;
-    void readInternal(DataProvider& stream) override;
+    static const int type = 2;
 
 private:
     Point2d point;

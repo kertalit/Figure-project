@@ -11,11 +11,11 @@
 class Pipe : public Entity
 {
 public:
-    Pipe(double radius, double wallThickness, Point2d startTube, Point2d endTube, std::vector<double> bounds);
+    Pipe(double radius, double wallThickness, Point2d startPipe, Point2d endPipe);
 
-    void readInternal(DataProvider& provider) override;
-    void writeInternal(DataProvider& provider) const override;
-    void ToPlan(Plan& plan) const override;
+    void readFrom(DataProvider& provider) override;
+    void writeTo(DataProvider& provider) const override;
+    void toPlan(Plan& plan) const override;
 
     int getType() const override;
     
@@ -24,8 +24,8 @@ public:
 private:
     double radius;
     double wallThickness;
-    Point2d startTube;
-    Point2d endTube;
+    Point2d startPipe;
+    Point2d endPipe;
     std::vector<double> bounds;
 };
 #endif // !PIPE_H
