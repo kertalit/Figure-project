@@ -38,11 +38,7 @@ void Polyline::writeTo(DataProvider& provider) const
     }
 }
 
-void Polyline::toPlan(Plan& plan) const
-{
-}
-
-int  Polyline::getType() const
+int Polyline::getType() const
 {
     return type;
 }

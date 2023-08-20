@@ -118,7 +118,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;FIGURE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Programming\Figure-project\FigureProject\FigureDll\Headers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Programming\Figure-project\FigureProject\FigureDll\Headers\Database;C:\Programming\Figure-project\FigureProject\FigureDll\Headers\Render;C:\Programming\Figure-project\FigureProject\FigureDll\Headers\Providers;C:\Programming\Figure-project\FigureProject\FigureDll\Headers\Draw;C:\Programming\Figure-project\FigureProject\FigureDll\Headers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <AdditionalOptions>/c %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
@@ -144,36 +144,47 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Headers\Circle.h" />
+    <ClInclude Include="Headers\Database\Object.h" />
+    <ClInclude Include="Headers\Draw\Color.h" />
+    <ClInclude Include="Headers\Database\Circle.h" />
     <ClInclude Include="Headers\Commands.h" />
-    <ClInclude Include="Headers\ConsoleDataProvider.h" />
-    <ClInclude Include="Headers\Database.h" />
-    <ClInclude Include="Headers\DataProvider.h" />
-    <ClInclude Include="Headers\Entity.h" />
-    <ClInclude Include="Headers\FileBinaryDataProvider.h" />
-    <ClInclude Include="Headers\FileDataProvider.h" />
-    <ClInclude Include="Headers\Pipe.h" />
-    <ClInclude Include="Headers\Plan.h" />
+    <ClInclude Include="Headers\Draw\Draw.h" />
+    <ClInclude Include="Headers\Providers\ConsoleDataProvider.h" />
+    <ClInclude Include="Headers\Database\Database.h" />
+    <ClInclude Include="Headers\Providers\DataProvider.h" />
+    <ClInclude Include="Headers\Database\Entity.h" />
+    <ClInclude Include="Headers\Providers\FileBinaryDataProvider.h" />
+    <ClInclude Include="Headers\Providers\FileDataProvider.h" />
+    <ClInclude Include="Headers\Database\Pipe.h" />
+    <ClInclude Include="Headers\Draw\DrawModel.h" />
     <ClInclude Include="Headers\Platform.h" />
     <ClInclude Include="Headers\Point2d.h" />
-    <ClInclude Include="Headers\Polyline.h" />
-    <ClInclude Include="Headers\Rectangle.h" />
-    <ClInclude Include="Headers\Vectorizer.h" />
+    <ClInclude Include="Headers\Draw\Polyline.h" />
+    <ClInclude Include="Headers\Database\Rectangle.h" />
+    <ClInclude Include="Headers\Draw\Style.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source\Circle.cpp" />
+    <ClCompile Include="Headers\Render\RenderBase.h" />
+    <ClCompile Include="Headers\Render\TextRender.h" />
+    <ClCompile Include="Source\Database\Object.cpp" />
+    <ClCompile Include="Source\Draw\Color.cpp" />
+    <ClCompile Include="Source\Database\Circle.cpp" />
     <ClCompile Include="Source\Commands.cpp" />
-    <ClCompile Include="Source\ConsoleDataProvider.cpp" />
-    <ClCompile Include="Source\Database.cpp" />
-    <ClCompile Include="Source\DataProvider.cpp" />
-    <ClCompile Include="Source\Entity.cpp" />
-    <ClCompile Include="Source\FileBinaryDataProvider.cpp" />
-    <ClCompile Include="Source\FileDataProvider.cpp" />
-    <ClCompile Include="Source\Pipe.cpp" />
-    <ClCompile Include="Source\Plan.cpp" />
+    <ClCompile Include="Source\Draw\Draw.cpp" />
+    <ClCompile Include="Source\Providers\ConsoleDataProvider.cpp" />
+    <ClCompile Include="Source\Database\Database.cpp" />
+    <ClCompile Include="Source\Providers\DataProvider.cpp" />
+    <ClCompile Include="Source\Database\Entity.cpp" />
+    <ClCompile Include="Source\Providers\FileBinaryDataProvider.cpp" />
+    <ClCompile Include="Source\Providers\FileDataProvider.cpp" />
+    <ClCompile Include="Source\Database\Pipe.cpp" />
+    <ClCompile Include="Source\Draw\DrawModel.cpp" />
     <ClCompile Include="Source\Point2d.cpp" />
-    <ClCompile Include="Source\Polyline.cpp" />
-    <ClCompile Include="Source\Rectangle.cpp" />
+    <ClCompile Include="Source\Draw\Polyline.cpp" />
+    <ClCompile Include="Source\Database\Rectangle.cpp" />
+    <ClCompile Include="Source\Draw\Style.cpp" />
+    <ClCompile Include="Source\Render\RenderBase.cpp" />
+    <ClCompile Include="Source\Render\TextRender.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

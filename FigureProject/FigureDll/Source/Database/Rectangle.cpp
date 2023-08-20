@@ -29,10 +29,6 @@ void Rectangle::writeTo(DataProvider& provider) const
     provider.writeDouble(width);
 }
 
-void Rectangle::toPlan(Plan& plan) const
-{
-}
-
 int Rectangle::getType() const
 {
     return type;
@@ -42,9 +38,9 @@ void Rectangle::setPoint(const Point2d& point)
 {
     this->point = point;
 }
-void Rectangle::setLength(double lenght)
+void Rectangle::setLength(double length)
 {
-    this->length = lenght;
+    this->length = length;
 }
 void Rectangle::setWidth(double width)
 {

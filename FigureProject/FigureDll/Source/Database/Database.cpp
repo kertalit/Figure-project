@@ -27,7 +27,7 @@ Database::~Database()
 
 }
 
-std::vector<EntityPtr> Database::GetObjects() const
+std::vector<ObjectPtr> Database::GetObjects() const
 {
     return figures;
 }
@@ -65,14 +65,14 @@ void Database::rdFile(DataProvider& stream)
     }
 }
 
-void Database::addObj(EntityPtr obj)
+void Database::addObj(ObjectPtr obj)
 {
     figures.push_back(obj);
 }
 
-std::vector<EntityPtr>::iterator Database::subSearchId(size_t id)
+std::vector<ObjectPtr>::iterator Database::subSearchId(size_t id)
 {
-    auto res = std::find_if(figures.begin(), figures.end(), [id](const EntityPtr& obj)->bool {return id == obj->getId(); });
+    auto res = std::find_if(figures.begin(), figures.end(), [id](const ObjectPtr& obj)->bool {return id == obj->getId(); });
 
     if (res == figures.end())
         throw std::exception("Id not found");
@@ -80,7 +80,7 @@ std::vector<EntityPtr>::iterator Database::subSearchId(size_t id)
     return res;
 }
 
-EntityPtr Database::searchId(size_t id)
+ObjectPtr Database::searchId(size_t id)
 {
     return *subSearchId(id);
 }

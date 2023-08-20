@@ -27,9 +27,6 @@ void Circle::writeTo(DataProvider& provider) const
     provider.writeDouble(radius);
 }
 
-void Circle::toPlan(Plan& plan) const
-{
-}
 
 int Circle::getType() const
 {

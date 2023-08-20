@@ -6,6 +6,6 @@
 #include <memory>
 
 
-EntityPtr FIGURE_API createObj(size_t type);
+ObjectPtr FIGURE_API createObj(size_t type);
 
 #endif // !_COMMANDS_H

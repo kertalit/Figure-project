@@ -15,10 +15,6 @@ void Pipe::writeTo(DataProvider& provider) const
     
 }
 
-void Pipe::toPlan(Plan& plan) const
-{
-}
-
 int Pipe::getType() const
 {
     return type;

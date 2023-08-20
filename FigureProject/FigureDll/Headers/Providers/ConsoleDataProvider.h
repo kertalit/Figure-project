@@ -21,6 +21,7 @@ public:
     void writePoint2d(const Point2d& point) override;
     void writeString(const std::string& line) override;
     void writeDouble(const double number) override;
+
     void printPoint2d(const Point2d& point) override;
 };
 

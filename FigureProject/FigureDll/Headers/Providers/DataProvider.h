@@ -21,7 +21,7 @@ public:
     virtual double rdDouble() = 0;
 
 
-    virtual void writeInt(const int number) = 0;
+    virtual void writeInt(const int number)  = 0;
     virtual void writePoint2d(const Point2d& point) = 0;
     virtual void writeString(const std::string& line) = 0;
     virtual void writeDouble(const double number) = 0;

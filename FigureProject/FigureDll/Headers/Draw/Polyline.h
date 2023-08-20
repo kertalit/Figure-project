@@ -18,7 +18,6 @@ public:
 
     void readFrom(DataProvider& provider) override;
     void writeTo(DataProvider& provider) const override;
-    void toPlan(Plan& plan) const override;
 
     int getType() const override;
 

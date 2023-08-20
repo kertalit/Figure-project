@@ -15,8 +15,6 @@ public:
     virtual void readFrom(DataProvider& provider) override;
     virtual void writeTo(DataProvider& provider) const override;
 
-    void toPlan(Plan& plan) const override;
-
     int getType() const override;
 
     void setPoint(const Point2d& point);
