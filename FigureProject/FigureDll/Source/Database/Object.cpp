@@ -20,3 +20,7 @@ void Object::writeTo(DataProvider& provider) const
 {
     provider.writeString(name);
 }
+
+Object::~Object()
+{
+}

@@ -15,9 +15,9 @@ public:
     virtual void readFrom(DataProvider& provider) override;
     virtual void writeTo(DataProvider& provider) const override;
 
-
     void setPoint(const Point2d& point);
     void setRadius(double radius);
+    int getType() const override;
 
     static const int type = 1;
 

@@ -7,6 +7,7 @@ Circle::Circle()
 {
 
 }
+
 Circle::Circle(const Point2d& point, double radius)
     :point(point), radius(radius)
 {
@@ -35,4 +36,9 @@ void Circle::setPoint(const Point2d& point)
 void Circle::setRadius(double radius)
 {
     this->radius = radius;
+}
+
+int Circle::getType() const
+{
+    return type;
 }

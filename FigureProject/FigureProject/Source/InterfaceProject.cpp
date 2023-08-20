@@ -174,7 +174,7 @@ void listDb(DatabasePtr base)
         }
 
         ConsoleDataProvider console;
-        obj->Entity::writeTo(console);
+        obj->Object::writeTo(console);
         std::cout << std::endl;
     }
 }

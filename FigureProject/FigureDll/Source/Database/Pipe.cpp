@@ -1,7 +1,7 @@
 #include "Pipe.h"
 
-Pipe::Pipe(double radius, double wallThickness, Point2d startTube, Point2d endTube)
-    :radius(radius), wallThickness(wallThickness)
+Pipe::Pipe(double radius, double wallThickness, Point2d start, Point2d end)
+    :radius(radius), wallThickness(wallThickness), start(start), end(end)
 {
 }
 

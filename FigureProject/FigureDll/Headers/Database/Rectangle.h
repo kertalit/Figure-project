@@ -12,13 +12,14 @@ public:
     Rectangle();
     Rectangle(const Point2d& point, double length, double width);
 
-
     void readFrom(DataProvider& provider) override;
     void writeTo(DataProvider& provider) const override;
 
     void setPoint(const Point2d& point);
     void setLength(double lenght);
     void setWidth(double width);
+
+    int getType() const override;
 
     static const int type = 2;
 

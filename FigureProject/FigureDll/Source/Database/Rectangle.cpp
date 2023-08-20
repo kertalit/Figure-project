@@ -41,3 +41,8 @@ void Rectangle::setWidth(double width)
 {
     this->width = width;
 }
+
+int Rectangle::getType() const
+{
+    return type;
+}

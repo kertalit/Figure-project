@@ -8,10 +8,10 @@
 
 
 
-class Pipe : public Entity
+class FIGURE_API Pipe : public Entity
 {
 public:
-    Pipe(double radius, double wallThickness, Point2d startPipe, Point2d endPipe);
+    Pipe(double radius, double wallThickness, Point2d start, Point2d end);
 
     void readFrom(DataProvider& provider) override;
     void writeTo(DataProvider& provider) const override;
@@ -21,8 +21,7 @@ public:
 private:
     double radius;
     double wallThickness;
-    Point2d startPipe;
-    Point2d endPipe;
-    std::vector<double> bounds;
+    Point2d start;
+    Point2d end;
 };
 #endif // !PIPE_H
