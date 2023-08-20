@@ -27,12 +27,6 @@ void Circle::writeTo(DataProvider& provider) const
     provider.writeDouble(radius);
 }
 
-
-int Circle::getType() const
-{
-    return type;
-}
-
 void Circle::setPoint(const Point2d& point)
 {
     this->point = point;

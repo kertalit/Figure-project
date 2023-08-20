@@ -14,8 +14,3 @@ void Pipe::writeTo(DataProvider& provider) const
 {
     
 }
-
-int Pipe::getType() const
-{
-    return type;
-}

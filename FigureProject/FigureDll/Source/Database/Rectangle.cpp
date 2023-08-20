@@ -29,11 +29,6 @@ void Rectangle::writeTo(DataProvider& provider) const
     provider.writeDouble(width);
 }
 
-int Rectangle::getType() const
-{
-    return type;
-}
-
 void Rectangle::setPoint(const Point2d& point)
 {
     this->point = point;

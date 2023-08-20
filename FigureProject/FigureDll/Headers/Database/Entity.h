@@ -10,8 +10,6 @@
 #include <fstream>
 
 
-
-
 class FIGURE_API Entity : public Object
 {
 public:
@@ -22,11 +20,6 @@ public:
     void writeTo(DataProvider& provider) const override;
 
     virtual int getType() const = 0;
-
-    int getId() const;
-
-private:
-
 };
 
 

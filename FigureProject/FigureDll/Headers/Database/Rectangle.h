@@ -16,8 +16,6 @@ public:
     void readFrom(DataProvider& provider) override;
     void writeTo(DataProvider& provider) const override;
 
-    int getType() const override;
-
     void setPoint(const Point2d& point);
     void setLength(double lenght);
     void setWidth(double width);
