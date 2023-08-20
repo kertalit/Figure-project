@@ -10,7 +10,7 @@ class FIGURE_API Circle : public Entity
 {
 public:
     Circle();
-    Circle(const Point2d& point, double radius);
+    Circle(const std::string& name, const Point2d& point, double radius);
 
     virtual void readFrom(DataProvider& provider) override;
     virtual void writeTo(DataProvider& provider) const override;

@@ -10,7 +10,7 @@ class FIGURE_API Rectangle : public Entity
 {
 public:
     Rectangle();
-    Rectangle(const Point2d& point, double length, double width);
+    Rectangle(const std::string& name, const Point2d& point, double length, double width);
 
     void readFrom(DataProvider& provider) override;
     void writeTo(DataProvider& provider) const override;

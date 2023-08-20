@@ -4,7 +4,7 @@ Entity::Entity()
 {
 }
 
-Entity::Entity(const std::string& name)
+Entity::Entity(const std::string& name) : Object(name)
 {
 }
 

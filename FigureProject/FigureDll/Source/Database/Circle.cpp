@@ -8,8 +8,8 @@ Circle::Circle()
 
 }
 
-Circle::Circle(const Point2d& point, double radius)
-    :point(point), radius(radius)
+Circle::Circle(const std::string& name, const Point2d& point, double radius)
+    :Entity(name), point(point), radius(radius)
 {
 
 }

@@ -7,8 +7,8 @@ Rectangle::Rectangle()
 
 }
 
-Rectangle::Rectangle(const Point2d& point, double length, double width)
-    :point(point), length(length), width(width)
+Rectangle::Rectangle(const std::string& name, const Point2d& point, double length, double width)
+    :Entity(name), point(point), length(length), width(width)
 {
 
 }
