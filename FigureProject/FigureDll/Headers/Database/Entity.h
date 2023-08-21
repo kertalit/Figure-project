@@ -3,8 +3,6 @@
 
 #include "Platform.h"
 #include "Point2d.h"
-#include "FileBinaryDataProvider.h"
-#include "ConsoleDataProvider.h"
 #include "Object.h"
 
 #include <fstream>

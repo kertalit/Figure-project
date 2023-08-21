@@ -1,14 +1,8 @@
 #ifndef _F_BINARY_DATAPROVIDER_H
 #define _F_BINARY_DATAPROVIDER_H
 
-
-#include "Platform.h"
-#include "Point2d.h"
 #include "DataProvider.h"
 
-#include <ostream>
-#include <string>
-#include <fstream>
 
 class FIGURE_API FileBinaryDataProvider : public DataProvider
 {

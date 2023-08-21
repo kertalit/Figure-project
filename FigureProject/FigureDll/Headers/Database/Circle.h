@@ -1,8 +1,8 @@
 #ifndef _CIRCLE_H
 #define _CIRCLE_H
 
-#include "Platform.h"
 #include "Entity.h"
+
 
 using  CirclePtr = std::shared_ptr<class Circle> FIGURE_API;
 

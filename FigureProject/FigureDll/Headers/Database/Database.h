@@ -1,13 +1,12 @@
 #ifndef _DATABASE_H
 #define _DATABASE_H
 
-#include "Platform.h"
-#include "Entity.h"
 #include "Circle.h"
 #include "Rectangle.h"
 #include "Polyline.h"
 
 #include <vector>
+
 
 using DatabasePtr = std::shared_ptr<class Database> FIGURE_API;
 

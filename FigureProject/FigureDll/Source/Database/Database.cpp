@@ -1,6 +1,8 @@
 #include "Database.h"
 #include "Commands.h"
+#include "FileBinaryDataProvider.h"
 #include "FileDataProvider.h"
+#include "ConsoleDataProvider.h"
 
 
 Database::Database(const std::string& path)

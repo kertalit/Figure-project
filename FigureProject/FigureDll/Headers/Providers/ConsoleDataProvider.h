@@ -3,9 +3,6 @@
 
 #include "DataProvider.h"
 
-#include <ostream>
-#include <string>
-#include <fstream>
 
 class FIGURE_API ConsoleDataProvider : public DataProvider
 {

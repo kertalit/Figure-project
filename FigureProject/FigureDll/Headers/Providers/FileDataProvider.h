@@ -1,13 +1,8 @@
 #ifndef _F_DATAPROVIDER_H
 #define _F_DATAPROVIDER_H
 
-
-#include "Platform.h"
-#include "Point2d.h"
 #include "DataProvider.h"
 
-#include <string>
-#include <fstream>
 
 class FIGURE_API FileDataProvider : public DataProvider
 {
