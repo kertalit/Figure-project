@@ -14,7 +14,6 @@ class DrawModel
     //...
     std::map<Style, std::vector<Polyline>> _drawdata;
     //...
-
 public:
     Draw::ptr createDraw(ObjectId id(? ? ))
     {
