@@ -118,7 +118,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;FIGURE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Programming\Figure-project\FigureProject\FigureDll\Headers\Database;C:\Programming\Figure-project\FigureProject\FigureDll\Headers\Render;C:\Programming\Figure-project\FigureProject\FigureDll\Headers\Providers;C:\Programming\Figure-project\FigureProject\FigureDll\Headers\Draw;C:\Programming\Figure-project\FigureProject\FigureDll\Headers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\FigureDll\Headers\Database;$(SolutionDir)\FigureDll\Headers\Render;$(SolutionDir)\FigureDll\Headers\Providers;$(SolutionDir)\FigureDll\Headers\Draw;$(SolutionDir)\FigureDll\Headers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <AdditionalOptions>/c %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>

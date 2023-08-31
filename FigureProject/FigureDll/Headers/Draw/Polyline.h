@@ -17,11 +17,8 @@ public:
     void readFrom(DataProvider& provider);
     void writeTo(DataProvider& provider) const;
 
-    int getType() const;
 
     void setPoint(const Point2d& point, size_t number);
-
-    static const int type = 3;
 
 private:
     std::vector<Point2d> points;

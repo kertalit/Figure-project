@@ -1,7 +1,7 @@
 #include "Pipe.h"
 
-Pipe::Pipe(const std::string& name, double radius, double wallThickness, Point2d start, Point2d end)
-    :Entity(name), radius(radius), wallThickness(wallThickness), start(start), end(end)
+Pipe::Pipe(const std::string& name, double radius, double thickness, Point2d start, Point2d end)
+    :Entity(name), radius(radius), thickness(thickness), start(start), end(end)
 {
 }
 

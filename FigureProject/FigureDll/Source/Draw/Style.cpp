@@ -1,6 +1,29 @@
 #include "Style.h"
 
-Color::Color(char red, char green, char blue)
-    :red(red), green(green), blue(blue)
+
+Style::Style(float thickness, Color color, Linetype linetype)
+    :thickness(thickness), color(color), linetype(linetype)
 {
+
 }
+
+bool Style::operator<(const Style& style) const
+{
+    if (linetype == style.linetype)
+    {
+        if (color == style.color)
+        {
+            if (thickness == style.thickness)
+            {
+                return false;
+            }
+
+            return thickness < style.thickness;
+        }
+
+        return color < style.color;
+    }
+
+    return linetype < style.linetype;
+}
+

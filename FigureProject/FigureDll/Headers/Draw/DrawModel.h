@@ -15,7 +15,7 @@ class DrawModel
     std::map<Style, std::vector<Polyline>> _drawdata;
     //...
 public:
-    Draw::ptr createDraw(ObjectId id(? ? ))
+    Draw::ptr createDraw(ObjectId id)
     {
         return std::make_shared<Draw>(*this, id);
     }

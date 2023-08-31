@@ -35,11 +35,6 @@ void Polyline::writeTo(DataProvider& provider) const
     }
 }
 
-int Polyline::getType() const
-{
-    return type;
-}
-
 void Polyline::setPoint(const Point2d& point, size_t number)
 {
 
