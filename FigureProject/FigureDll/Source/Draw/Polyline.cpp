@@ -43,3 +43,8 @@ void Polyline::setPoint(const Point2d& point, size_t number)
     else
         points[number] = point;
 }
+
+void Polyline::setPoints(const std::vector<Point2d>& points)
+{
+    this->points = points;
+}

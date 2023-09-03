@@ -4,6 +4,7 @@
 #include "Platform.h"
 #include "Point2d.h"
 #include "Object.h"
+#include "Draw.h"
 
 #include <fstream>
 
@@ -16,6 +17,7 @@ public:
 
     void readFrom(DataProvider& provider) override;
     void writeTo(DataProvider& provider) const override;
+    virtual void Draw(Draw::ptr draw) const = 0;
 
     virtual int getType() const = 0;
 };

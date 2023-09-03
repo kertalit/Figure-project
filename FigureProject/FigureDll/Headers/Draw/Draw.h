@@ -1,5 +1,6 @@
 #pragma once
 
+#include "DrawModel.h"
 
 class Draw
 {
@@ -7,11 +8,11 @@ class Draw
     Style _currentStyle; //0* Iterator?
 
 public:
-    Draw(DrawModel&, ObjectId id(? ))....
+    Draw(DrawModel&, ObjectId id);
 
-        makeCurrent(const Style& style);
+    void makeCurrent(const Style& style);
 
-    polyline(const Polyline& pline)
+    void polyline(const Polyline& pline)
     {
         _model.append(_currentStyle, pline);
     }

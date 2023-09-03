@@ -13,10 +13,13 @@ public:
 
     void readFrom(DataProvider& provider) override;
     void writeTo(DataProvider& provider) const override;
+    void Draw(Draw::ptr draw) const override;
 
     void setPoint(const Point2d& point);
     void setLength(double lenght);
     void setWidth(double width);
+
+    void calculateSegments();
 
     int getType() const override;
 
@@ -26,5 +29,6 @@ private:
     Point2d point;
     double length;
     double width;
+    Polyline segments;
 };
 #endif // !_RECTANGLE_H

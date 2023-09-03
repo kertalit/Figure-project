@@ -19,6 +19,7 @@ public:
 
 
     void setPoint(const Point2d& point, size_t number);
+    void setPoints(const std::vector<Point2d>& points);
 
 private:
     std::vector<Point2d> points;
