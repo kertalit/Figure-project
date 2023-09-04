@@ -1,7 +1,7 @@
 #pragma once
+
 #include "Color.h"
 #include "Platform.h"
-
 
 
 enum class Linetype
@@ -14,6 +14,7 @@ enum class Linetype
 
 struct Style
 {
+    Style();
     Style(float thickness, Color color, Linetype linetype);
 
     bool operator< (const Style& style) const;

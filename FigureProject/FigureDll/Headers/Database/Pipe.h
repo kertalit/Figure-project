@@ -14,6 +14,7 @@ public:
 
     void readFrom(DataProvider& provider) override;
     void writeTo(DataProvider& provider) const override;
+    void calculateSegments() override;
 
     static const int type = 4;
 

@@ -2,7 +2,7 @@
 
 
 Rectangle::Rectangle()
-    :point(0.0, 0.0), length(0.0), width(0.0)
+    :point(0.0, 0.0), length(0.0), width(0.0), segments(Polyline()), style(Style())
 {
 
 }
@@ -31,8 +31,8 @@ void Rectangle::writeTo(DataProvider& provider) const
 
 void Rectangle::Draw(Draw::ptr draw) const
 {
-    draw.makeCurrent(Style style);
-    draw.polyline()
+    draw->makeCurrent(style);
+    draw->polyline(segments);
 }
 
 void Rectangle::setPoint(const Point2d& point)

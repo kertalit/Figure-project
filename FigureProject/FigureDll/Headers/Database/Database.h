@@ -19,18 +19,18 @@ public:
 
     void save(const std::string& path) const;
     void print() const;
-    void addObj(ObjectPtr obj);
-    ObjectPtr searchId(size_t id);
-    void deleteFigure(size_t id);
+    void addObj(EntityPtr obj);
+    //ObjectPtr searchId(size_t id);
+    //void deleteFigure(size_t id);
 
-    std::vector<ObjectPtr> GetObjects() const;
+    std::vector<EntityPtr> GetObjects() const;
 
 private:
     void writeTo(DataProvider& provider) const;
     void rdFile(DataProvider& provider);
-    std::vector<ObjectPtr>::iterator subSearchId(size_t id);
+    //std::vector<EntityPtr>::iterator subSearchId(size_t id);
 
-    std::vector<ObjectPtr> figures;
+    std::vector<EntityPtr> figures;
 
 
     //Database(const Database& base);

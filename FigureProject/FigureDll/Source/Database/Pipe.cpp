@@ -14,3 +14,7 @@ void Pipe::writeTo(DataProvider& provider) const
 {
     
 }
+
+void Pipe::calculateSegments()
+{
+}

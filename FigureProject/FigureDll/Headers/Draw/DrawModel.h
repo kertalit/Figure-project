@@ -3,26 +3,23 @@
 
 #include <map>
 
+#include "Draw.h"
 #include "Polyline.h"
 #include "Style.h"
-#include "Draw.h"
 
+class Draw;
 
 class DrawModel
 {
-
-    //...
-    std::map<Style, std::vector<Polyline>> _drawdata;
-    //...
 public:
-    Draw::ptr createDraw(ObjectId id)
-    {
-        return std::make_shared<Draw>(*this, id);
-    }
+    Draw::ptr createDraw();
+    void append(const Style& style, const Polyline& pline);
 
     //_drawdata readonly access...
     //1* access culled drawables..
     //2* selection, markers, etc..
+private:
+    std::map<Style, std::vector<Polyline>> _drawdata;
 };
 
 #endif // !DRAWMODEL_H

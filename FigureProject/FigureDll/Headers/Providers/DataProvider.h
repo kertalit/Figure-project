@@ -5,7 +5,6 @@
 #include "Point2d.h"
 
 #include <ostream>
-#include <string>
 #include <fstream>
 
 

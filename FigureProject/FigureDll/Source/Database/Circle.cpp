@@ -28,6 +28,14 @@ void Circle::writeTo(DataProvider& provider) const
     provider.writeDouble(radius);
 }
 
+void Circle::Draw(Draw::ptr draw) const
+{
+}
+
+void Circle::calculateSegments()
+{
+}
+
 void Circle::setPoint(const Point2d& point)
 {
     this->point = point;

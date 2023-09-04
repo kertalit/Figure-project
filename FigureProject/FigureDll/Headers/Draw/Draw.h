@@ -1,21 +1,21 @@
 #pragma once
+#include "Style.h"
+#include "Polyline.h"
 
-#include "DrawModel.h"
+class DrawModel;
 
 class Draw
 {
-    DrawModel& _model;
-    Style _currentStyle; //0* Iterator?
-
 public:
-    Draw(DrawModel&, ObjectId id);
+    Draw(DrawModel& model);
 
     void makeCurrent(const Style& style);
 
-    void polyline(const Polyline& pline)
-    {
-        _model.append(_currentStyle, pline);
-    }
+    void polyline(const Polyline& pline);
 
     using ptr = std::shared_ptr<Draw>;
+
+private:
+    DrawModel& _model;
+    Style _currentStyle; //0* Iterator?
 };

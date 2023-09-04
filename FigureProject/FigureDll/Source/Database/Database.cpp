@@ -29,7 +29,7 @@ Database::~Database()
 
 }
 
-std::vector<ObjectPtr> Database::GetObjects() const
+std::vector<EntityPtr> Database::GetObjects() const
 {
     return figures;
 }
@@ -67,25 +67,25 @@ void Database::rdFile(DataProvider& stream)
     }
 }
 
-void Database::addObj(ObjectPtr obj)
+void Database::addObj(EntityPtr obj)
 {
     figures.push_back(obj);
 }
 
-std::vector<ObjectPtr>::iterator Database::subSearchId(size_t id)
-{
-    auto res = std::find_if(figures.begin(), figures.end(), [id](const ObjectPtr& obj)->bool {return id == obj->getId(); });
+//std::vector<EntityPtr>::iterator Database::subSearchId(size_t id)
+//{
+//    auto res = std::find_if(figures.begin(), figures.end(), [id](const EntityPtr& obj)->bool {return id == obj->getId(); });
+//
+//    if (res == figures.end())
+//        throw std::exception("Id not found");
+//
+//    return res;
+//}
 
-    if (res == figures.end())
-        throw std::exception("Id not found");
-
-    return res;
-}
-
-ObjectPtr Database::searchId(size_t id)
-{
-    return *subSearchId(id);
-}
+//ObjectPtr Database::searchId(size_t id)
+//{
+//    return *subSearchId(id);
+//}
 
 
 void Database::print() const
@@ -95,7 +95,7 @@ void Database::print() const
     writeTo(provider);
 }
 
-void Database::deleteFigure(size_t id)
-{
-    figures.erase(subSearchId(id));
-}
+//void Database::deleteFigure(size_t id)
+//{
+//    figures.erase(subSearchId(id));
+//}

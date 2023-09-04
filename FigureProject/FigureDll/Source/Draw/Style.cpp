@@ -1,6 +1,11 @@
 #include "Style.h"
 
 
+Style::Style()
+    :thickness(0.1f), color(Color::BLACK), linetype(Linetype::Continuous)
+{
+}
+
 Style::Style(float thickness, Color color, Linetype linetype)
     :thickness(thickness), color(color), linetype(linetype)
 {

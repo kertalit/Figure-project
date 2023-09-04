@@ -12,8 +12,11 @@ public:
     Circle();
     Circle(const std::string& name, const Point2d& point, double radius);
 
-    virtual void readFrom(DataProvider& provider) override;
-    virtual void writeTo(DataProvider& provider) const override;
+    void readFrom(DataProvider& provider) override;
+    void writeTo(DataProvider& provider) const override;
+    void Draw(Draw::ptr draw) const override;
+
+    void calculateSegments() override;
 
     void setPoint(const Point2d& point);
     void setRadius(double radius);
