@@ -14,7 +14,7 @@ public:
 
     void readFrom(DataProvider& provider) override;
     void writeTo(DataProvider& provider) const override;
-    void Draw(Draw::ptr draw) const override;
+    void draw(Draw::ptr draw) const override;
 
     void calculateSegments() override;
 

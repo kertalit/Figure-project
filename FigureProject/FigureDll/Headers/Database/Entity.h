@@ -16,7 +16,7 @@ public:
 
     void readFrom(DataProvider& provider) override;
     void writeTo(DataProvider& provider) const override;
-    virtual void Draw(Draw::ptr draw) const = 0;
+    virtual void draw(Draw::ptr draw) const = 0;
     virtual void calculateSegments() = 0;
 
     virtual int getType() const = 0;

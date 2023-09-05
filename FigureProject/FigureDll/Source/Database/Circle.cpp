@@ -28,7 +28,7 @@ void Circle::writeTo(DataProvider& provider) const
     provider.writeDouble(radius);
 }
 
-void Circle::Draw(Draw::ptr draw) const
+void Circle::draw(Draw::ptr draw) const
 {
 }
 

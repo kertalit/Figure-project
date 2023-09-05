@@ -29,7 +29,7 @@ void Rectangle::writeTo(DataProvider& provider) const
     provider.writeDouble(width);
 }
 
-void Rectangle::Draw(Draw::ptr draw) const
+void Rectangle::draw(Draw::ptr draw) const
 {
     draw->makeCurrent(style);
     draw->polyline(segments);

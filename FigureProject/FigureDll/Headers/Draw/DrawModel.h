@@ -14,6 +14,7 @@ class DrawModel
 public:
     Draw::ptr createDraw();
     void append(const Style& style, const Polyline& pline);
+    std::map<Style, std::vector<Polyline>> getDrawbless() const;
 
     //_drawdata readonly access...
     //1* access culled drawables..
